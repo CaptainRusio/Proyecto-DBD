@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    MOVIDOS X CHILE
                 </div>
 
                 <div class="links">
