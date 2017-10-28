@@ -7,19 +7,19 @@
     padding: 0;
 }
 
-.chat ul
+.chat li
 {
     margin-bottom: 10px;
     padding-bottom: 5px;
     border-bottom: 1px dotted #B3A9A9;
 }
 
-.chat ul.left .chat-body
+.chat li.left .chat-body
 {
     margin-left: 60px;
 }
 
-.chat ul.right .chat-body
+.chat li.right .chat-body
 {
     margin-right: 60px;
 }

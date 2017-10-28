@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/user',function(){
 	return view('user');
 });
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -32,6 +33,7 @@ Route::get('/donate', function () {
 Route::get('/voluntier', function () {
     return view('voluntier');
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
