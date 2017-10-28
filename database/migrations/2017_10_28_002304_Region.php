@@ -15,6 +15,8 @@ class Region extends Migration
     {
         Schema::create('Region', function (Blueprint $table) {
             $table->increments('id');
+            $table->geography('ubication');
+            $table->string('nombre');
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class Province extends Migration
         Schema::create('Province', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            
+            $table->string('governor');
+            $table->geography('location');
             $table->timestamps();
         });
     }

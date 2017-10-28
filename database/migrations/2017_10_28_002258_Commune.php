@@ -15,6 +15,8 @@ class Commune extends Migration
     {
         Schema::create('Commune', function (Blueprint $table) {
             $table->increments('id');
+            $table->geography('ubication');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
