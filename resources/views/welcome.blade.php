@@ -13,56 +13,128 @@
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+            Bootsnipp
+Tools 
+Snippets 
+New Snippet
+Profile 
 
-            .full-height {
-                height: 100vh;
-            }
+"slider with overlay"
+Bootstrap 3.3.0 Snippet by jaikesh yadav
+3.3.0 slider
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+ 
+PreviewHTMLCSS    Fork this  6.7K   
 
-            .position-ref {
-                position: relative;
-            }
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+.jk-slider{
+    width:100%;
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+}
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-            .content {
-                text-align: center;
-            }
+    z-index: 3;
+    color: #3C8D2F;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
 
-            .title {
-                font-size: 84px;
-            }
+.carousel{
+    
+    height: 450px;
+    
+}
+.imagenCarrusel{
+    height: 500px;
+    width: 100%;
+}
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s; 
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+Similar snippets: See More
+2.0K  0 
+Slider with white overlay
+
+
+6.4K  4 
+Bootstrap Navbar and Slider Overlay Text
+
+
+5.9K  8 
+Background Image Overlay
+
+
+5.3K  3 
+Background Overlay with text
+
+
+
+ 
+ 
+ 
         </style>
     </head>
     <body>
@@ -70,30 +142,68 @@
 
 @section('content')
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+            
+            <section class="jk-slider">
+    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example" data-slide-to="1"></li>
+    <li data-target="#carousel-example" data-slide-to="2"></li>
+  </ol>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    MOVIDOS X CHILE
-                </div>
+  <div class="carousel-inner">
+  
+    <div class="item active">
+    <div class="hero">
+        <hgroup>
+            <h1>¿Quienes Somos?</h1>        
+            <h3> bla bla bla </h3>
+            <p>bla bla bla bla bla</p>
+        </hgroup>
+        
+      </div>
+      <div class="overlay"></div>
+     <a href="#"><img src="brigadistas.jpg" class="imagenCarrusel" /></a>
+        
+    </div>
+  <div class="item">
+    <div class="hero">
+        <hgroup>
+            <h1>Te necesitamos</h1>        
+            <h3>Se voluntario hoy</h3>
+            <p>Bla bla bla</p>
+        </hgroup>
+        
+      </div>
+      
+       <div class="overlay"></div>
+      <a href="#"><img src="voluntarios.jpg" class="imagenCarrusel"  /></a>
+      
+    </div>
+    <div class="item">
+        <div class="hero">
+        <hgroup>
+            <h1>Ayudanos</h1>        
+            <h3>Toda cooperacion suma! </h3>
+            <p>Bla bla bla</p>
+        </hgroup>
+        
+      </div>
+        <div class="overlay">
+      <img src="voluntarios2.jpg" class="imagenCarrusel"  />
+      </div>
+    </div>
+  </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+    
+</section>
         </div>
         @endsection
     </body>

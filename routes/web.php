@@ -17,7 +17,21 @@ Route::get('/', function () {
 Route::get('/user',function(){
 	return view('user');
 });
-
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/help', function () {
+    return view('help');
+});
+Route::get('/donate', function () {
+    return view('donate');
+});
+Route::get('/voluntier', function () {
+    return view('voluntier');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
