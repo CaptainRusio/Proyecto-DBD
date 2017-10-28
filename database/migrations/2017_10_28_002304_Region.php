@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Action extends Migration
+class Region extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,7 @@ class Action extends Migration
      */
     public function up()
     {
-        //Medida
-        Schema::create('Action', function (Blueprint $table) {
-            $table->string('name');
-            $table->string('description');
+        Schema::create('Region', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -29,6 +26,6 @@ class Action extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Action');
+        Schema::dropIfExists('Region');
     }
 }

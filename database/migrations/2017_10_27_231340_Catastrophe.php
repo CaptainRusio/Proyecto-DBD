@@ -14,6 +14,7 @@ class Catastrophe extends Migration
     public function up()
     {
         Schema::create('Catastrophe', function (Blueprint $table) {
+            $table->string('name');
             $table->increments('id');
             $table->timestamps();
         });
