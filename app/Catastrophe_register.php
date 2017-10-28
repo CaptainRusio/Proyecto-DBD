@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Catastrophe_registrer extends Model
+//Registro catastrofe
+class Catastrophe_register extends Model
 {
     //
+    
 }
