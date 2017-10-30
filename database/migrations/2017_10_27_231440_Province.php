@@ -17,7 +17,7 @@ class Province extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('governor');
-            $table->geography('location');
+
             $table->timestamps();
         });
     }

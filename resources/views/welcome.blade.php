@@ -72,20 +72,33 @@ PreviewHTMLCSS    Fork this  6.7K
 /********************************/
 .hero {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
 
     z-index: 3;
-    color: #3C8D2F;
+    font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+    text-shadow: 1.5px 1.5px 0 rgba(0,0,0,.75);
       -webkit-transform: translate3d(-50%,-50%,0);
          -moz-transform: translate3d(-50%,-50%,0);
           -ms-transform: translate3d(-50%,-50%,0);
            -o-transform: translate3d(-50%,-50%,0);
               transform: translate3d(-50%,-50%,0);
 }
+
+.quienes{
+  color: #fff;
+}
+
+.necesitamos{
+  color: #591A9D;
+}
+
+.ayudanos{
+  color: #FFC500;
+}
+
 .hero h1 {
     font-size: 6em;    
     font-weight: bold;
@@ -154,10 +167,10 @@ Background Overlay with text
   <div class="carousel-inner">
   
     <div class="item active">
-    <div class="hero">
+    <div class="hero quienes" >
         <hgroup>
             <h1>¿Quienes Somos?</h1>        
-            <h3> bla bla bla </h3>
+            <h2> bla bla bla </h2>
             <p>bla bla bla bla bla</p>
         </hgroup>
         
@@ -167,10 +180,10 @@ Background Overlay with text
         
     </div>
   <div class="item">
-    <div class="hero">
+    <div class="hero necesitamos">
         <hgroup>
             <h1>Te necesitamos</h1>        
-            <h3>Se voluntario hoy</h3>
+            <h2>Se voluntario hoy</h2>
             <p>Bla bla bla</p>
         </hgroup>
         
@@ -181,10 +194,10 @@ Background Overlay with text
       
     </div>
     <div class="item">
-        <div class="hero">
+        <div class="hero ayudanos">
         <hgroup>
             <h1>Ayudanos</h1>        
-            <h3>Toda cooperacion suma! </h3>
+            <h2>Toda cooperacion suma! </h2>
             <p>Bla bla bla</p>
         </hgroup>
         
