@@ -34,7 +34,20 @@ Route::get('/voluntier', function () {
     return view('voluntier');
 });
 
+Route::get('pruebaBaseDatosVista', function () {
+    return view('pruebaBaseDatosVista');
+});
+
 Auth::routes();
+
+//Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
+
+Route::post('crearBaseDatos', 'pruebaBaseDatos@create');
+
+Route::post('actualizarBaseDatos', 'pruebaBaseDatos@guardar');
+
+Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');

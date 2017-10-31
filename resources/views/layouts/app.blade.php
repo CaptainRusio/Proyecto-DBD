@@ -26,7 +26,7 @@
       <a href="http://www.movidosporchile.cl/"><img am-TopLogo alt="SECUREVIEW"  src="logo.jpg" class="img-responsive"></a>
     </div>
     <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
-      <p am-CallNow>Llamame   ;)</p>
+      <p am-CallNow>Llamame   ;) +56966207293 </p>
     </div>
   </div> <!-- End Topper -->
   <!-- Navigation -->
@@ -59,6 +59,7 @@
           
             
             <li><a href="{{url('about')}}"> <i class= "fa fa-users" aria-hidden="true"> </i> Sobre Nosotros</a></li>
+            <li><a href="{{url('pruebaBaseDatosVista')}}"> <i class= "fa fa-users" aria-hidden="true"> </i> Prueba base de datos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right hidden-xs">
             @if(Auth::check())
@@ -66,11 +67,11 @@
             <ul class="dropdown-menu" role="menu">
                 <li><a href="{{url('donate')}}">Mi Perfil</a></li>
                 <li><a href="{{url('voluntier')}}">Mis Participaciones</a></li>
-                <a href="{{ route('logout') }}"
+                <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Salir
-                                        </a>
+                                        </a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
