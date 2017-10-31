@@ -1,3 +1,14 @@
+<style>
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+Try it Yourself »
+
+</style>
 @extends('layouts.app')
 
 @section('content')
@@ -39,10 +50,56 @@
                 </div>
 
             </div>
+
             <form action="mostrarBaseDatos" method="post">
                          <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
                         <button type="submit"> Mostrar base de datos</button>
-                        <label>  </label>
+                        <table>
+                                <tr>
+                                    <th>Nombre:   </th>
+                                    <th>Rut:      </th>
+                                </tr>
+
+                        @if (count($datos) > 0)
+                            @foreach ($datos as $valor)
+
+                                <tr>
+                                    <td>{{$valor->nombre}}</td>
+                                    <td>{{$valor->rut}}</td>
+                                </tr>
+                            
+
+                            @endforeach
+                            </table>
+                        @endif
+                        
+                     </form>
+                     <br>
+
+                      <form action="consultaWhere" method="post">
+                         <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
+                         <label for="nombre"> Buscar rut por nombre de usuario </label>
+                        <input type="text" name="nombre" value=""> <br>
+                        <button type="submit"> Mostrar</button>
+                        <table>
+                                <tr>
+                                    <th>Nombre:   </th>
+                                    <th>Rut:      </th>
+                                </tr>
+
+                        @if (count($datosConsulta) > 0)
+                            @foreach ($datosConsulta as $valor)
+
+                                <tr>
+                                    <td>{{$valor->nombre}}</td>
+                                    <td>{{$valor->rut}}</td>
+                                </tr>
+                            
+
+                            @endforeach
+                            </table>
+                        @endif
+                        
                      </form>
         </div>
     </div>

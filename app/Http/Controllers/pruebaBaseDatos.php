@@ -16,20 +16,24 @@ class pruebaBaseDatos extends Controller
         $prueba->rut = $req->input('rut');
         $prueba->save();
         
-    } 
+    }
 
-    public function mostrar(
-    ){
-        $data = prueba::all();
-        echo $data;
-        return view('pruebaBaseDatosVista');
+    public function consultaWhere(Request $req){
+        $data['datosConsulta'] = DB::table('pruebaBaseDatos')->where('nombre', '=', $req->input('nombre'))->get();
+        $data2['datos'] = [];
+        
+        return view('pruebaBaseDatosVista',$data, $data2);
+        
+    }  
+
+    public function mostrar(){
+        $data ['datos'] = prueba::all();
+        $data2['datosConsulta'] = [];
+        return view('pruebaBaseDatosVista',$data, $data2);
     }
      protected function create()
     {
-        return pruebaBaseDatos::create([
-            'nombre' => 'prueba',
-            'rut' => 'email',
-        ]);
+        
         /*
         $nombre = "nombreDePrueba";
         $rut = "rutDePrueba";

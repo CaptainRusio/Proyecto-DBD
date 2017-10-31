@@ -35,7 +35,9 @@ Route::get('/voluntier', function () {
 });
 
 Route::get('pruebaBaseDatosVista', function () {
-    return view('pruebaBaseDatosVista');
+	$data ['datos'] = [];
+	$data2 ['datosConsulta'] = [];
+    return view('pruebaBaseDatosVista', $data, $data2);
 });
 
 Auth::routes();
@@ -45,6 +47,8 @@ Auth::routes();
 Route::post('crearBaseDatos', 'pruebaBaseDatos@create');
 
 Route::post('actualizarBaseDatos', 'pruebaBaseDatos@guardar');
+
+Route::post('consultaWhere', 'pruebaBaseDatos@consultaWhere');
 
 Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
