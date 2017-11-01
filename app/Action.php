@@ -3,16 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-//Medida
+
 class Action extends Model
 {
-    //id medida
-	Private $id_action;
-	//nombre medida
-	Public $action_name;
-	//Fecha inicio
-	Public $date_start;
-	//Fecha fin
-	Public $date_end;
+    protected $table = 'actions';
 
+    protected $fillable = [
+        'name', 'description',
+    ];
+
+    public function user(){
+    	return $this->belongsTo(User::class,'action_user_id');
+    }
+
+    public function actionRec(){
+    	return $this->hasOne(ActionRecord::class,'action_record_id');
+    }
+
+    public function rnv(){
+    	return $this->belongsTo(RNV::class,'action_rnv_id');
+    }
 }

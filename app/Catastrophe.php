@@ -4,11 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-//Catastrofe
 class Catastrophe extends Model
 {
-    //id catastrofe
-    Private $id_catastrophe;
-    //fecha inicio
-    Public $date_start;
+    protected $table = 'catastrophes';
+
+    protected $fillable = [
+        'name',
+    ];
+
+
+
+    public function catastropheRec(){
+    	return $this->hasOne(CatastropheRecord::class,'catastrophe_record_id');
+    }
+    
+    public function commune(){
+    	return $this->belongsTo(Commune::class,'commune_id');
+    }
 }

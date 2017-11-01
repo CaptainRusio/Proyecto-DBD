@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RNV extends Migration
+class CreateCatastropheRecord extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class RNV extends Migration
      */
     public function up()
     {
-        Schema::create('RNV', function (Blueprint $table) {
+        Schema::create('catastrophe_record', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class RNV extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('RNV');
+        Schema::dropIfExists('catastrophe_record');
     }
 }

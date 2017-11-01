@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CatastropheRegistrer extends Migration
+class CreateProvince extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,17 @@ class CatastropheRegistrer extends Migration
      */
     public function up()
     {
-        Schema::create('Catastrophe_registrer', function (Blueprint $table) {
+        Schema::create('provinces', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('governor');
             $table->timestamps();
+
+            $table->integer('region_id')
+            ->unsigned();
+            $table->foreign('region_id')
+            ->references('id')
+            ->on('regions');
         });
     }
 
@@ -26,6 +34,6 @@ class CatastropheRegistrer extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Catastrophe_registrer');
+        Schema::dropIfExists('provinces');
     }
 }

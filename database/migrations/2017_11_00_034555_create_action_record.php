@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ActionRegistrer extends Migration
+class CreateActionRecord extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class ActionRegistrer extends Migration
      */
     public function up()
     {
-        Schema::create('Action_registrer', function (Blueprint $table) {
+        Schema::create('action_record', function (Blueprint $table) {
+            $table->string('name');
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +27,6 @@ class ActionRegistrer extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Action_registrer');
+        Schema::dropIfExists('action_record');
     }
 }

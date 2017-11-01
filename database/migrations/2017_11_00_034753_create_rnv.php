@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Permission extends Migration
+class CreateRnv extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Permission extends Migration
      */
     public function up()
     {
-        Schema::create('Permission', function (Blueprint $table) {
+        Schema::create('rnv', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class Permission extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Permission');
+        Schema::dropIfExists('rnv');
     }
 }

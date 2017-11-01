@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Region extends Migration
+class CreateUserRecord extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Region extends Migration
      */
     public function up()
     {
-        Schema::create('Region', function (Blueprint $table) {
+        Schema::create('user_record', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class Region extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Region');
+        Schema::dropIfExists('user_record');
     }
 }

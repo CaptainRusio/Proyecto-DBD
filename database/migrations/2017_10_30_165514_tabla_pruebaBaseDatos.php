@@ -16,7 +16,7 @@ class TablaPruebaBaseDatos extends Migration
         Schema::create('pruebaBaseDatos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('nombre');
+            $table->string('name');
             $table->string('rut');
 
         });
