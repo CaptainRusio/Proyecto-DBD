@@ -61,11 +61,11 @@ for i in range(0,num_rows):
 			
 		elif(tipo[j] == 1): # Si es string
 			if(j == 0):
-				stringToChange = stringToChange + "(\'" + TEXT_AUX[random.randrange(200)] + "\',"
+				stringToChange = stringToChange + "(\'" + TEXT_AUX[random.randrange(100)] + "\',"
 			elif(j == num_elements - 1): # Si es el final
-				stringToChange = stringToChange +"\'" + TEXT_AUX[random.randrange(200)] +"\'" + ")"
+				stringToChange = stringToChange +"\'" + TEXT_AUX[random.randrange(100)] +"\'" + ")"
 			else:
-				stringToChange = stringToChange + "\'" + TEXT_AUX[random.randrange(200)] + "\',"
+				stringToChange = stringToChange + "\'" + TEXT_AUX[random.randrange(100)] + "\',"
 	column.append(stringToChange)
 
 
