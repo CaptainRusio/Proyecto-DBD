@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserActionRecord extends Migration
+class CreateUsersActions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateUserActionRecord extends Migration
      */
     public function up()
     {
-        Schema::create('user_action_record', function (Blueprint $table) {
+        Schema::create('users_actions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
 
             $table->integer('users_id')
             ->unsigned();
@@ -24,11 +25,11 @@ class CreateUserActionRecord extends Migration
             ->on('users');
 
 
-            $table->integer('action_record_id')
+            $table->integer('actions_id')
             ->unsigned();
-            $table->foreign('action_record_id')
+            $table->foreign('actions_id')
             ->references('id')
-            ->on('action_record');
+            ->on('actions');
         });
     }
 
@@ -39,6 +40,6 @@ class CreateUserActionRecord extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_action_record');
+        Schema::dropIfExists('users_actions');
     }
 }
