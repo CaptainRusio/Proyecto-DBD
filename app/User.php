@@ -9,7 +9,8 @@ class User extends Model
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'record_id'
+        'name', 'record_id','rnv_id',
+        'email','password',
     ];
 
 

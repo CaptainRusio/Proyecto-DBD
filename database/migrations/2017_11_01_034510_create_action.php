@@ -16,6 +16,12 @@ class CreateAction extends Migration
         Schema::create('actions', function (Blueprint $table) {
 
             $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+
+
+
+            //llaves foráneas
             $table->integer('action_user_id')
                   ->unsigned();
             $table->foreign('action_user_id')
@@ -34,8 +40,7 @@ class CreateAction extends Migration
             ->on('action_record');
 
 
-            $table->string('name');
-            $table->string('description');
+            
             $table->timestamps();
         });
     }

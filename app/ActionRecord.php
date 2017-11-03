@@ -8,7 +8,9 @@ class ActionRecord extends Model
 {
     protected $table = 'action_record';
     protected $fillable = [
-        'name', 
+        'name', 'date_start',
+        'date_end','cost',
+        'progress',
     ];
 
 

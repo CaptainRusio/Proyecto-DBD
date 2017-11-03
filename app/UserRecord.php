@@ -8,7 +8,7 @@ class UserRecord extends Model
 {
     protected $table = 'user_record';
 	
-	protected $filliable = ['name',];
+	protected $filliable = ['name','action_date','description',];
 
 
     public function userRecord(){

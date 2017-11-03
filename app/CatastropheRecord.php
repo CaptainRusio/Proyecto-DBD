@@ -8,7 +8,8 @@ class CatastropheRecord extends Model
 {
     protected $table = 'catastrophe_record';
     protected $fillable = [
-        'name',
+        'name', 'date_start',
+        'date_end','progress',
     ];
 
 

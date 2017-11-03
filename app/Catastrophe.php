@@ -9,7 +9,8 @@ class Catastrophe extends Model
     protected $table = 'catastrophes';
 
     protected $fillable = [
-        'name',
+        'name', 'catastrophe_record_id',
+        'commune_id',
     ];
 
 

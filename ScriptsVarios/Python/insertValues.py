@@ -68,12 +68,10 @@ for i in range(0,num_rows):
 				stringToChange = stringToChange + "\'" + TEXT_AUX[random.randrange(200)] + "\',"
 	column.append(stringToChange)
 
+
 file = open("salida.sql","w")
-file.close()
-file = open("salida.sql","a")
 
 for i in range(0,num_rows):
-	file.write(column[i])
 	if(i == num_rows - 1):
 		file.write(column[i])
 	else:

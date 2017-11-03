@@ -8,9 +8,7 @@ class RNV extends Model
 {
     protected $table = 'rnv';
 
+    protected $filliable = ['name',];
 
 
-    public function action(){
-    	return $this->hasMany(Action::class,'action_rnv_id');
-    }
 }
