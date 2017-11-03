@@ -15,12 +15,12 @@ class DatabaseSeeder extends BaseSeeder
         'communes',
         'rnv',
         'catastrophe_record',
-        'user_action_record',
-        'action_record_catastrophe_record',
         'actions',
         'catastrophes',
         'roles',
         'users_roles',
+        'action_record_catastrophe_record',
+        'user_action_record',
     );
  
     protected $seeders = array(
@@ -32,12 +32,11 @@ class DatabaseSeeder extends BaseSeeder
         'Rnv',
         'Action',
         'ActionRecord',
-        'User_ActionRecord',
-        'ActionRecord_CatastropheRecord',
         'Catastrophe',
         'CatastropheRecord',
         'Role',
         'User_Role',
-
+        'ActionRecord_CatastropheRecord',
+        'User_ActionRecord',
     );
 }
