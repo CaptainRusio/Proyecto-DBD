@@ -3,173 +3,188 @@
 /* Created on:     30/10/2017 18:21:21                          */
 /*==============================================================*/
 
-drop table if exists CATASTROFE;
+drop table if exists catastrofes;
 
-drop table if exists COMUNA;
+drop table if exists comunas;
 
-drop table if exists HISTORIAL_USUARIO;
+drop table if exists historiales_usuario;
 
-drop table if exists MEDIDA;
+drop table if exists medidas;
 
-drop table if exists PROVINCIA;
+drop table if exists provincias;
 
-drop table if exists REGION;
+drop table if exists regiones;
 
-drop table if exists REGISTRO_CATASTROFES;
+drop table if exists registros_catastrofes;
 
-drop table if exists REGISTRO_MEDIDA;
+drop table if exists registros_medidas;
 
-drop table if exists RNV;
+drop table if exists rnv;
 
-drop table if exists ROL;
+drop table if exists roles;
 
-drop table if exists USUARIO;
+drop table if exists usuarios;
 
-drop table if exists USUARIO_ROL;
+drop table if exists usuarios_roles;
 
-drop table if exists USUARIO_REGISTROMEDIDA;
+drop table if exists usuarios_registrosmedidas;
 
-drop table if exists REGISTROMEDIDA_REGISTROCAGASTROFE;
+drop table if exists registrosmedidas_registroscatastrofes;
+
+drop table if exists usuario_genera_medida;
 
 /*==============================================================*/
-/* Table: REGISTRO_CATASTROFES                                  */
+/* Table: rnv                                                   */
 /*==============================================================*/
-create table REGISTRO_CATASTROFE (
-   ID_REGISTRO_CATASTROFE VARCHAR(1024)        primary key,
-   FECHA_INICIO         DATE                 null,
-   FECHA_TERMINO        DATE                 null,
-   COSTO_TOTAL          INTEGER                  null,
-   PORCENTAJE_PROGRESO  INTEGER                  null,
-   NOMBRE               VARCHAR(1024)        null
+create table rnv (
+   rnv_id               varchar(1024)        primary key,
+   cantidad             integer                 null
 );
 
 /*==============================================================*/
-/* Table: REGISTRO_MEDIDA                                       */
+/* Table: regiones                                                */
 /*==============================================================*/
-create table REGISTRO_MEDIDA (
-   ID_REGISTRO_MEDIDA   VARCHAR(1024)        primary key,
-   FECHA_INICIO         DATE                 null,
-   FECHA_TERMINO        DATE                 null,
-   VALOR_COSTO          INTEGER           	 null,
-   PORCENTAJE_PROGRESO  INTEGER                  null,
-   NOMBRE               VARCHAR(1024)        null
+create table regiones (
+   region_id            CHAR(10)             primary key,
+   nombre               varchar(1024)        null,
+   ubicacion            varchar(1024)        null
 );
 
+
 /*==============================================================*/
-/* Table: MEDIDA                                                */
+/* Table: provincias                                             */
 /*==============================================================*/
-create table MEDIDA (
-   ID_MEDIDA            VARCHAR(1024)        primary key,
-   NOMBRE_MEDIDA        VARCHAR(1024)        null,
-   ID_REGISTRO_MEDIDA 	VARCHAR(1024) REFERENCES REGISTRO_MEDIDA(ID_REGISTRO_MEDIDA)
-);
-/*==============================================================*/
-/* Table: USUARIO                                               */
-/*==============================================================*/
-create table USUARIO (
-   ID_USUARIO           VARCHAR(1024)        primary key,
-   CORREO_ELECTRONICO   VARCHAR(1024)        null,
-   NOMBRE_USUARIO       VARCHAR(254)         null,
-   CONTRASENA_USUARIO   VARCHAR(1024)        null,
-   ID_MEDIDA 	VARCHAR(1024) REFERENCES MEDIDA(ID_MEDIDA)
+create table provincias (
+   provincia_id         varchar(1024)        primary key,
+   nombre               varchar(1024)        null,
+   ubicacion            varchar(1024)        null,
+   region_id   varchar(1024) references regiones(region_id)
 
 );
 
 
 /*==============================================================*/
-/* Table: CATASTROFE                                            */
+/* Table: comunas                                                */
 /*==============================================================*/
-create table CATASTROFE (
-   ID_CATASTROFE        VARCHAR(1024)        primary key,
-   NOMBRE_CATASTROFE    VARCHAR(1024)        null,
-   ID_REGISTRO_CATASTROFE	VARCHAR(1024) REFERENCES REGISTRO_CATASTROFE(ID_REGISTRO_CATASTROFE)
+create table comunas (
+   comuna_id            varchar(1024)        primary key,
+   nombre               varchar(1024)        null,
+   ubicacion            varchar(1024)        null,
+   provincia_id varchar(1024) references provincias(provincia_id)
 
 );
 
 /*==============================================================*/
-/* Table: COMUNA                                                */
+/* Table: catastrofes                                            */
 /*==============================================================*/
-create table COMUNA (
-   ID_COMUNA            VARCHAR(1024)        primary key,
-   NOMBRE               VARCHAR(1024)        null,
-   UBICACION            VARCHAR(1024)        null,
-   ID_CATASTROFE	VARCHAR(1024) REFERENCES CATASTROFE(ID_CATASTROFE)
-
+create table catastrofes (
+   catastrofe_id     varchar(1024)        primary key,
+   nombre_catastrofe    varchar(1024)        null,
+   comuna_id varchar(1024) references comunas(comuna_id)
 );
 
 /*==============================================================*/
-/* Table: HISTORIAL_USUARIO                                     */
+/* Table: registros_catastrofess                                  */
 /*==============================================================*/
-create table HISTORIAL_USUARIO (
-   ID_HISTORIAL_USUARIO VARCHAR(1024)        primary key,
-   FECHA_ACCION         DATE                 null,
-   DESCRIPCION          VARCHAR(1024)        null,
-   ID_USUARIO	VARCHAR(1024) REFERENCES USUARIO(ID_USUARIO)
-
+create table registros_catastrofes (
+   registro_catastrofe_id varchar(1024)        primary key,
+   fecha_inicio         date                 null,
+   fecha_termino        date                 null,
+   costo_Total          integer                  null,
+   porcentaje_progreso  integer                  null,
+   nombre               varchar(1024)        null,
+   catastrofe_id varchar(1024) references catastrofes(catastrofe_id)
 );
 
 /*==============================================================*/
-/* Table: PROVINCIA                                             */
+/* Table: medidas                                               */
 /*==============================================================*/
-create table PROVINCIA (
-   ID_PROVINCIA         VARCHAR(1024)        primary key,
-   NOMBRE               VARCHAR(1024)        null,
-   UBICACION            VARCHAR(1024)        null,
-   ID_COMUNA 	VARCHAR(1024) REFERENCES COMUNA(ID_COMUNA)
-
+create table medidas (
+   medida_id           varchar(1024)        primary key,
+   nombre_medida       varchar(1024)        null
 );
 
 /*==============================================================*/
-/* Table: REGION                                                */
+/* Table: registros_medidas                                       */
 /*==============================================================*/
-create table REGION (
-   ID_REGION            CHAR(10)             primary key,
-   NOMBRE               VARCHAR(1024)        null,
-   UBICACION            VARCHAR(1024)        null,
-   ID_PROVINCIA	VARCHAR(1024) REFERENCES PROVINCIA(ID_PROVINCIA)
+create table registros_medidas (
+   registro_medida_id  varchar(1024)        primary key,
+   fecha_inicio         date                 null,
+   fecha_termino        date                 null,
+   valor_costo          integer               null,
+   porcentaje_progreso  integer              null,
+   nombre               varchar(1024)        null,
+   medida_id varchar(1024) references medidas(medida_id)
+);
 
+/*==============================================================*/
+/* Table: historiales_usuario                                     */
+/*==============================================================*/
+create table historiales_usuarios (
+   historial_usuario_id varchar(1024)        primary key,
+   fecha_accion         date                 null,
+   descripcion          varchar(1024)        null
+);
+
+
+
+/*==============================================================*/
+/* Table: usuarios                                               */
+/*==============================================================*/
+create table usuarios (
+   usuario_id           varchar(1024)        primary key,
+   correo_electronico   varchar(1024)        null,
+   nombre_usuario       varchar(254)         null,
+   contrasena_usuario   varchar(1024)        null,
+   historial_usuario_id varchar(1024) references historiales_usuarios(historial_usuario_id),
+   medida_id   varchar(1024) references medidas(medida_id),
+   rnv_id varchar(1024) references rnv(rnv_id)
 );
 
 
 /*==============================================================*/
-/* Table: RNV                                                   */
+/* Table: roles                                                   */
 /*==============================================================*/
-create table RNV (
-   ID_RNV               VARCHAR(1024)        primary key,
-   CANTIDAD             INTEGER                 null,
-   ID_USUARIO 	VARCHAR(1024) REFERENCES USUARIO(ID_USUARIO)
-
+create table roles (
+   rol_id               varchar(1024)        primary key,
+   nombre_rol           varchar(1024)        null
 );
 
 /*==============================================================*/
-/* Table: ROL                                                   */
+/* Table: usuarios_roles                                               */
 /*==============================================================*/
-create table ROL (
-   ID_ROL               VARCHAR(1024)        primary key,
-   NOMBRE_ROL           VARCHAR(1024)        null
+create table usuarios_roles (
+   usuario_id  varchar(1024) references usuarios(usuario_id),
+   rol_id   varchar(1024) references roles(rol_id),
+   primary key(usuario_id,rol_id)
 );
 
 /*==============================================================*/
-/* Table: USUARIO_ROL                                               */
+/* Table: usuarios_registrosmedida                                               */
 /*==============================================================*/
-create table USUARIO_ROL (
-   ID_USUARIO 	VARCHAR(1024) REFERENCES USUARIO(ID_USUARIO),
-   ID_ROL 	VARCHAR(1024) REFERENCES ROL(ID_ROL)
+create table usuarios_registrosmedidas (
+   usuario_id  varchar(1024) references usuarios(usuario_id),
+   registro_medida_id   varchar(1024) references registros_medidas(registro_medida_id),
+   primary key(usuario_id,registro_medida_id)
 );
 
 /*==============================================================*/
-/* Table: USUARIO_REGISTROMEDIDA                                               */
+/* Table: registrosmedidas_registroscatastrofes                                             */
 /*==============================================================*/
-create table USUARIO_REGISTROMEDIDA (
-   ID_USUARIO 	VARCHAR(1024) REFERENCES USUARIO(ID_USUARIO),
-   ID_REGISTRO_MEDIDA 	VARCHAR(1024) REFERENCES REGISTRO_MEDIDA(ID_REGISTRO_MEDIDA)
-);
-
-/*==============================================================*/
-/* Table: REGISTROMEDIDAS_REGISTROCATASTROFES                                              */
-/*==============================================================*/
+<<<<<<< HEAD
 create table REGISTROMEDIDA_REGISTROCATASTROFE (
    ID_REGISTRO_MEDIDA 	VARCHAR(1024) REFERENCES REGISTRO_MEDIDA(ID_REGISTRO_MEDIDA),
    ID_REGISTRO_CATASTROFE 	VARCHAR(1024) REFERENCES REGISTRO_CATASTROFE(ID_REGISTRO_CATASTROFE)
+=======
+create table registrosmedidas_registroscatastrofes (
+   registro_medida_id   varchar(1024) references registros_medidas(registro_medida_id),
+   registro_catastrofe_id  varchar(1024) references registros_catastrofes(registro_catastrofe_id),
+   primary key(registro_medida_id,registro_catastrofe_id)
+>>>>>>> 61a381b127d57093522a845b583bc173944f3992
 );
 
+create table usuario_genera_medida(
+   usuario_id varchar(1024) references usuarios(usuario_id),
+   medida_id varchar(1024) references medidas(medida_id),
+   primary key(usuario_id,medida_id)
+);

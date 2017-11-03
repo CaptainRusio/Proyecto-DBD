@@ -16,7 +16,8 @@ class CommuneTableSeeder extends Seeder
     {
         return [
             'name'=>$faker->name,
-            'province_id' => $this->random('Province')->id
+            'province_id' => $this->random('Province')->id,
+            'ubication' => $faker->address
         ];
     }
 

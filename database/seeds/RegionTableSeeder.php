@@ -15,7 +15,8 @@ class RegionTableSeeder extends Seeder
     public function getDummyData(Generator $faker, array $custom = [])
     {
         return [
-            'name' => $faker->name
+            'name' => $faker->name,
+            'ubication' => $faker->address
         ];
     }
 

@@ -20,7 +20,7 @@ class DatabaseSeeder extends BaseSeeder
         'roles',
         'users_roles',
         'action_record_catastrophe_record',
-        'user_action_record',
+        'users_actions',
     );
  
     protected $seeders = array(
@@ -37,6 +37,6 @@ class DatabaseSeeder extends BaseSeeder
         'Role',
         'User_Role',
         'ActionRecord_CatastropheRecord',
-        'User_ActionRecord',
+        'User_Action',
     );
 }

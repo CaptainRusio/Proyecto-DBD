@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR_COSTO,PORCENTAJE_PROGRESO,NOMBRE)VALUES ('Sancho,','y','esta',141,146,'el');
 INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR_COSTO,PORCENTAJE_PROGRESO,NOMBRE)VALUES ('Asi','no','de',91,9,'pues');
 INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR_COSTO,PORCENTAJE_PROGRESO,NOMBRE)VALUES ('a','nos','estas',153,40,'es');
@@ -48,3 +49,45 @@ INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR
 INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR_COSTO,PORCENTAJE_PROGRESO,NOMBRE)VALUES ('aqui','tanta','son',33,123,'de');
 INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR_COSTO,PORCENTAJE_PROGRESO,NOMBRE)VALUES ('esta','cosas;','ha',4,167,'de');
 INSERT INTO REGISTRO_MEDIDA (ID_REGISTRO_MEDIDA,FECHA_INICIO,FECHA_TERMINO,VALOR_COSTO,PORCENTAJE_PROGRESO,NOMBRE)VALUES ('bien','cabe','cerca.',71,185,'hace')
+=======
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('Sancho,','y','esta');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('habiendo','el','el');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('Asi','no','de');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('y','aquella','pues');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('a','nos','estas');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('bien','mas','es');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('un','suceden','sean');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('no','que','ti');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('posible','mi','que,');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('no','y','dijo:');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('viendole','presto','esta');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('que','hombre','congojarte');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('me','si','tiempo');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('durables,','mi','dijo:');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('posible','no','el');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('durado','esta','las');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('otro.','ni','porque');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('suceden','por','senales');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('sucedernos','bien','que,');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('a','de','hace');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('congojarte','mi','durado');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('bien','cosas;','bien');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('mal','Sancho,','se');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('las','no','el');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('habiendo','dijo:','manera,');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('ni','que','estas');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('sean','de','mal,');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('que','nos','don');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('le','hombre','porque');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('mucho','mas','que');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('pues','ha','durado');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('bien','de','de');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('es','habiendo','no');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('cerca.','desgracias','aquella');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('hombre','no','tanta');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('Sabete,','y','dijo:');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('con','a','ha');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('es','de','suceden');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('y','hombre','el');
+INSERT INTO asd (kasd,asdkljg,alskdnc )VALUES ('hace','Sancho,','mas')
+>>>>>>> 61a381b127d57093522a845b583bc173944f3992
