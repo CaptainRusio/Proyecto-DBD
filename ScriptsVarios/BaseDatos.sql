@@ -168,7 +168,7 @@ create table USUARIO_REGISTROMEDIDA (
 /*==============================================================*/
 /* Table: REGISTROMEDIDAS_REGISTROCATASTROFES                                              */
 /*==============================================================*/
-create table REGISTROMEDIDA_REGISTROCAGASTROFE (
+create table REGISTROMEDIDA_REGISTROCATASTROFE (
    ID_REGISTRO_MEDIDA 	VARCHAR(1024) REFERENCES REGISTRO_MEDIDA(ID_REGISTRO_MEDIDA),
    ID_REGISTRO_CATASTROFE 	VARCHAR(1024) REFERENCES REGISTRO_CATASTROFE(ID_REGISTRO_CATASTROFE)
 );
