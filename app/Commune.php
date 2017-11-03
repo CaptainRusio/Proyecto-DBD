@@ -8,7 +8,7 @@ class Commune extends Model
 {
     protected $table = 'communes';
     protected $fillable = [
-        'name','province_id',
+        'name','province_id','ubication',
     ];
 
 

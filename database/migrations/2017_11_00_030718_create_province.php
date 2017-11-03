@@ -17,6 +17,7 @@ class CreateProvince extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('governor');
+            $table->string('ubication');
             $table->timestamps();
 
             $table->integer('region_id')

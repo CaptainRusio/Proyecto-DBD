@@ -8,7 +8,7 @@ class Province extends Model
 {
     protected $table = 'provinces';
     protected $fillable = [
-        'name','region_id','governor',
+        'name','region_id','governor','ubication',
     ];
 
 

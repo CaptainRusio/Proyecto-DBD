@@ -17,7 +17,8 @@ class ProvinceTableSeeder extends Seeder
         return [
             'name'=>$faker->name,
             'governor'=>$faker->name,
-            'region_id'=>   $this->random('Region')->id
+            'region_id'=>   $this->random('Region')->id,
+            'ubication' => $faker->address
         ];
     }
 
