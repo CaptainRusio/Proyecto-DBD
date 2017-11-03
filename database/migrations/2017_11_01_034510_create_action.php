@@ -52,6 +52,6 @@ class CreateAction extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('action');
+        Schema::dropIfExists('actions');
     }
 }

@@ -38,6 +38,6 @@ class CreateCatastrophe extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catastrophe');
+        Schema::dropIfExists('catastrophes');
     }
 }
