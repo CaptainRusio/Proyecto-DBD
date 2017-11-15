@@ -1,0 +1,10 @@
+INSERT INTO role_user (id_user,id_role)VALUES (29,90);
+INSERT INTO role_user (id_user,id_role)VALUES (154,141);
+INSERT INTO role_user (id_user,id_role)VALUES (146,86);
+INSERT INTO role_user (id_user,id_role)VALUES (160,106);
+INSERT INTO role_user (id_user,id_role)VALUES (16,91);
+INSERT INTO role_user (id_user,id_role)VALUES (9,186);
+INSERT INTO role_user (id_user,id_role)VALUES (189,67);
+INSERT INTO role_user (id_user,id_role)VALUES (61,153);
+INSERT INTO role_user (id_user,id_role)VALUES (40,35);
+INSERT INTO role_user (id_user,id_role)VALUES (37,69)

@@ -1,0 +1,10 @@
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('Sancho,',90);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('esta',141);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('el',86);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('Asi',106);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('de',91);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('aquella',186);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('a',67);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('estas',153);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('mas',35);
+INSERT INTO volunteering (type_of_job,status_volunteering)VALUES ('un',69)

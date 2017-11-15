@@ -1,0 +1,10 @@
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (29,'y','esta',141);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (146,'el','Asi',106);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (16,'y','aquella',186);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (189,'nos','estas',153);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (40,'es','un',69);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (125,'no','que',191);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (111,'mi','que,',32);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (129,'dijo:','viendole',79);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (154,'que','hombre',168);
+INSERT INTO province (id_province,name_province,governor,id_region)VALUES (182,'si','tiempo',127)

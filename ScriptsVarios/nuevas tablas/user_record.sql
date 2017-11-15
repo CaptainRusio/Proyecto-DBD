@@ -1,0 +1,10 @@
+INSERT INTO user_record (id_user_record,name)VALUES (29,'y');
+INSERT INTO user_record (id_user_record,name)VALUES (154,'habiendo');
+INSERT INTO user_record (id_user_record,name)VALUES (146,'el');
+INSERT INTO user_record (id_user_record,name)VALUES (160,'no');
+INSERT INTO user_record (id_user_record,name)VALUES (16,'y');
+INSERT INTO user_record (id_user_record,name)VALUES (9,'pues');
+INSERT INTO user_record (id_user_record,name)VALUES (189,'nos');
+INSERT INTO user_record (id_user_record,name)VALUES (61,'bien');
+INSERT INTO user_record (id_user_record,name)VALUES (40,'es');
+INSERT INTO user_record (id_user_record,name)VALUES (37,'suceden')

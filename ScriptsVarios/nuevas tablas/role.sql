@@ -1,0 +1,10 @@
+INSERT INTO role (id_role,name_role,permission)VALUES (29,'y',154);
+INSERT INTO role (id_role,name_role,permission)VALUES (141,'el',86);
+INSERT INTO role (id_role,name_role,permission)VALUES (160,'no',16);
+INSERT INTO role (id_role,name_role,permission)VALUES (91,'aquella',186);
+INSERT INTO role (id_role,name_role,permission)VALUES (189,'nos',61);
+INSERT INTO role (id_role,name_role,permission)VALUES (153,'mas',35);
+INSERT INTO role (id_role,name_role,permission)VALUES (37,'suceden',125);
+INSERT INTO role (id_role,name_role,permission)VALUES (192,'que',191);
+INSERT INTO role (id_role,name_role,permission)VALUES (111,'mi',163);
+INSERT INTO role (id_role,name_role,permission)VALUES (32,'y',24)

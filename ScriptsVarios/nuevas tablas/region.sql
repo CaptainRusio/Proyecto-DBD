@@ -1,0 +1,10 @@
+INSERT INTO region (id_region,name_region,location)VALUES (29,'y','esta');
+INSERT INTO region (id_region,name_region,location)VALUES (141,'el','el');
+INSERT INTO region (id_region,name_region,location)VALUES (160,'no','de');
+INSERT INTO region (id_region,name_region,location)VALUES (91,'aquella','pues');
+INSERT INTO region (id_region,name_region,location)VALUES (189,'nos','estas');
+INSERT INTO region (id_region,name_region,location)VALUES (153,'mas','es');
+INSERT INTO region (id_region,name_region,location)VALUES (37,'suceden','sean');
+INSERT INTO region (id_region,name_region,location)VALUES (192,'que','ti');
+INSERT INTO region (id_region,name_region,location)VALUES (111,'mi','que,');
+INSERT INTO region (id_region,name_region,location)VALUES (32,'y','dijo:')

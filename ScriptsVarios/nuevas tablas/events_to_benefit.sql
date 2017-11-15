@@ -1,0 +1,10 @@
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (29,'y',154);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (141,'el',86);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (160,'no',16);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (91,'aquella',186);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (189,'nos',61);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (153,'mas',35);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (37,'suceden',125);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (192,'que',191);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (111,'mi',163);
+INSERT INTO events_to_benefit (id_events_to_benefit,description_event,number_of_volunteers)VALUES (32,'y',24)

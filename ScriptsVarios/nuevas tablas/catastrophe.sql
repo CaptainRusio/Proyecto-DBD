@@ -1,0 +1,10 @@
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (29,'y',154);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (141,'el',86);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (160,'no',16);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (91,'aquella',186);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (189,'nos',61);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (153,'mas',35);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (37,'suceden',125);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (192,'que',191);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (111,'mi',163);
+INSERT INTO catastrophe (id_catastrophe,name_catastrophe,id_commune)VALUES (32,'y',24)

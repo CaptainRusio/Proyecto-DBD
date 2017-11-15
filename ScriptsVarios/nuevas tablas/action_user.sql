@@ -1,0 +1,10 @@
+INSERT INTO action_user (id_user,id_action)VALUES (29,90);
+INSERT INTO action_user (id_user,id_action)VALUES (154,141);
+INSERT INTO action_user (id_user,id_action)VALUES (146,86);
+INSERT INTO action_user (id_user,id_action)VALUES (160,106);
+INSERT INTO action_user (id_user,id_action)VALUES (16,91);
+INSERT INTO action_user (id_user,id_action)VALUES (9,186);
+INSERT INTO action_user (id_user,id_action)VALUES (189,67);
+INSERT INTO action_user (id_user,id_action)VALUES (61,153);
+INSERT INTO action_user (id_user,id_action)VALUES (40,35);
+INSERT INTO action_user (id_user,id_action)VALUES (37,69)

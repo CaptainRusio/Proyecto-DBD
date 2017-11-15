@@ -1,0 +1,10 @@
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (29,'y','esta',141,146,'el',160,'no',16);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (91,'aquella','pues',189,67,'estas',153,'mas',35);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (37,'suceden','sean',192,42,'ti',111,'mi',163);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (32,'y','dijo:',1,79,'esta',113,'hombre',168);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (182,'si','tiempo',127,180,'dijo:',110,'no',121);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (143,'esta','las',57,118,'porque',68,'por',72);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (96,'bien','que,',178,130,'hace',169,'mi',142);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (153,'cosas;','bien',116,29,'se',172,'no',150);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (141,'dijo:','manera,',119,43,'estas',124,'de',149);
+INSERT INTO action (id_action,name_action,description,id_catastrophe,id_user,date,time,address,progress)VALUES (113,'nos','don',22,38,'porque',144,'mas',77)

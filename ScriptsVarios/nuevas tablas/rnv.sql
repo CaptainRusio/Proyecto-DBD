@@ -1,0 +1,10 @@
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (29,'y','esta',141);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (146,'el','Asi',106);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (16,'y','aquella',186);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (189,'nos','estas',153);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (40,'es','un',69);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (125,'no','que',191);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (111,'mi','que,',32);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (129,'dijo:','viendole',79);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (154,'que','hombre',168);
+INSERT INTO rnv (id_rnv,name,description,members)VALUES (182,'si','tiempo',127)
