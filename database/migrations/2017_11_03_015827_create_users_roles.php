@@ -21,13 +21,15 @@ class CreateUsersRoles extends Migration
             ->unsigned();
             $table->foreign('users_id')
             ->references('id')
-            ->on('users');
+            ->on('users')
+            ->onDelete('cascade');
 
             $table->integer('roles_id')
             ->unsigned();
             $table->foreign('roles_id')
             ->references('id')
-            ->on('roles');
+            ->on('roles')
+            ->onDelete('cascade');
         });
     }
 

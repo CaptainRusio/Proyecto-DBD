@@ -23,13 +23,16 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->foreign('record_id')
                   ->references('id')
-                  ->on('user_record');
+                  ->on('user_record')
+                  ->onDelete('cascade');
 
             $table->integer('rnv_id')
             ->unsigned();
             $table->foreign('rnv_id')
             ->references('id')
-            ->on('rnv');
+            ->on('rnv')
+            ->onDelete('cascade');
+
         });
     }
 
@@ -40,6 +43,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('users');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

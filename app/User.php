@@ -20,4 +20,7 @@ class User extends Model
     public function action(){
     	return $this->hasMany(Action::class,'action_user_id');
     }
+    public function donations(){
+        return $this->hasMany(Donation::class, 'user_id');
+    }
 }

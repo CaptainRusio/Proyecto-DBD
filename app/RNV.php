@@ -8,7 +8,6 @@ class RNV extends Model
 {
     protected $table = 'rnv';
 
-    protected $filliable = ['name',];
-
+    protected $fillable = ['name','type_of_job'];
 
 }

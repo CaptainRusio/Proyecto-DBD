@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionRecord extends Migration
+class CreateDonationCampaign extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateActionRecord extends Migration
      */
     public function up()
     {
-        Schema::create('action_record', function (Blueprint $table) {
-            $table->string('name');
+        Schema::create('donation_campaigns', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date_start');
-            $table->date('date_end');
+            $table->integer('goal');
+            $table->integer('actual_amount');
+            $table->date('start');
+            $table->date('end');
             $table->integer('cost');
             $table->integer('progress');
+            $table->integer('anonymous_donation');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateActionRecord extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('action_record');
+        Schema::dropIfExists('donation_campaigns');
     }
 }

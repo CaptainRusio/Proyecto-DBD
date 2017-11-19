@@ -5,7 +5,7 @@ use Styde\Seeder\Seeder;
 
 class RnvTableSeeder extends Seeder
 {
-    protected $total = 1;
+    protected $total = 50;
 
     public function getModel()
     {
@@ -15,7 +15,8 @@ class RnvTableSeeder extends Seeder
     public function getDummyData(Generator $faker, array $custom = [])
     {
         return [
-            'name'=>$faker->name
+            'name'=> $faker->name,
+            'type_of_job' => $faker->randomDigit,
         ];
     }
 

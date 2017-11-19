@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersActions extends Migration
+class CreateDonation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,19 @@ class CreateUsersActions extends Migration
      */
     public function up()
     {
-        Schema::create('users_actions', function (Blueprint $table) {
+        Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('total_amount');
 
+            /* CLAVES FORÁNEAS */
 
-            $table->integer('users_id')
+            $table->integer('user_id')
             ->unsigned();
-            $table->foreign('users_id')
+            $table->foreign('user_id')
             ->references('id')
-            ->on('users');
-
-
-            $table->integer('actions_id')
-            ->unsigned();
-            $table->foreign('actions_id')
-            ->references('id')
-            ->on('actions');
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 
@@ -40,6 +36,6 @@ class CreateUsersActions extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_actions');
+        Schema::dropIfExists('donations');
     }
 }

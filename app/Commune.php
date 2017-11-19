@@ -13,7 +13,7 @@ class Commune extends Model
 
 
 
-    public function catastropheRec(){
+    public function catastrophes(){
     	return $this->hasMany(Catastrophe::class,'commune_id');
     }
 

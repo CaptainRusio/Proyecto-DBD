@@ -9,17 +9,16 @@ class ActionTableSeeder extends Seeder
 
     public function getModel()
     {
-        return new App\Action();
+        return new App\Action() ;
     }
 
     public function getDummyData(Generator $faker, array $custom = [])
     {
         return [
             'name' => $faker->name,
-            'description'=> $faker->text,
+            'description' => $faker->text,
             'action_user_id' => $this->random('User')->id,
-            'action_rnv_id' => $this->random('Rnv')->id,
-            'action_record_id' => $this->random('ActionRecord')->id
+            'action_rnv_id' => $this->random('RNV')->id,
         ];
     }
 

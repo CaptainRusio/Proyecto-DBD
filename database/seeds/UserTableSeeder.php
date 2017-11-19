@@ -19,10 +19,7 @@ class UserTableSeeder extends Seeder
             'email' => $faker->email,
             'password'=> bcrypt('secret'),
             'record_id'=>   $this->random('UserRecord')->id,
-            'rnv_id'=>$this->random('Rnv')->id
-
-            
-            
+            'rnv_id'=>$this->random('RNV')->id
         ];
     }
 

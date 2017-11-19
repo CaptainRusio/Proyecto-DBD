@@ -1,186 +1,191 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     30/10/2017 18:21:21                          */
+/* Created on:     11/11/2017 22:31:48                          */
 /*==============================================================*/
 
-drop table if exists rnv;
 
-drop table if exists regiones;
+drop table donation_campaign;
 
-drop table if exists provincias;
+drop table events_to_benefit;
 
-drop table if exists comunas;
+drop table gathering_center;
 
-drop table if exists catastrofes;
+drop table region;
 
-drop table if exists registros_catastrofes;
+drop table province;
 
-drop table if exists medidas;
+drop table commune;
 
-drop table if exists registros_medidas;
+drop table rnv;
 
-drop table if exists historiales_usuario;
+drop table role;
 
-drop table if exists usuarios;
+drop table user_record;
 
-drop table if exists roles;
+drop table user;
 
-drop table if exists usuarios_roles;
+drop table catastrophe;
 
-drop table if exists usuarios_registrosmedidas;
+drop table action;
 
-drop table if exists registrosmedidas_registroscatastrofes;
+drop table donation;
 
-drop table if exists usuario_genera_medida;
+drop table volunteering;
+
+drop table role_user;
+
+drop table action_user;
+
+
+/*==============================================================*/
+/* Table: donation_compaign                                     */
+/*==============================================================*/
+create table donation_campaign (
+   id_donation_campaign			integer 		primary key,
+   goal                 integer                 null,
+   actual_amount        integer                 null,
+   anonymous_donation   integer                 null
+);
+
+/*==============================================================*/
+/* Table: events_to_benefit                                     */
+/*==============================================================*/
+create table events_to_benefit (
+   id_events_to_benefit integer					primary key,
+   description_event    varchar(1024)       	null,
+   number_of_volunteers	integer 				null
+);
+
+/*==============================================================*/
+/* Table: gathering_center                                      */
+/*==============================================================*/
+create table gathering_center (
+   id_gathering_center 	   integer 					 primary key,
+   status_gathering_center integer                 	 null,
+   description_gathering_center varchar(1024)        null,
+);	
+
+
+
+/*==============================================================*/
+/* Table: region                                                */
+/*==============================================================*/
+create table region (
+   id_region            integer                 primary key,
+   name_region          varchar(1024)        null,
+   location             varchar(1024)        null
+);
+
+/*==============================================================*/
+/* Table: province                                              */
+/*==============================================================*/
+create table province (
+   id_province          integer                 primary key,
+   name_province        varchar(1024)        null,
+   governor             varchar(1024)        null,
+   id_region            integer                references region(id_region)
+);
+/*==============================================================*/
+/* Table: commune                                               */
+/*==============================================================*/
+create table commune (
+   id_commune           integer                 primary key,
+   name_commune         varchar(1024)        null,
+   id_province          integer               references province(id_province)
+);
 
 /*==============================================================*/
 /* Table: rnv                                                   */
 /*==============================================================*/
 create table rnv (
-   rnv_id               varchar(1024)        primary key,
-   cantidad             integer                 null
+   id_rnv 				integer				primary key,
+   name          		varchar(1024)       null,
+   description  		varchar(1024)		null,
+   members				integer				null
 );
 
 /*==============================================================*/
-/* Table: regiones                                                */
+/* Table: role                                                  */
 /*==============================================================*/
-create table regiones (
-   region_id            CHAR(10)             primary key,
-   nombre               varchar(1024)        null,
-   ubicacion            varchar(1024)        null
-);
-
-
-/*==============================================================*/
-/* Table: provincias                                             */
-/*==============================================================*/
-create table provincias (
-   provincia_id         varchar(1024)        primary key,
-   nombre               varchar(1024)        null,
-   ubicacion            varchar(1024)        null,
-   region_id   varchar(1024) references regiones(region_id)
-
-);
-
-
-/*==============================================================*/
-/* Table: comunas                                                */
-/*==============================================================*/
-create table comunas (
-   comuna_id            varchar(1024)        primary key,
-   nombre               varchar(1024)        null,
-   ubicacion            varchar(1024)        null,
-   provincia_id varchar(1024) references provincias(provincia_id)
-
+create table role (
+   id_role              integer                 primary key,
+   name_role            varchar(1024)        null,
+   permission           integer                 null
 );
 
 /*==============================================================*/
-/* Table: catastrofes                                            */
+/* Table: user_record                                           */
 /*==============================================================*/
-create table catastrofes (
-   catastrofe_id     varchar(1024)        primary key,
-   nombre_catastrofe    varchar(1024)        null,
-   comuna_id varchar(1024) references comunas(comuna_id)
+create table user_record (
+   id_user_record              integer       primary key,
+   name                 varchar(1024)        null
 );
 
 /*==============================================================*/
-/* Table: registros_catastrofess                                  */
+/* Table: "user"                                                */
 /*==============================================================*/
-create table registros_catastrofes (
-   registro_catastrofe_id varchar(1024)        primary key,
-   fecha_inicio         date                 null,
-   fecha_termino        date                 null,
-   costo_Total          integer                  null,
-   porcentaje_progreso  integer                  null,
-   nombre               varchar(1024)        null,
-   catastrofe_id varchar(1024) references catastrofes(catastrofe_id)
-);
-
-
-/*==============================================================*/
-/* Table: historiales_usuario                                     */
-/*==============================================================*/
-create table historiales_usuarios (
-   historial_usuario_id varchar(1024)        primary key,
-   fecha_accion         date                 null,
-   descripcion          varchar(1024)        null
-);
-
-
-
-/*==============================================================*/
-/* Table: usuarios                                               */
-/*==============================================================*/
-create table usuarios (
-   usuario_id           varchar(1024)        primary key,
-   correo_electronico   varchar(1024)        null,
-   nombre_usuario       varchar(254)         null,
-   contrasena_usuario   varchar(1024)        null,
-   historial_usuario_id varchar(1024) references historiales_usuarios(historial_usuario_id),
-   rnv_id varchar(1024) references rnv(rnv_id)
-);
-
-
-/*==============================================================*/
-/* Table: medidas                                               */
-/*==============================================================*/
-create table medidas (
-   medida_id           varchar(1024)        primary key,
-   nombre_medida       varchar(1024)        null,
-   usuario_id varchar(1024) references usuarios(usuario_id)
+create table "user" (
+   id_user              integer                 primary key,
+   name                 varchar(1024)        null,
+   password             varchar(1024)        null,
+   type                 varchar(1024)        null,
+   email                varchar(1024)        null,
+   active               boolean              null,
+   id_user_record		integer				references user_record(id_user_record),
+   id_rnv				integer				references rnv(id_rnv)
 );
 
 /*==============================================================*/
-/* Table: registros_medidas                                       */
+/* Table: catastrophe                                           */
 /*==============================================================*/
-create table registros_medidas (
-   registro_medida_id  varchar(1024)        primary key,
-   fecha_inicio         date                 null,
-   fecha_termino        date                 null,
-   valor_costo          integer               null,
-   porcentaje_progreso  integer              null,
-   nombre               varchar(1024)        null,
-   medida_id varchar(1024) references medidas(medida_id)
-);
-
-
-/*==============================================================*/
-/* Table: roles                                                   */
-/*==============================================================*/
-create table roles (
-   rol_id               varchar(1024)        primary key,
-   nombre_rol           varchar(1024)        null
+create table catastrophe (
+   id_catastrophe       integer                 primary key,
+   name_catastrophe     varchar(1024)        null,
+   id_commune           integer                 references commune(id_commune)
 );
 
 /*==============================================================*/
-/* Table: usuarios_roles                                               */
+/* Table: action                                                */
 /*==============================================================*/
-create table usuarios_roles (
-   usuario_id  varchar(1024) references usuarios(usuario_id),
-   rol_id   varchar(1024) references roles(rol_id),
-   primary key(usuario_id,rol_id)
+create table action (
+   id_action            integer                 primary key,
+   name_action          varchar(1024)        null,
+   description          varchar(1024)        null,
+   id_catastrophe 		integer 	references catastrophe(id_catastrophe),
+   id_user 				integer		references user(id_user),
+   date                 date                 	null,
+   time               	integer                 null,
+   address              varchar(1024)           null,
+   progress             integer                 null	
+   );
+/*==============================================================*/
+/* Table: donation                                              */
+/*==============================================================*/
+create table donation (
+   id_donation			integer 				primary key,
+   id_user              integer                	references user(id_user),
+   total_amount         integer                 null,
+   ong                  varchar(1024)        	null,
+   campaign          	varchar(1024)			null
+
+);
+/*==============================================================*/
+/* Table: volunteering                                          */
+/*==============================================================*/
+create table volunteering (
+   type_of_job          varchar(1024)        	null,
+   status_volunteering  integer                 null
 );
 
-/*==============================================================*/
-/* Table: usuarios_registrosmedida                                               */
-/*==============================================================*/
-create table usuarios_registrosmedidas (
-   usuario_id  varchar(1024) references usuarios(usuario_id),
-   registro_medida_id   varchar(1024) references registros_medidas(registro_medida_id),
-   primary key(usuario_id,registro_medida_id)
+create table role_user(
+	id_user 			integer				references user(id_user),
+	id_role 				integer				references role(role),
+	primary key (id_user,id_role)
+
 );
 
-/*==============================================================*/
-/* Table: registrosmedidas_registroscatastrofes                                             */
-/*==============================================================*/
-create table registrosmedidas_registroscatastrofes (
-   registro_medida_id   varchar(1024) references registros_medidas(registro_medida_id),
-   registro_catastrofe_id  varchar(1024) references registros_catastrofes(registro_catastrofe_id),
-   primary key(registro_medida_id,registro_catastrofe_id)
-);
-
-create table usuario_genera_medida(
-   usuario_id varchar(1024) references usuarios(usuario_id),
-   medida_id varchar(1024) references medidas(medida_id),
-   primary key(usuario_id,medida_id)
+create table action_user(
+	id_user 			integer				references user(id_user),
+	id_action				integer				references action(id_action),
+	primary key (id_user,id_action)
 );
