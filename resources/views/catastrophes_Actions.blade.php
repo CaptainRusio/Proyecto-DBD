@@ -101,7 +101,7 @@
 	            </form>
 	        </div>
 			<div class="col-md-6 ">
-				<a href="#" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+				<a href="{{url('catastrophe')}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
 				</span> Añadir catastrofe</a>
 			</div>
     	</div>

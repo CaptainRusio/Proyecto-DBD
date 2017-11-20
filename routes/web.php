@@ -36,6 +36,10 @@ Route::get('/voluntier', function () {
 Route::get('/catastrophesAndActions', function () {
     return view('catastrophes_Actions');
 });
+Route::get('/catastrophe', function () {
+    return view('catastrophe');
+});
+
 
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
