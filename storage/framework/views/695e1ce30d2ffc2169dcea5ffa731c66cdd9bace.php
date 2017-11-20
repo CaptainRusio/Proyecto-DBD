@@ -78,6 +78,7 @@
                                         </form>
               </ul>
             <?php else: ?>
+
             <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="<?php echo e(url('login')); ?>">Ingresar</a>
               <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="<?php echo e(url('register')); ?>">Registrarse</a>
             <?php endif; ?>

@@ -77,6 +77,7 @@
                                         </form>
               </ul>
             @else
+
             <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="{{url('login')}}">Ingresar</a>
               <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="{{url('register')}}">Registrarse</a>
             @endif
