@@ -30,9 +30,9 @@
 <head>
 	<title>Catastrophes</title>	
 
-
-
 	<script type="text/javascript">
+		
+
 		function genAccordions(){
 			var line = '';
 			
@@ -75,7 +75,6 @@
 					            '<button type = "button" class = "btn btn-primary col-md-4">Editar </button>'+
 					            '<button type = "button" class = "btn btn-primary col-md-4">Eliminar </button></li>'+
 					        '</ul>'+
-					                    
 					      '</div>'+
 					    '</div>'+
 					  '</div>'
