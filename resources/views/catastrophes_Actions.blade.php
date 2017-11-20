@@ -107,8 +107,9 @@
 	</div>
 
 <div class="panel-group type" id="catastrophes" >
-	
-	
+
+<!--Script de arriba-->
+
 </div>
 
 

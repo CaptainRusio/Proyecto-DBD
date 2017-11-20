@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRecord extends Model
+class userRecord extends Model
 {
     protected $table = 'user_record';
 	
-	protected $fillable = ['name','action_date','description',];
+	protected $fillable = ['id','name','action_date','description',];
 
 
     public function userRecord(){

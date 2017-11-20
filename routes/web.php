@@ -36,7 +36,9 @@ Route::get('/voluntier', function () {
 Route::get('/catastrophesAndActions', function () {
     return view('catastrophes_Actions');
 });
-
+Route::get('/nuevaMedida', function () {
+    return view('createAction');
+});
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
 	$data2 ['datosConsulta'] = [];
