@@ -14,7 +14,9 @@ class CreateUserRecord extends Migration
     public function up()
     {
         Schema::create('user_record', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')
+            ->unsigned()
+            ->primary();
             $table->string('name');
             $table->date('action_date');
             $table->string('description');

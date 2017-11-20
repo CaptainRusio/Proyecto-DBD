@@ -36,11 +36,17 @@ Route::get('/voluntier', function () {
 Route::get('/catastrophesAndActions', function () {
     return view('catastrophes_Actions');
 });
+<<<<<<< HEAD
 Route::get('/catastrophe', function () {
     return view('catastrophe');
 });
 
 
+=======
+Route::get('/nuevaMedida', function () {
+    return view('createAction');
+});
+>>>>>>> 99f76c7b9680111011f4bb7f00f0da5a6b4897ed
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
 	$data2 ['datosConsulta'] = [];
