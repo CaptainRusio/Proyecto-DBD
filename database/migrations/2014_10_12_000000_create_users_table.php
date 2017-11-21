@@ -18,16 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
            $table->string('email')->unique();
             $table->string('password');
-            $table->integer('record_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('record_id')
-                  ->references('id')
-                  ->on('user_record')
-                  ->onDelete('cascade');
 
             $table->integer('rnv_id')
-            ->unsigned();
+            ->unsigned()->nullable();
             $table->foreign('rnv_id')
             ->references('id')
             ->on('rnv')

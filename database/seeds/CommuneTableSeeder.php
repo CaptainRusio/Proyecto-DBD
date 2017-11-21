@@ -6,7 +6,7 @@ use Styde\Seeder\Seeder;
 class CommuneTableSeeder extends Seeder
 {
     protected $total = 50;
-
+    $arr = ['buin','paine'];
     public function getModel()
     {
         return new App\Commune();
@@ -17,7 +17,7 @@ class CommuneTableSeeder extends Seeder
         return [
             'name'=>$faker->name,
             'province_id' => $this->random('Province')->id,
-            'ubication' => $faker->address
+            'ubication' => arr[0];
         ];
     }
 

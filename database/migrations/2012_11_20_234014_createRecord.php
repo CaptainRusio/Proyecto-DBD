@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRnv extends Migration
+class CreateRecord extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateRnv extends Migration
      */
     public function up()
     {
-        Schema::create('rnv', function (Blueprint $table) {
-            $table->integer('id')->unsigned()->primary();
-            $table->string('name');
-            $table->integer('type_of_job');
-            $table->timestamps();
+         Schema::create('records', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('record_id')->unsigned();
+            $table->string('action');
+            
         });
     }
 
@@ -28,7 +28,6 @@ class CreateRnv extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rnv');
-
+        //
     }
 }

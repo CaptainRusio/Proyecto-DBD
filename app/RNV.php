@@ -10,4 +10,7 @@ class RNV extends Model
 
     protected $fillable = ['id','name','type_of_job'];
 
+    public function users(){
+    	return $this->hasMany(User::class,'rnv_id');
+    }
 }

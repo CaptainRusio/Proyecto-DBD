@@ -9,10 +9,10 @@ class User extends Model
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'record_id','rnv_id',
+        'name',
         'email','password',
+        'rnv_id', 
     ];
-
 
     public function userRecord(){
     	return $this->belongsTo(UserRecord::class,'record_id');
@@ -22,5 +22,11 @@ class User extends Model
     }
     public function donations(){
         return $this->hasMany(Donation::class, 'user_id');
+    }
+    public function rnv(){
+        return $this->belongsTo(RNV::class,'rnv_id')
+    }
+    public function records(){
+        return $this->hasMany(UserRecord::class,'id_record');
     }
 }
