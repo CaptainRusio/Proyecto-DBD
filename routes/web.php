@@ -40,6 +40,9 @@ Route::get('/catastrophesAndActions', function () {
 Route::get('/catastrophe', function () {
     return view('catastrophe');
 });
+Route::get('/action', function () {
+    return view('action');
+});
 
 
 Route::get('/nuevaMedida', function () {

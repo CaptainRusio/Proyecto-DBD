@@ -30,9 +30,9 @@
 <head>
 	<title>Catastrophes</title>	
 
-	<script type="text/javascript">
-		
 
+
+	<script type="text/javascript">
 		function genAccordions(){
 			var line = '';
 			
@@ -75,6 +75,7 @@
 					            '<button type = "button" class = "btn btn-primary col-md-4">Editar </button>'+
 					            '<button type = "button" class = "btn btn-primary col-md-4">Eliminar </button></li>'+
 					        '</ul>'+
+					                    
 					      '</div>'+
 					    '</div>'+
 					  '</div>'
@@ -100,16 +101,15 @@
 	            </form>
 	        </div>
 			<div class="col-md-6 ">
-				<a href="{{url('catastrophe')}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+				<a href="{{url('catastrophe')c}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
 				</span> Añadir catastrofe</a>
 			</div>
     	</div>
 	</div>
 
 <div class="panel-group type" id="catastrophes" >
-
-<!--Script de arriba-->
-
+	
+	
 </div>
 
 
