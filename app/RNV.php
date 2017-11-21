@@ -8,7 +8,7 @@ class RNV extends Model
 {
     protected $table = 'rnv';
 
-    protected $fillable = ['id','name','type_of_job'];
+    protected $fillable = ['name','type_of_job'];
 
     public function users(){
     	return $this->hasMany(User::class,'rnv_id');

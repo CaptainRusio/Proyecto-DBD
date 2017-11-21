@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateRecord extends Migration
 {
+    
     /**
      * Run the migrations.
      *
@@ -15,8 +16,8 @@ class CreateRecord extends Migration
     {
          Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('record_id')->unsigned();
             $table->string('action');
+            $table->timestamps();
             
         });
     }

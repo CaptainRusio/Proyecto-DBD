@@ -14,9 +14,6 @@ class User extends Model
         'rnv_id', 
     ];
 
-    public function userRecord(){
-    	return $this->belongsTo(UserRecord::class,'record_id');
-    }
     public function action(){
     	return $this->hasMany(Action::class,'action_user_id');
     }
@@ -24,7 +21,7 @@ class User extends Model
         return $this->hasMany(Donation::class, 'user_id');
     }
     public function rnv(){
-        return $this->belongsTo(RNV::class,'rnv_id')
+        return $this->belongsTo(RNV::class,'rnv_id');
     }
     public function records(){
         return $this->hasMany(UserRecord::class,'id_record');

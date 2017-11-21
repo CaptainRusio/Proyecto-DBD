@@ -26,6 +26,7 @@ class CreateUserRecord extends Migration
             ->on('records')
             ->onDelete('cascade');
             
+            $table->timestamps(); 
         });
     }
 
