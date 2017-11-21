@@ -1,24 +1,23 @@
 <?php
 
-use Faker\Generator;
-use Styde\Seeder\Seeder;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class CommuneTableSeeder extends Seeder
 {
-    protected $total = 50;
-    $arr = ['buin','paine'];
-    public function getModel()
+   
+    public function run()
     {
-        return new App\Commune();
-    }
-
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'name'=>$faker->name,
-            'province_id' => $this->random('Province')->id,
-            'ubication' => arr[0];
-        ];
+        $arrayCommunes = ['Arica','Camarones','Putre','General Lagos','Iquique','Alto Hospicio','Pozo Almonte','Camiña','Colchane','Huara','Pica'];
+        $arrayProvinces = [2,2,3,3,4,4,5,5,5,5,5];
+        for ($i=0; $i < count($arrayCommunes); $i++) { 
+             DB::table('communes')->insert([
+            'name'=> $arrayCommunes[$i],
+            'ubication'=>"",
+            'province_id'=>$arrayProvinces[$i]
+            ]);
+        }        
     }
 
 }

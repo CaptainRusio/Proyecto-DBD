@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">Descripción</label>
+                            <label for="description" class="col-md-4 control-label">Descripción</label>
                             <div class="col-md-6">
                                 <textarea class="form-control" rows="3" id="description"></textarea>
                             </div>
