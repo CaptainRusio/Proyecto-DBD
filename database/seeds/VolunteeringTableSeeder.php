@@ -1,40 +1,31 @@
 <?php
 
-use Faker\Generator;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
 class VolunteeringTableSeeder extends Seeder
 {
-        public function run()
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
     {
 
         /*name
                 commune_id*/
         
-        $types = [0,1,2,3,4];
-        for ($i=0; $i < 5; $i++) { 
+        for ($i=0; $i < 10; $i++) { 
             
              DB::table('volunteerings')->insert([
-                'type_of_job' => types[rand(0,4)] ,
-                'time' => rand(0,5),
-                'status_volunteering' => rand(0,1),
-                'start' => Carbon::parse('2000-01-01'),
-                'end' => Carbon::parse('2000-01-01'),
-                'cost' => 123,
-                'progress' => 50,
-
+                'type_of_job' => 1,
+				'time' =>  rand(0,10),
+				'status_volunteering' => rand(0,1),
+				'start' => Carbon\Carbon::parse('2000-01-01'),
+				'end' => Carbon\Carbon::parse('2000-01-01'),
+				'cost' => rand(0,9999999),
+				'progress' => rand(0,100),
             ]);
         }        
     }
-
 }
-
-
-/*type_of_job
-time
-status_volunteering
-start
-end
-cost
-progress*/

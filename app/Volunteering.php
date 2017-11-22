@@ -19,7 +19,7 @@ class Volunteering extends Model
 
 
 	//Polimorfismo con medida.
-	public function action(){
-		return $this->morphMany(Action::class,'polyAction');
+	public function actions(){
+		return $this->morphMany(Action::class,'action');
 	}
 }

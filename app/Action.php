@@ -21,7 +21,7 @@ class Action extends Model
     	return $this->belongsTo(RNV::class,'action_rnv_id');
     }
 
-    public function polyAction(){
+    public function action(){
         return $this->morphTo();
     }
 }

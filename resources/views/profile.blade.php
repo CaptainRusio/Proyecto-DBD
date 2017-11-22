@@ -1,3 +1,20 @@
+
+
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Movidosxchile</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+
+
+
 <title>Perfil</title>
 @extends('layouts.app')
 
@@ -36,6 +53,11 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
+                        <td>Nombre</td>
+                        <td>{{ Auth::user()->name }}</td>
+                      </tr>
+                      <tr>
+                      <tr>
                         <td>Tipo de usuario</td>
                         <td>Usuario natural</td>
                       </tr>
@@ -45,7 +67,7 @@
                       </tr>
                       <tr>
                         <td>Correo electrónico</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                        <td><a href="mailto:Auth::user()->email">{{ Auth::user()->email }}</td>
                       </tr>                           
                       </tr>
                      

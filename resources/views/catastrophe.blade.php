@@ -1,3 +1,17 @@
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Movidosxchile</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+       
+
+<body>
 @extends('layouts.app')
 
 @section('content')
@@ -38,36 +52,34 @@
                                 <option>Erupción</option>
                                 <option>Hambruna</option>
                                 <option>Atentado terrorista</option>
-                                <option>Ninguna de las anteriores</option>
                               </select>
-
-                               <div class="form-group">
-                                <label for="disabledInput" class="col-sm-2 control-label">Otro:</label>
-                                <div class="col-sm-6">
-                                  <input class="form-control" id="disabledInput" type="text">
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div>
                         <h3> Lugar del suceso </h3>
 
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Region:</label>
+                              <label for="selReg">Region:</label>
                               <select class="form-control" id="type">
-                                <option></option>
+                                @foreach ($regions as $region)
+                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Provincia:</label>
+                              <label for="selProv">Provincia:</label>
                               <select class="form-control" id="type">
-                                <option></option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Comuna:</label>
+                              <label for="selCom">Comuna:</label>
                               <select class="form-control" id="type">
-                                <option></option>
+                                @foreach ($communes as $commune)
+                                    <option value="{{$commune->id}}">{{$commune->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -87,3 +99,6 @@
     </div>
 </div>
 @endsection
+</body>
+</head>
+</html>

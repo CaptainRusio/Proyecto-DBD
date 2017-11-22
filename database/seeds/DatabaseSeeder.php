@@ -21,9 +21,11 @@ class DatabaseSeeder extends BaseSeeder
         'users_roles',
         'users_actions',
         'catastrophes',
+        'donation_campaigns',
     );
  
     protected $seeders = array(
+        'Volunteering',
         'Region',
         'Province',
         'Commune',
@@ -31,7 +33,8 @@ class DatabaseSeeder extends BaseSeeder
         'Rnv',
         'Role',
         'User',
-        'Volunteering',
+        'Action',
+        'DonationCampaign',
         //'Donation',
         /*'User_Role',
         

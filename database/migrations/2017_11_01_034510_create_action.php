@@ -20,8 +20,8 @@ class CreateAction extends Migration
 
             //Polimorfismos
             // Voluntariado:
-            $table->morphs('action_id');
-
+            $table->morphs('action');
+            
 
 
             
