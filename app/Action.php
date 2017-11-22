@@ -11,7 +11,6 @@ class Action extends Model
     protected $fillable = [
         'name', 'description',
         'action_user_id',
-        'action_rnv_id',
     ];
 
     public function user(){

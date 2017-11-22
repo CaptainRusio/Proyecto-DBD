@@ -18,26 +18,9 @@ class CreateAction extends Migration
             $table->string('name');
             $table->string('description');
 
-
-
-            //llaves foráneas
-            $table->integer('action_user_id')
-                  ->unsigned();
-            $table->foreign('action_user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
-
-            $table->integer('action_rnv_id')
-                  ->unsigned();
-            $table->foreign('action_rnv_id')
-            ->references('id')
-            ->on('rnv')
-            ->onDelete('cascade');
-
             //Polimorfismos
             // Voluntariado:
-            $table->morphs('polyAction');
+            $table->morphs('action_id');
 
 
 

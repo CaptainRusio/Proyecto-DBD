@@ -15,6 +15,7 @@ class DatabaseSeeder extends BaseSeeder
         'donations',
         'provinces',
         'communes',
+        'volunteerings',
         'actions',
         'roles',
         'users_roles',
@@ -30,6 +31,7 @@ class DatabaseSeeder extends BaseSeeder
         'Rnv',
         'Role',
         'User',
+        'Volunteering',
         //'Donation',
         /*'User_Role',
         
