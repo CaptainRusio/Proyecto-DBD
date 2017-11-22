@@ -41,6 +41,10 @@ Route::get('/action', function () {
     return view('action');
 });
 
+Route::get('/profile', function () {
+    return view('profile');
+});
+
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
 	$data2 ['datosConsulta'] = [];
