@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Catastrofe;
+use App\Catastrophe;
 use Validator;
+use App\Region;
+use App\Province;
+use App\Commune;
 
 class CatastropheController extends Controller
 {
@@ -54,7 +57,7 @@ class CatastropheController extends Controller
 
     public function create()
     {
-        $regions = Catastrophe::all();
+        $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
         return view('catastrophe', compact('regions','provinces','communes'));

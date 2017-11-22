@@ -54,9 +54,8 @@ Route::get('/map', function () {
     return view('map');
 });
 
-Route::get('/catastrophe', function () {
-    return view('catastrophe');
-});
+Route::get('/catastrophe', 'CatastropheController@create');
+
 
 Route::get('/action', function () {
     return view('action');

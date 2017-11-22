@@ -38,15 +38,7 @@
                                 <option>Erupción</option>
                                 <option>Hambruna</option>
                                 <option>Atentado terrorista</option>
-                                <option>Ninguna de las anteriores</option>
                               </select>
-
-                               <div class="form-group">
-                                <label for="disabledInput" class="col-sm-2 control-label">Otro:</label>
-                                <div class="col-sm-6">
-                                  <input class="form-control" id="disabledInput" type="text">
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div>
