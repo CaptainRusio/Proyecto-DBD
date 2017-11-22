@@ -54,7 +54,6 @@ Route::get('/map', function () {
     return view('map');
 });
 
-=======
 Route::get('/catastrophe', function () {
     return view('catastrophe');
 });
