@@ -36,6 +36,11 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
+                        <td>Nombre</td>
+                        <td>{{ Auth::user()->name }}</td>
+                      </tr>
+                      <tr>
+                      <tr>
                         <td>Tipo de usuario</td>
                         <td>Usuario natural</td>
                       </tr>
@@ -45,7 +50,7 @@
                       </tr>
                       <tr>
                         <td>Correo electrónico</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                        <td><a href="mailto:Auth::user()->email">{{ Auth::user()->email }}</td>
                       </tr>                           
                       </tr>
                      

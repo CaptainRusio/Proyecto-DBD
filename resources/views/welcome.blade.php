@@ -72,7 +72,7 @@ PreviewHTMLCSS    Fork this  6.7K
 /********************************/
 .hero {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
 
     z-index: 3;
@@ -107,12 +107,15 @@ PreviewHTMLCSS    Fork this  6.7K
 }
 
 .carousel{
-    
-    height: 450px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    height: 120%;
+    width: 60%;
     
 }
 .imagenCarrusel{
-    height: 500px;
+    height: 100%;
     width: 100%;
 }
 
@@ -154,15 +157,11 @@ Background Overlay with text
     @extends('layouts.app')
 
 @section('content')
-        <div class="flex-center position-ref full-height">
+        <div class="center position-ref">
             
             <section class="jk-slider">
     <div id="carousel-example" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example" data-slide-to="1"></li>
-    <li data-target="#carousel-example" data-slide-to="2"></li>
-  </ol>
+ 
 
   <div class="carousel-inner">
   
@@ -170,40 +169,37 @@ Background Overlay with text
     <div class="hero quienes" >
         <hgroup>
             <h1>¿Quienes Somos?</h1>        
-            <h2> bla bla bla </h2>
-            <p>bla bla bla bla bla</p>
+
         </hgroup>
         
       </div>
       <div class="overlay"></div>
-     <a href="#"><img src="brigadistas.jpg" class="imagenCarrusel" /></a>
+     <a href="#"><img src="brigadistas.jpg" class="imagenCarrusel img-responsive" /></a>
         
     </div>
   <div class="item">
     <div class="hero necesitamos">
         <hgroup>
             <h1>Te necesitamos</h1>        
-            <h2>Se voluntario hoy</h2>
-            <p>Bla bla bla</p>
+
         </hgroup>
         
       </div>
       
        <div class="overlay"></div>
-      <a href="#"><img src="voluntarios.jpg" class="imagenCarrusel"  /></a>
+      <a href="#"><img src="voluntarios.jpg" class="imagenCarrusel img-responsive"  /></a>
       
     </div>
     <div class="item">
         <div class="hero ayudanos">
         <hgroup>
             <h1>Ayudanos</h1>        
-            <h2>Toda cooperacion suma! </h2>
-            <p>Bla bla bla</p>
+
         </hgroup>
         
       </div>
         <div class="overlay">
-      <img src="voluntarios2.jpg" class="imagenCarrusel"  />
+      <img src="voluntarios2.jpg" class="imagenCarrusel img-responsive"  />
       </div>
     </div>
   </div>
