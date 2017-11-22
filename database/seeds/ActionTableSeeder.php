@@ -11,7 +11,8 @@ class ActionTableSeeder extends Seeder
         /*name
                 commune_id*/
         $actions = ['Ayudame a ayudarte','Sin agua, sin vida','Mejor aire','Recostruyamos!','A cualquier lado!',];
-        $typeActions = ['volunteering', 'donationCampaign','eventToBenefit','gatheringCenter'];
+        $typeActions = ['Volunteering', 'DonationCampaign','EventToBenefit','GatheringCenter'];
+        $catastrophes = [0,1];
         for ($i=0; $i < count($actions) -1; $i++) { 
             
              DB::table('actions')->insert([
@@ -19,8 +20,7 @@ class ActionTableSeeder extends Seeder
                 'description' => "Todos lo mismo",
                 'action_id' => rand(0,10),
                 'action_type'=> $typeActions[$i],
-                /*'actionable_id' => 2,
-                'actionable_type' => 'volunteering',*/  
+                'catastrophe_id' => rand(1,2),
             ]);
         }        
     }

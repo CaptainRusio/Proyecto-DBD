@@ -1,24 +1,21 @@
 <?php
-
 use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class User_ActionTableSeeder extends Seeder
-{
-    protected $total = 50;
-
-    public function getModel()
+{   
+    public function run()
     {
-        return new App\Users_Actions();
-    }
 
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            //'province_id' => $this->random('Province')->id,
-            'users_id'=> $this->random('User')->id,
-            'actions_id'=> $this->random('Action')->id
-        ];
+        /*name
+                commune_id*/
+        for ($i=0; $i < 4; $i++) { 
+            
+             DB::table('users_actions')->insert([
+                'users_id'=> rand(1,3),
+                'actions_id' => rand(1,2),
+            ]);
+        }        
     }
-
 }

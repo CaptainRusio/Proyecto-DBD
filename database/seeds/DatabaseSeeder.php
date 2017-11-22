@@ -35,10 +35,11 @@ class DatabaseSeeder extends BaseSeeder
         'User',
         'Action',
         'DonationCampaign',
+        'User_Action',
         //'Donation',
         /*'User_Role',
         
-        'User_Action',
+        ,
         'UserRecord',
         'Record',*/
     );

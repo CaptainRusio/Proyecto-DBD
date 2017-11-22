@@ -68,7 +68,7 @@
 
 <div class="panel-group type" id="catastrophes">
 	@for ($i =0; $i<count($catastrophes); $i++)
-
+	
 		<div class="panel-group type" id="catastrophes" >
 	<div class="panel panel-default">
 	    <div class="panel-heading">

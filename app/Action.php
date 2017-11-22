@@ -11,17 +11,16 @@ class Action extends Model
     protected $fillable = [
         'name', 'description',
         'action_user_id',
+        'catastrophe_id',
     ];
 
     public function user(){
-    	return $this->belongsTo(User::class,'action_user_id');
+    	return $this->belongsToMany(User::class,'users_actions','users_id','actions_id');
     }
-
-    public function rnv(){
-    	return $this->belongsTo(RNV::class,'action_rnv_id');
-    }
-
     public function action(){
         return $this->morphTo();
+    }
+    public function catastrophes(){
+        return $this->hasMany(Catastrophe::class,'catastrophe_id');
     }
 }

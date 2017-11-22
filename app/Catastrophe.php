@@ -17,4 +17,7 @@ class Catastrophe extends Model
     public function commune(){
     	return $this->belongsTo(Commune::class,'commune_id');
     }
+    public function action(){
+        return $this->belongsTo(Action::class,'catastrophe_id');
+    }
 }

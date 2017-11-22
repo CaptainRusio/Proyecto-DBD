@@ -17,7 +17,21 @@ class CreateAction extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+             $table->integer('catastrophe_id')
+            ->unsigned();
+            $table->foreign('catastrophe_id')
+            ->references('id')
+            ->on('catastrophes')
+            ->onDelete('cascade');
 
+            /* 
+            $table->integer('province_id')
+            ->unsigned();
+            $table->foreign('province_id')
+            ->references('id')
+            ->on('provinces')
+            ->onDelete('cascade');
+            */
             //Polimorfismos
             // Voluntariado:
             $table->morphs('action');
@@ -38,6 +52,7 @@ class CreateAction extends Migration
     {
         //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('actions');
+
         //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
