@@ -19,6 +19,11 @@
     width: 20%;
     }
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function province(){};
+</script>
 </head>
 <body>
     <div id="app">

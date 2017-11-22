@@ -11,7 +11,6 @@ class Action extends Model
     protected $fillable = [
         'name', 'description',
         'action_user_id',
-        'action_rnv_id',
     ];
 
     public function user(){
@@ -22,7 +21,7 @@ class Action extends Model
     	return $this->belongsTo(RNV::class,'action_rnv_id');
     }
 
-    public function polyAction(){
+    public function action(){
         return $this->morphTo();
     }
 }

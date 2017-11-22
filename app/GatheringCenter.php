@@ -15,7 +15,7 @@ class GatheringCenter extends Model
 				'cost',
 				'progress',];
 
-	public function action(){
-		return $this->morphMany(Action::class,'polyAction');
+	public function actions(){
+		return $this->morphMany(Action::class,'action');
 	}
 }

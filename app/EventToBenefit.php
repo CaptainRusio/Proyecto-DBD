@@ -13,7 +13,7 @@ class EventToBenefit extends Model
 				'time',
 				'description_event',
 				'volunteers_number',];
-	public function action(){
-		return $this->morphMany(Action::class,'polyAction');
+public function actions(){
+		return $this->morphMany(Action::class,'action');
 	}
 }		

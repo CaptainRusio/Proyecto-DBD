@@ -59,8 +59,7 @@ class CatastropheController extends Controller
     {
         $regions = Region::all();
         $provinces = Province::all();
-        $communes = Commune::all();
-        return view('catastrophe', compact('regions','provinces','communes'));
+        return view('catastrophe2', compact('regions','provinces','communes'));
     }
 
     public function show()
@@ -81,6 +80,20 @@ class CatastropheController extends Controller
 
     public function destroy()
     {
+    }
+
+    public function select($id)
+    {
+        return Province::where('region_id',$id)->get();
+    }
+
+
+    public function prueba()
+    {
+     
+        $regions = Region::all();
+        echo $regions;
+        return view('catastrophe', $regions);
     }
 
 }

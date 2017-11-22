@@ -1,25 +1,27 @@
 <?php
-
 use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class ActionTableSeeder extends Seeder
 {
-    protected $total = 50;
-
-    public function getModel()
+    public function run()
     {
-        return new App\Action() ;
-    }
 
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'name' => $faker->name,
-            'description' => $faker->text,
-            'action_user_id' => $this->random('User')->id,
-            'action_rnv_id' => $this->random('RNV')->id,
-        ];
+        /*name
+                commune_id*/
+        $actions = ['Ayudame a ayudarte','Sin agua, sin vida','Mejor aire','Recostruyamos!','A cualquier lado!',];
+        $typeActions = ['volunteering', 'donationCampaign','eventToBenefit','gatheringCenter'];
+        for ($i=0; $i < count($actions) -1; $i++) { 
+            
+             DB::table('actions')->insert([
+                'name'=> $actions[$i],
+                'description' => "Todos lo mismo",
+                'action_id' => rand(0,10),
+                'action_type'=> $typeActions[$i],
+                /*'actionable_id' => 2,
+                'actionable_type' => 'volunteering',*/  
+            ]);
+        }        
     }
-
 }
