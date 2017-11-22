@@ -1,26 +1,30 @@
 <?php
 
 use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class UserTableSeeder extends Seeder
 {
-    protected $total = 50;
-
-    public function getModel()
+   public function run()
     {
-        return new App\User();
-    }
 
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'name' => $faker->name,
-            'email' => $faker->email,
-            'password'=> bcrypt('secret'),
-            'record_id'=>   $this->random('UserRecord')->id,
-            'rnv_id'=>$this->random('RNV')->id
-        ];
+        /*name
+                commune_id*/
+        $names = ['Hola','Lobezno','Zolezzi','tioInfo1'];
+        $passwords = Hash::make('123123');
+        $email = ['hola@gmail.com','lobezno@live.cl','zolezzi@loa.cl','tioInfo@usach.cl'];
+        $rnv = [0,1,2];
+        for ($i=0; $i < count($names); $i++) { 
+            
+             DB::table('users')->insert([
+                'name'=> $names[$i],
+                'email' => $email[$i],
+                'password' => $passwords,
+                'rnv_id' => $rnv[rand(0,2)],
+
+            ]);
+        }        
     }
 
 }

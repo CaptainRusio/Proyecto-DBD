@@ -1,22 +1,19 @@
 <?php
 
-use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
 
 class DonationTableSeeder extends Seeder
 {
-    protected $total = 50;
-
-    public function getModel()
+    public function run()
     {
-        return;
+        $arrayCommunes = ['Arica','Camarones','Putre','General Lagos','Iquique','Alto Hospicio','Pozo Almonte','Camiña','Colchane','Huara','Pica'];
+        $arrayProvinces = [2,2,3,3,4,4,5,5,5,5,5];
+        for ($i=0; $i < count($arrayCommunes); $i++) { 
+             DB::table('communes')->insert([
+            'name'=> $arrayCommunes[$i],
+            'ubication'=>"",
+            'province_id'=>$arrayProvinces[$i]
+            ]);
+        }        
     }
-
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            //
-        ];
-    }
-
 }

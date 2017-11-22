@@ -16,4 +16,4 @@ class EventToBenefit extends Model
 	public function action(){
 		return $this->morphMany(Action::class,'polyAction');
 	}
-}
+}		

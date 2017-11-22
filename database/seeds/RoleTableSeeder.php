@@ -1,23 +1,25 @@
 <?php
 
 use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class RoleTableSeeder extends Seeder
 {
-    protected $total = 50;
-
-    public function getModel()
+    public function run()
     {
-        return new App\Role();
-    }
 
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'type'=>$faker->name,
-            'description'=>$faker->text
-        ];
+        /*
+        type
+description
+                */
+        $arrayNames = ['Administrador','Miembro del gobierno','Voluntario','Usuario común'];
+        for ($i=0; $i < count($arrayNames); $i++) { 
+            
+             DB::table('roles')->insert([
+                'type' => $arrayNames[$i],
+                'description' => 'Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados.',
+            ]);
+        }        
     }
-
 }
