@@ -15,6 +15,61 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script type="text/javascript">
+    var regionsJS = [
+        @foreach ($regions as $region)
+            {"id":"{{$region->id}}","name":"{{$region->name}}"},
+        @endforeach
+        {}
+    ]
+    var provincesJS = [
+        @foreach ($provinces as $province)
+            {"id":"{{$province->id}}","name":"{{$province->name}}","region_id":"{{$province->region_id}}"},
+        @endforeach
+        {}
+    ]
+    var communesJS = [
+        @foreach ($communes as $commune)
+            {"id":"{{$commune->id}}","name":"{{$commune->name}}","province_id":"{{$commune->province_id}}"},
+        @endforeach
+        {}
+    ]
+
+    function region (){
+        for ( i = 0; i < regionsJS.length-1 ; i ++){
+            $("#region").append("<option value = "+regionsJS[i].id+">"+regionsJS[i].name+"</option>");
+        }
+    }
+
+    function province(){
+        var region_id = $("#region").val();
+        alert(region_id);
+        for(i = 0; i < provincesJS.length-1; i++){
+            if (region_id == provincesJS[i].region_id) {
+                $("#province").append("<option value = "+provincesJS[i].id+">"+provincesJS[i].name+"</option>");
+            }
+        }
+    }
+    function commune(){
+        var province_id = $("#province").val();
+        alert(province_id);
+        for(i = 0; i < communesJS.length-1; i++){
+            if (province_id == communesJS[i].province_id) {
+                $("#commune").append("<option value = "+communesJS[i].id+">"+communesJS[i].name+"</option>");
+            }
+        }
+    }
+    $(document).ready(function(){
+        region();
+        $("#region").attr('onchange','province()');
+        $("#province").attr('onchange','commune()');
+    });
+</script>
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -60,31 +115,17 @@
 
                         <div class = "form-group cold-md-4">
                               <label for="selReg">Region:</label>
-                              <select class="form-control" id="type">
-                                @foreach ($regions as $region)
-                                    <option value="{{$region->id}}">{{$region->name}}</option>
-                                @endforeach
-                            </select>
+                              <select class="form-control" id="region"></select>
                         </div>
                         <div class = "form-group cold-md-4">
                               <label for="selProv">Provincia:</label>
-                              <select class="form-control" id="type">
-                                @foreach ($provinces as $province)
-                                    <option value="{{$province->id}}">{{$province->name}}</option>
-                                @endforeach
-                            </select>
+                              <select class="form-control" id="province"></select>
                         </div>
                         <div class = "form-group cold-md-4">
                               <label for="selCom">Comuna:</label>
-                              <select class="form-control" id="type">
-                                @foreach ($communes as $commune)
-                                    <option value="{{$commune->id}}">{{$commune->name}}</option>
-                                @endforeach
-                            </select>
+                              <select class="form-control" id="commune"></select>
                         </div>
                     </div>
-                        
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
