@@ -90,4 +90,7 @@ Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/catastrophe','CatastropheController@store');
+
+
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');

@@ -53,21 +53,27 @@
                         <h3> Lugar del suceso </h3>
 
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Region:</label>
+                              <label for="selReg">Region:</label>
                               <select class="form-control" id="type">
-                                <option></option>
+                                @foreach ($regions as $region)
+                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Provincia:</label>
+                              <label for="selProv">Provincia:</label>
                               <select class="form-control" id="type">
-                                <option></option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Comuna:</label>
+                              <label for="selCom">Comuna:</label>
                               <select class="form-control" id="type">
-                                <option></option>
+                                @foreach ($communes as $commune)
+                                    <option value="{{$commune->id}}">{{$commune->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
