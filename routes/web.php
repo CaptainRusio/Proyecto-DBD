@@ -43,7 +43,7 @@ Route::get('/action', function () {
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile');     
 });
 
 Route::get('/editprofile', function () {
@@ -53,9 +53,12 @@ Route::get('/editprofile', function () {
 Route::get('/map', function () {
     return view('map');
 });
-
-Route::get('/catastrophe', 'CatastropheController@create');
-
+Route::get('/catastrophe2', function () {
+    $regions ['datos'] = [];
+    return view('pruebaBaseDatos0Vista', $regions);
+});
+Route::get('/catastrophe2', 'CatastropheController@create');
+Route::get('/catastrophe2', 'CatastropheController@prueba');
 
 Route::get('/action', function () {
     return view('action');
@@ -69,7 +72,7 @@ Route::get('/nuevaMedida', function () {
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
 	$data2 ['datosConsulta'] = [];
-    return view('pruebaBaseDatosVista', $data, $data2);
+    return view('pruebaBaseDatos0Vista', $data, $data2);
 });
 
 Auth::routes();
@@ -89,7 +92,7 @@ Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/catastrophe','CatastropheController@store');
+Route::post('/catastrophe2','CatastropheController@store');
 
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');

@@ -15,7 +15,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<!--
 <script type="text/javascript">
     var regionsJS = [
         @foreach ($regions as $region)
@@ -30,7 +30,7 @@
         {}
     ]
     var communesJS = [
-        @foreach ($communes as $commune)
+        @foreach ($provinces->communes as $commune)
             {"id":"{{$commune->id}}","name":"{{$commune->name}}","province_id":"{{$commune->province_id}}"},
         @endforeach
         {}
@@ -62,11 +62,12 @@
     }
     $(document).ready(function(){
         region();
-        $("#region").attr('onchange','province()');
+ //  $("#region").bind().change(province());
+       $("#region").attr('onchange','province()');
         $("#province").attr('onchange','commune()');
     });
 </script>
-
+-->
 
 
 
@@ -77,7 +78,9 @@
                 <div class="panel-heading">Registrar Catastrofe</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ url('/catastrophe') }}">
+                    <form class="form-horizontal" method="post" action="{{ url('/catastrophe') }}">
+                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
+
                     <div>
                         <h3> Datos generales </h3>
                         <div class="form-group">
@@ -115,15 +118,16 @@
 
                         <div class = "form-group cold-md-4">
                               <label for="selReg">Region:</label>
-                              <select class="form-control" id="region"></select>
+                              <select class="form-control" id="select-region" >
+                            </select>
                         </div>
                         <div class = "form-group cold-md-4">
                               <label for="selProv">Provincia:</label>
-                              <select class="form-control" id="province"></select>
+                              <select class="form-control" id="select-province"></select>
                         </div>
                         <div class = "form-group cold-md-4">
                               <label for="selCom">Comuna:</label>
-                              <select class="form-control" id="commune"></select>
+                              <select class="form-control" id="select-commune"></select>
                         </div>
                     </div>
                         <div class="form-group">
@@ -139,6 +143,9 @@
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src = "js/dinamic/select.js"></script>
 @endsection
 </body>
 </head>
