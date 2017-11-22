@@ -26,7 +26,6 @@
       <a href="http://www.movidosporchile.cl/"><img am-TopLogo alt="SECUREVIEW"  src="logo.jpg" class="img-responsive"></a>
     </div>
     <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
-      <p am-CallNow>Llamame   ;) +56966207293 </p>
     </div>
   </div> <!-- End Topper -->
   <!-- Navigation -->

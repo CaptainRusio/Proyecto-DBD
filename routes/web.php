@@ -24,6 +24,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/cm', function () {
+    return view('medida_cat');
+});
 Route::get('/help', function () {
     return view('help');
 });
@@ -32,6 +35,10 @@ Route::get('/donate', function () {
 });
 Route::get('/voluntier', function () {
     return view('voluntier');
+});
+
+Route::get('/action', function () {
+    return view('action');
 });
 
 Route::get('pruebaBaseDatosVista', function () {
