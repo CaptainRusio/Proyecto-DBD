@@ -54,9 +54,8 @@ Route::get('/map', function () {
     return view('map');
 });
 
-Route::get('/catastrophe', function () {
-    return view('catastrophe');
-});
+Route::get('/catastrophe', 'CatastropheController@create');
+
 
 Route::get('/action', function () {
     return view('action');
@@ -89,5 +88,8 @@ Route::post('consultaWhere', 'pruebaBaseDatos@consultaWhere');
 Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/catastrophe','CatastropheController@store');
+
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');
