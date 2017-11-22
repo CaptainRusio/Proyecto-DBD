@@ -33,7 +33,6 @@ Route::get('/donate', function () {
 Route::get('/voluntier', function () {
     return view('voluntier');
 });
-Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
 
 Route::get('/catastrophe', function () {
     return view('catastrophe');
@@ -56,7 +55,7 @@ Route::get('pruebaBaseDatosVista', function () {
 Auth::routes();
 
 //Catastrophes Actions
-
+Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
 

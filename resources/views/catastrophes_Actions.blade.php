@@ -74,10 +74,14 @@
 		<div id="collapse{{$i}}" class="panel-collapse collapse out">
 			<div class="panel-body">
 			    <ul class="nav nav-pills nav-stacked">
-			       	<li class="passive"><a>Descripcion de la catastrofe {{$i}}</a></li>
-			        <li class="active "><a class = "col-md-4">Ver Medidas </a>
-			        <a class = "col-md-4">Editar </a>
-			        <a class = "col-md-4">Eliminar </a></li>
+
+			       	<li class="passive"><a>Comuna: {{$catastrophes[$i]->commune->name}} <br> 
+			       		Provincia: {{$catastrophes[$i]->commune->province->name}} <br> 
+			       		Region: {{$catastrophes[$i]->commune->province->region->name}}
+			       	</a></li>
+			        <li class="active "><button class = "col-md-4 btn btn-info">Ver Medidas </button>
+			        <button class = "col-md-4 btn btn-info">Editar </button>
+			        <button class = "col-md-4 btn btn-info">Eliminar </button></li>
 			    </ul>				                    
 			</div>
 		</div>
