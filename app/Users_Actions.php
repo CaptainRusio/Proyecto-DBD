@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 namespace App;
 
@@ -8,7 +8,7 @@ class Users_Actions extends Model
 {
     
 	protected $table = 'users_actions';
-	protected $filliable = [
+	protected $fillable = [
 		'users_id','actions_id',
 	];
 

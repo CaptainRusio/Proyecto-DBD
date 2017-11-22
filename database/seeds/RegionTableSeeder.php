@@ -1,23 +1,17 @@
 <?php
-
-use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class RegionTableSeeder extends Seeder
 {
-    protected $total = 50;
-
-    public function getModel()
-    {
-        return new App\Region();
-    }
-
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'name' => $faker->name,
-            'ubication' => $faker->address
-        ];
+    public function run()
+    {   $arrayRegion = ['Arica y Parinacota','Tarapacá'];
+        for ($i=0; $i < count($arrayRegion); $i++) { 
+             DB::table('regions')->insert([
+            'name'=> $arrayRegion[$i],
+            'ubication'=>""
+            ]);
+        }        
     }
 
 }

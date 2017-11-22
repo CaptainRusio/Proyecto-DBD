@@ -14,7 +14,6 @@ class CreateAction extends Migration
     public function up()
     {
         Schema::create('actions', function (Blueprint $table) {
-
             $table->increments('id');
             $table->string('name');
             $table->string('description');
@@ -26,18 +25,20 @@ class CreateAction extends Migration
                   ->unsigned();
             $table->foreign('action_user_id')
             ->references('id')
-            ->on('users');
+            ->on('users')
+            ->onDelete('cascade');
 
             $table->integer('action_rnv_id')
                   ->unsigned();
             $table->foreign('action_rnv_id')
             ->references('id')
-            ->on('rnv');
-            $table->integer('action_record_id')
-                  ->unsigned();
-            $table->foreign('action_record_id')
-            ->references('id')
-            ->on('action_record');
+            ->on('rnv')
+            ->onDelete('cascade');
+
+            //Polimorfismos
+            // Voluntariado:
+            $table->morphs('polyAction');
+
 
 
             
@@ -52,6 +53,8 @@ class CreateAction extends Migration
      */
     public function down()
     {
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('actions');
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

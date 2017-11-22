@@ -1,24 +1,33 @@
 <?php
-
 use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class CatastropheTableSeeder extends Seeder
-{
-    protected $total = 50;
-
-    public function getModel()
+{   
+    public function run()
     {
-        return new App\Catastrophe();
-    }
 
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'name'=>$faker->name,
-            'catastrophe_record_id'=>$this->random('CatastropheRecord')->id,
-            'commune_id'=>$this->random('Commune')->id
-        ];
+        /*name
+                commune_id*/
+        $arrayCatastrophes = ['Terremoto','Diluvio'];
+        $arrComunes = [1,2,3];
+        for ($i=0; $i < count($arrayCatastrophes); $i++) { 
+            
+             DB::table('catastrophes')->insert([
+                'name'=> $arrayCatastrophes[$i],
+                'commune_id' => $arrComunes[$i],
+            ]);
+        }        
     }
-
 }
+
+/*
+DB::table('provinces')->insert([
+            'name'=> $arrayProvinces[$i],
+            'ubication'=>"",
+            'region_id'=>$arrayRegion[$i],
+            'governor'=>$arrayGovernor[$i]
+            ]);
+
+*/

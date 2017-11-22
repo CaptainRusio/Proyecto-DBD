@@ -2,22 +2,28 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
+use Illuminate\Notifications\Notifiable;    
+use Illuminate\Foundation\Auth\User as Authenticatable; 
+class User extends Authenticatable  
 {
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'record_id','rnv_id',
+        'name',
         'email','password',
+        'rnv_id', 
     ];
 
-
-    public function userRecord(){
-    	return $this->belongsTo(UserRecord::class,'record_id');
-    }
     public function action(){
     	return $this->hasMany(Action::class,'action_user_id');
+    }
+    public function donations(){
+        return $this->hasMany(Donation::class, 'user_id');
+    }
+    public function rnv(){
+        return $this->belongsTo(RNV::class,'rnv_id');
+    }
+    public function records(){
+        return $this->hasMany(UserRecord::class,'id_record');
     }
 }

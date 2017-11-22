@@ -1,25 +1,22 @@
 <?php
 
-use Faker\Generator;
-use Styde\Seeder\Seeder;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class ProvinceTableSeeder extends Seeder
-{
-    protected $total = 50;
-
-    public function getModel()
+{   
+    public function run()
     {
-        return new App\Province();
+        $arrayProvinces = ['Arica','Parinacota','Iquique','Tamarugal','Antofagasta'];
+        $arrayRegion = [1,1,2,2,1];
+        $arrayGovernor = ['Ricardo Sanzana Oteiza','Roberto Lau Suárez','Francisco Pinto','Rubén Moraga Mamaní','Gabriel Toro'];
+        for ($i=0; $i < count($arrayProvinces); $i++) { 
+             DB::table('provinces')->insert([
+            'name'=> $arrayProvinces[$i],
+            'ubication'=>"",
+            'region_id'=>$arrayRegion[$i],
+            'governor'=>$arrayGovernor[$i]
+            ]);
+        }        
     }
-
-    public function getDummyData(Generator $faker, array $custom = [])
-    {
-        return [
-            'name'=>$faker->name,
-            'governor'=>$faker->name,
-            'region_id'=>   $this->random('Region')->id,
-            'ubication' => $faker->address
-        ];
-    }
-
 }

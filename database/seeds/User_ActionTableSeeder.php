@@ -15,8 +15,9 @@ class User_ActionTableSeeder extends Seeder
     public function getDummyData(Generator $faker, array $custom = [])
     {
         return [
-            'users_id'=>$this->random('User')->id,
-            'actions_id'=>$this->random('Action')->id
+            //'province_id' => $this->random('Province')->id,
+            'users_id'=> $this->random('User')->id,
+            'actions_id'=> $this->random('Action')->id
         ];
     }
 

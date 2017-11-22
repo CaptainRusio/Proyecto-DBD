@@ -37,6 +37,7 @@ Route::get('/voluntier', function () {
     return view('voluntier');
 });
 
+
 Route::get('/action', function () {
     return view('action');
 });
@@ -53,6 +54,20 @@ Route::get('/map', function () {
     return view('map');
 });
 
+=======
+Route::get('/catastrophe', function () {
+    return view('catastrophe');
+});
+
+Route::get('/action', function () {
+    return view('action');
+});
+
+
+Route::get('/nuevaMedida', function () {
+    return view('createAction');
+});
+
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
 	$data2 ['datosConsulta'] = [];
@@ -60,6 +75,9 @@ Route::get('pruebaBaseDatosVista', function () {
 });
 
 Auth::routes();
+
+//Catastrophes Actions
+Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
 

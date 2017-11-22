@@ -1,0 +1,10 @@
+
+.tableCatastropheAction{
+
+	background-color: #fafafa;
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  /* IMPORTANTE */
+  text-align: center;
+}

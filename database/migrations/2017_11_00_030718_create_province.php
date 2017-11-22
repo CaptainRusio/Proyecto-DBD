@@ -24,7 +24,8 @@ class CreateProvince extends Migration
             ->unsigned();
             $table->foreign('region_id')
             ->references('id')
-            ->on('regions');
+            ->on('regions')
+            ->onDelete('cascade');
         });
     }
 
@@ -35,6 +36,8 @@ class CreateProvince extends Migration
      */
     public function down()
     {
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('provinces');
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

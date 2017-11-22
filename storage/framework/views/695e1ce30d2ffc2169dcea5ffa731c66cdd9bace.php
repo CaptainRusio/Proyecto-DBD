@@ -47,6 +47,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav js-nav-add-active-class">
             <li class="active"><a href="/"><i class= "fa fa-home" aria-hidden="true"> </i> Inicio</a></li>
+            <li><a href="<?php echo e(url('catastrophesAndActions')); ?>">Catastrofes</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Participar <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
@@ -77,6 +78,7 @@
                                         </form>
               </ul>
             <?php else: ?>
+
             <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="<?php echo e(url('login')); ?>">Ingresar</a>
               <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="<?php echo e(url('register')); ?>">Registrarse</a>
             <?php endif; ?>

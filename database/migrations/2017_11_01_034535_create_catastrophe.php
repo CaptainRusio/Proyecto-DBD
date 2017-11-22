@@ -17,17 +17,13 @@ class CreateCatastrophe extends Migration
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
-            $table->integer('catastrophe_record_id')
-            ->unsigned();
-            $table->foreign('catastrophe_record_id')
-            ->references('id')
-            ->on('catastrophe_record');
 
             $table->integer('commune_id')
             ->unsigned();
             $table->foreign('commune_id')
             ->references('id')
-            ->on('communes');
+            ->on('communes')
+            ->onDelete('cascade');
         });
     }
 
@@ -38,6 +34,8 @@ class CreateCatastrophe extends Migration
      */
     public function down()
     {
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('catastrophes');
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

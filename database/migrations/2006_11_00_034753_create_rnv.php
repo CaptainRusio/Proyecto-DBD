@@ -14,8 +14,9 @@ class CreateRnv extends Migration
     public function up()
     {
         Schema::create('rnv', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unsigned()->primary();
             $table->string('name');
+            $table->integer('type_of_job');
             $table->timestamps();
         });
     }
@@ -28,5 +29,6 @@ class CreateRnv extends Migration
     public function down()
     {
         Schema::dropIfExists('rnv');
+
     }
 }

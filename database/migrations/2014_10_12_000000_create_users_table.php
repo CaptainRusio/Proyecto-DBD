@@ -18,18 +18,16 @@ class CreateUsersTable extends Migration
             $table->string('name');
            $table->string('email')->unique();
             $table->string('password');
-            $table->integer('record_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('record_id')
-                  ->references('id')
-                  ->on('user_record');
 
             $table->integer('rnv_id')
-            ->unsigned();
+            ->unsigned()->nullable();
             $table->foreign('rnv_id')
             ->references('id')
-            ->on('rnv');
+            ->on('rnv')
+            ->onDelete('cascade');
+
         });
     }
 
@@ -40,6 +38,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('users');
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

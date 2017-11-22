@@ -15,9 +15,8 @@ class UserRecordTableSeeder extends Seeder
     public function getDummyData(Generator $faker, array $custom = [])
     {
         return [
-            'name' => $faker->name,
-            'action_date'=>$faker->date,
-            'description'=>$faker->text
+            'id_user' => $this->random('User')->id,
+            'id_record' => $this->random('Record')->id,
         ];
     }
 

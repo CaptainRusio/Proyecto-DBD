@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionRecordCatastropheRecord extends Migration
+class CreateUsersActions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,25 @@ class CreateActionRecordCatastropheRecord extends Migration
      */
     public function up()
     {
-        Schema::create('action_record_catastrophe_record', function (Blueprint $table) {
+        Schema::create('users_actions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->integer('action_record_id')
-            ->unsigned();
-            $table->foreign('action_record_id')
-            ->references('id')
-            ->on('action_record');
 
-            $table->integer('catastrophe_record_id')
+            $table->integer('users_id')
             ->unsigned();
-            $table->foreign('catastrophe_record_id')
+            $table->foreign('users_id')
             ->references('id')
-            ->on('catastrophe_record');
+            ->on('users')
+            ->onDelete('cascade');
+
+
+            $table->integer('actions_id')
+            ->unsigned();
+            $table->foreign('actions_id')
+            ->references('id')
+            ->on('actions')
+            ->onDelete('cascade');
         });
     }
 
@@ -38,6 +42,8 @@ class CreateActionRecordCatastropheRecord extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('action_record_catastrophe_record');
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('users_actions');
+        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

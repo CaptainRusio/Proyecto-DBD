@@ -14,12 +14,19 @@ class CreateUserRecord extends Migration
     public function up()
     {
         Schema::create('user_record', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->date('action_date');
-            $table->string('description');
-            $table->timestamps();
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
 
+            $table->integer('id_record')->unsigned();
+            $table->foreign('id_record')
+            ->references('id')
+            ->on('records')
+            ->onDelete('cascade');
+            
+            $table->timestamps(); 
         });
     }
 
