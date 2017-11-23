@@ -14,6 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('validate', function () {
+    return 'get! ';
+});
+Route::post('validate', function () {
+});
+Route::post('validate', 'pruebaPostController@validates');
+
+Route::get('/p', function () {
+    return view('pruebaPost');
+});
 Route::get('/user',function(){
 	return view('user');
 });
@@ -38,9 +48,7 @@ Route::get('/voluntier', function () {
 });
 
 
-Route::get('/action', function () {
-    return view('action');
-});
+
 
 Route::get('/profile', function () {
     return view('profile');     
@@ -58,16 +66,9 @@ Route::get('/catastrophe2', function () {
     return view('pruebaBaseDatos0Vista', $regions);
 });
 Route::get('/catastrophe2', 'CatastropheController@create');
-Route::get('/catastrophe2', 'CatastropheController@prueba');
-
-Route::get('/action', function () {
-    return view('action');
-});
+Route::get('/catastrophe2', 'CatastropheController@prueba');    
 
 
-Route::get('/nuevaMedida', function () {
-    return view('createAction');
-});
 
 Route::get('pruebaBaseDatosVista', function () {
 	$data ['datos'] = [];
@@ -96,3 +97,10 @@ Route::post('/catastrophe2','CatastropheController@store');
 
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');
+
+
+
+Route::resource('nuevaMedida','CreateActionsController');
+
+Route::post('refresh','CreateActionsController@refresh');
+

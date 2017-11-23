@@ -44,10 +44,10 @@
 							<select class="form-control" name="Tipo de medida">
 								
 								<option>Ver medidas</option>
-								<option value= "#">Centro de acopio</option>
-								<option value= "#">Voluntariado</option>
-								<option value= "#">Evento a Beneficio</option>
-								<option value= "#">Donación</option>
+								<option value= "#cac">Centro de acopio</option>
+								<option value= "#vol">Voluntariado</option>
+								<option value= "#benf">Evento a Beneficio</option>
+								<option value= "#don">Donación</option>
 							
 							</select>
 					  </div>
