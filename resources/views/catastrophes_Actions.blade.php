@@ -68,7 +68,7 @@
 
 <div class="panel-group type" id="catastrophes">
 	@for ($i =0; $i<count($catastrophes); $i++)
-
+	
 		<div class="panel-group type" id="catastrophes" >
 	<div class="panel panel-default">
 	    <div class="panel-heading">
@@ -93,7 +93,8 @@
 			       	</a></li>
 			        <li class="active "><button class = "col-md-4 btn btn-info">Ver Medidas </button>
 			        <button class = "col-md-4 btn btn-info">Editar </button>
-			        <button class = "col-md-4 btn btn-info">Eliminar </button></li>
+			        <button class = "col-md-4 btn btn-info">Eliminar </button></
+			        li>
 			    </ul>				                    
 			</div>
 		</div>

@@ -12,7 +12,7 @@ class Region extends Model
     ];
 
     public function provinces(){
-    		return $this->hasMany(Province::class, 'region_id');
+    	return $this->hasMany(Province::class,'region_id');
     }
 }
 

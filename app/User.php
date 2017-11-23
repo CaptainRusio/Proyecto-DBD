@@ -1,11 +1,15 @@
 <?php
 
+
 namespace App;
+
+
 
 use Illuminate\Notifications\Notifiable;    
 use Illuminate\Foundation\Auth\User as Authenticatable; 
 class User extends Authenticatable  
 {
+
     protected $table = 'users';
 
     protected $fillable = [
@@ -15,8 +19,9 @@ class User extends Authenticatable
     ];
 
     public function action(){
-    	return $this->hasMany(Action::class,'action_user_id');
+    	return $this->belongsToMany(Action::class,'users_actions','actions_id','users_id');
     }
+    
     public function donations(){
         return $this->hasMany(Donation::class, 'user_id');
     }
