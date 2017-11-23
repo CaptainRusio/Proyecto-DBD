@@ -61,21 +61,20 @@ Route::get('/editprofile', function () {
 Route::get('/map', function () {
     return view('map');
 });
-<<<<<<< HEAD
+
 
 Route::get('/catastrophe2', 'CatastropheController@prueba');
 
 Route::get('/action', function () {
     return view('action');
 });
-=======
+
 Route::get('/catastrophe2', function () {
     $regions ['datos'] = [];
     return view('pruebaBaseDatos0Vista', $regions);
 });
 Route::get('/catastrophe2', 'CatastropheController@create');
 Route::get('/catastrophe2', 'CatastropheController@prueba');    
->>>>>>> 87703d32989752abceb6f26a7640bdd6e8810df0
 
 
 
