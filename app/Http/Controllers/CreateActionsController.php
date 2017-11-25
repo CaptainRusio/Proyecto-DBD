@@ -13,8 +13,6 @@ class CreateActionsController extends Controller
 		return view('createAction', $data,$data2);
 	}
 	public function refresh(Request $request){
-		$data['dataIn'] = [];
-		$data2['dataQuery'] = $request->get("selectMed");
-		return view('createAction', $data,$data2);
+		print_r($_REQUEST);
 	}
 }

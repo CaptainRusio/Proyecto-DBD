@@ -21,7 +21,21 @@
 <head>
 	<title>Nueva medida</title>
 
+
+
 	<script type="text/javascript">
+		
+		function numBox(){
+			var selectBox = document.getElementById("progress");
+			for (var i = 0; i <= 100; i++) {
+				var numOp = document.createElement("option");
+				numOp.value = i;
+				vat txtOp = document.createTextNode(i);
+				numOp.appendChild(txtOp);
+				selectBox.appendChild(numOp);
+			}
+		}
+
 		function refresh() {
 
 			var idSelect = document.getElementById("medidas");
@@ -31,9 +45,9 @@
 			if (pro == "med-0") {
 				//Agregando *Los! tipos de trabajos... arreglar, hacer un select dinámico, que pueda agregar elementos.
 				father.innerHTML = '';
-				father.className += "form-group col";
+				father.className += "form-group";
 				varTipoVol = document.createElement("label");
-				varTipoVol.className += "form-group col-md-4 ";
+				varTipoVol.className += "form-label col-md-4 ";
 				var txtTipo = document.createTextNode("Tipo");
 				varTipoVol.appendChild(txtTipo);
 				father.appendChild(varTipoVol);
@@ -44,6 +58,7 @@
 				//Input del tipo.
 				var inputVol = document.createElement("input");
 				inputVol.type = "text";
+				inputVol.name = "workType";
 				inputVol.className += "form-control";
 				//Se agregan los valores
 				divInput.appendChild(inputVol);
@@ -54,7 +69,7 @@
 
 				//Label del voluntariado.
 				var lblState = document.createElement("label");
-				lblState.className += "form-group col-md-4 ";
+				lblState.className += "col-md-4 ";
 				//Texto del lbl
 				var txtState = document.createTextNode("Estado ");
 				lblState.appendChild(txtState);
@@ -64,15 +79,20 @@
 				//Select
 				var selectState = document.createElement("select");
 				selectState.id = "stateVol";
+				selectState.name = "selectState";
 				selectState.className += "form-control";
-				//States
+				//State
+
 				var op1 = document.createElement("option");
+				op1.value = "noIniciado"
 				txtOp1 = document.createTextNode("No iniciado");
 				op1.appendChild(txtOp1);
 				var op2 = document.createElement("option");
+				op2.value = "En pausa";
 				txtOp2 = document.createTextNode("En Pausa");
 				op2.appendChild(txtOp2);
 				var op3 = document.createElement("option");
+				op3.value = "En curso";
 				txtOp3 = document.createTextNode("En curso");
 				op3.appendChild(txtOp3);
 
@@ -80,12 +100,16 @@
 				selectState.appendChild(op2);
 				selectState.appendChild(op3);
 
+
 				divSelectState.appendChild(selectState);
 				father.appendChild(divSelectState);
 
 				//Fin de selección de estado.
 
 				//
+				//Boton Submit para ir al post
+
+
 
 
 				/*
@@ -109,11 +133,13 @@
 			}else if(pro == "med-3"){
 					
 			}
-
+			var btnCrear = document.createElement("input");
+				btnCrear.type = "submit";
+				var txtBtn = document.createTextNode("Ingresar");
+				btnCrear.appendChild(txtBtn);
+				father.appendChild(btnCrear);
 			//document.getElementById("result").innerHTML = form;
 		}
-
-
 
 	</script>
 
@@ -128,14 +154,12 @@
 				<div class="panel panel-default">
 
 					<div class="panel-heading">Crear medida</div>
-
+				<form method="post" action="refresh">
 					<div class="panel-body" id="panelData">
 						
 	                        <label for="name" class="col-md-4 control-label">Nombre medida</label>
 	                        <div class="col-md-8">
-		                        <form method="fatherT" action="refresh">
 		                        	<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-		                        </form>
 	                        </div>
 
 	                    	<label for="name" class="col-md-4 control-label">Tipo de medida</label>
@@ -144,7 +168,6 @@
 									<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 									<select class="form-control" name="Tipo de medida" 
 										id = "medidas"
-										form = "refresh"
 										onchange="refresh()" 
 									>
 										<option value= "med-0">Voluntariado</option>
@@ -157,9 +180,20 @@
 
 							<label class="col-md-4" 
 							id = "lblDescipcion">Descripción</label>
-							<textarea class = "col-md-8" name = "descripcion" id="txtArea" form = "refresh">
-							Describa la Medida
-							</textarea>
+							<div class = "col-md-6">
+								<textarea class = "form-control col-md-6" name = "descripcion" id="txtArea">
+								Describa la Medida
+								</textarea>
+							</div>
+							
+							<label class = "form-label col-md-4" >Progreso a la fecha</label>
+							<div class="col-md-8" id="numBox" onload="numBox()">
+								<select class="form-control" name="progressBox" 
+									id = "progress"
+								>
+								</select>
+							</div>
+
 
 
 							<!-- Para agregar los elementos dinámicamente -->
@@ -170,6 +204,7 @@
 
 							</div>
 					</div>
+					</form >
 
 				</div>
 
