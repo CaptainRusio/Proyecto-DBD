@@ -33,16 +33,16 @@
 		            	'</div>';
 
 
-			}else if(pro == "med-1"){
+			}else if(pro == "med-2"){
 
 
-			}else if(pro == "med-1"){
+			}else if(pro == "med-3"){
 
-			}else if(pro == "med-1"){
+			}else if(pro == "med-4"){
 
 			}
 
-			document.getElementById("result").innerHTML = form;
+			//document.getElementById("result").innerHTML = form;
 		}
 
 
@@ -86,8 +86,11 @@
 					  		</div>
 					  		<div > 
 								<form id= "result">
-									
-			                        
+									<label for="name" class="col-md-4 control-label">Descripción</label>
+									<div class="col-md-6">
+		                			<textarea id="name" type="text" class="form-control" name="name"				 value="{{ old('name') }}" required autofocus>
+		            				</textarea>
+
 									
 								</form>
 
