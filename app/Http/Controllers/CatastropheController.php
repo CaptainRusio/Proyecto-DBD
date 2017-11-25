@@ -46,7 +46,7 @@ class CatastropheController extends Controller
             );
         if($validator->fails())
         {
-            return redirect()->route('catastrophe')
+            return redirect()->route('catastrophe2')
                                     ->withErrors($validator)
                                     ->withInput();
         }
@@ -59,6 +59,7 @@ class CatastropheController extends Controller
     {
         $regions = Region::all();
         $provinces = Province::all();
+        $communes = Commune::all();
         return view('catastrophe2', compact('regions','provinces','communes'));
     }
 
@@ -92,8 +93,9 @@ class CatastropheController extends Controller
     {
      
         $regions = Region::all();
-        echo $regions;
-        return view('catastrophe', $regions);
+        $provinces = Province::all();
+        $communes = Commune::all();
+        return view('catastrophe2',  compact('regions','provinces','communes'));
     }
 
 }
