@@ -17,10 +17,6 @@ class CreateDonationCampaign extends Migration
             $table->increments('id');
             $table->integer('goal');
             $table->integer('actual_amount');
-            $table->date('start');
-            $table->date('end');
-            $table->integer('cost');
-            $table->integer('progress');
             $table->integer('anonymous_donation');
             $table->timestamps();
         });

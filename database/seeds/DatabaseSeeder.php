@@ -7,7 +7,7 @@ class DatabaseSeeder extends BaseSeeder
 {
    protected $truncate = array(
         'user_record',
-        ¨'records',
+        'records',
         'rnv',
         'users',
         //'password_resets',
@@ -25,7 +25,7 @@ class DatabaseSeeder extends BaseSeeder
     );
  
     protected $seeders = array(
-        /*'Volunteering',
+        'Volunteering',
         'Region',
         'Province',
         'Commune',
@@ -36,7 +36,7 @@ class DatabaseSeeder extends BaseSeeder
         'Action',
         'DonationCampaign',
         'User_Action',
-        //'Donation',
+        'Donation',
         /*'User_Role',
         
         ,

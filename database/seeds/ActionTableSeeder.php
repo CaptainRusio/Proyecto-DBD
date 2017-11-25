@@ -21,6 +21,11 @@ class ActionTableSeeder extends Seeder
                 'action_id' => rand(0,10),
                 'action_type'=> $typeActions[$i],
                 'catastrophe_id' => rand(1,2),
+                'start' => Carbon\Carbon::parse('2000-01-01'),
+				'end' => Carbon\Carbon::parse('2000-01-01'),
+				'cost' => rand(0,9999999),
+                'progress' => rand(0,100),
+                'ubication' => "asldkjsd",
             ]);
         }        
     }
