@@ -8,7 +8,6 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
 @extends('layouts.app')
 
 @section('content')
@@ -19,12 +18,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Nueva medida</title>
-
-
+	<style type="text/css">
+		
+		.row {
+    
+    		width: 50%;
+			}
+	</style>
 
 	<script type="text/javascript">
 		
+
 		function numBox(){
 			var selectBox = document.getElementById("progress");
 			for (var i = 0; i <= 100; i++) {
@@ -181,8 +187,8 @@
 
 							<label class="col-md-4" 
 							id = "lblDescipcion">Descripción</label>
-							<div class = "col-md-6">
-								<textarea class = "form-control col-md-6" name = "descripcion" id="txtArea">
+							<div class = "col-md-8">
+								<textarea class = "form-control" name = "descripcion" id="txtArea">
 								Describa la Medida
 								</textarea>
 							</div>
@@ -195,6 +201,11 @@
 								</select>
 							</div>
 
+							<label id=lblCost class = "form-label col-md-4">Costo a la fecha</label>
+							<div class = "col-md-8">
+								<input type="text" name="cost" class = "form-control" value="Ingrese un monto en pesos (CLP)">
+							</div>
+							<label class = "form-label col-md-4" >Fecha de inicio</label>
 
 
 							<!-- Para agregar los elementos dinámicamente -->
