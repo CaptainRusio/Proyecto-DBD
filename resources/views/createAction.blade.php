@@ -30,7 +30,8 @@
 			for (var i = 0; i <= 100; i++) {
 				var numOp = document.createElement("option");
 				numOp.value = i;
-				vat txtOp = document.createTextNode(i);
+				console.log(i);
+				var txtOp = document.createTextNode(i);
 				numOp.appendChild(txtOp);
 				selectBox.appendChild(numOp);
 			}
@@ -144,7 +145,7 @@
 	</script>
 
 </head>
-<body>
+<body  onload="numBox()">
 	<content>
 	
 	<div class= "container">
@@ -187,9 +188,9 @@
 							</div>
 							
 							<label class = "form-label col-md-4" >Progreso a la fecha</label>
-							<div class="col-md-8" id="numBox" onload="numBox()">
+							<div class="col-md-8" id="numBox">
 								<select class="form-control" name="progressBox" 
-									id = "progress"
+									id = "progress" 
 								>
 								</select>
 							</div>
