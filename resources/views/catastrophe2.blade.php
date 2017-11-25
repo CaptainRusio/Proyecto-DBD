@@ -211,13 +211,6 @@
                 return newCommunes;
 
            }
-
-
-           
-
-           
-
-
        </script>
 </body>
 </head>

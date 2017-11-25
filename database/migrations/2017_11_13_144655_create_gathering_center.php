@@ -17,10 +17,6 @@ class CreateGatheringCenter extends Migration
             $table->increments('id');
             $table->integer('status_gathering_center');
             $table->string('description_gathering_center');
-            $table->date('start');
-            $table->date('end');
-            $table->integer('cost');
-            $table->integer('progress');
             $table->timestamps();
         });
     }

@@ -17,6 +17,13 @@ class CreateAction extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->integer('progress');
+            $table->integer('cost');
+            $table->date('start');
+            $table->date('end');
+            $table->string('ubication');
+
+
              $table->integer('catastrophe_id')
             ->unsigned();
             $table->foreign('catastrophe_id')

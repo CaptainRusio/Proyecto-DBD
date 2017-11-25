@@ -18,10 +18,6 @@ class CreateVolunteerings extends Migration
             $table->string('type_of_job');
             $table->integer('time');
             $table->integer('status_volunteering');
-            $table->date('start');
-            $table->date('end');
-            $table->integer('cost');
-            $table->integer('progress');
             $table->timestamps();
         });
     }

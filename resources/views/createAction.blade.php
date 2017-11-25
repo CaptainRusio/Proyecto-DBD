@@ -23,23 +23,45 @@
 
 	<script type="text/javascript">
 		function refresh() {
-			var form = "";
+			
+
 			var idSelect = document.getElementById("medidas");
 			var pro = idSelect.options[idSelect.selectedIndex].value;
-			if (pro == "med-1") {
-				form += '<label for="name" class="col-md-4 control-label">Descripción</label>'+
-						'<div class="col-md-6">'+
-		                '<input id="name" type="text" class="form-control" '+'name="name" value="{{ old('name') }}" required autofocus>'+
-		            	'</div>';
+			var father = document.getElementById("result"); //Se obtiene el Form para establecer
+			//Los camfather
+			if (pro == "med-0") {
+				father.innerHTML = '';
+				//Agregando *Los! tipos de trabajos... arreglar, hacer un select dinámico, que pueda agregar elementos.
+				var div0 = document.createElement("div");
+				div0.className += "form-group";
+				var div0_lbl0 = document.createElement("label");
+				div0_lbl0.className += "col-md-4";
+				var lbl0_text = document.createTextNode("Tipo de trabajo: ");
+				var div0_input0 = document.createElement("input");
+				div0_input0.className += "col-md-6";
+				div0_lbl0.appendChild(lbl0_text);
+				div0.appendChild(div0_lbl0);
+				div0.appendChild(div0_input0);
+				father.appendChild(div0);
+				//Fin tipos de trabajos.
+
+				//Tiempo de Inicio.
+				var div1 = document.createElement("div");
+				
 
 
+			}else if(pro == "med-1"){
+				father.innerHTML = '';
+				var fragment = document.createDocumentFragment();
+				var div = document.createElement("div");
+				var c = document.createTextNode("Holaa");
+				div.appendChild(c);
+				fragment.appendChild(div);
+				father.appendChild(fragment);
 			}else if(pro == "med-2"){
-
-
+					father.innerHTML = '';
 			}else if(pro == "med-3"){
-
-			}else if(pro == "med-4"){
-
+					father.innerHTML = '';
 			}
 
 			//document.getElementById("result").innerHTML = form;
@@ -70,7 +92,7 @@
                     	<label for="name" class="col-md-4 control-label">Tipo de medida</label>
                         
                         <div class="col-md-6">
-							<form method="POST" action="refresh">
+							<form method="fatherT" action="refresh">
 								<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 								<select class="form-control" name="Tipo de medida" 
 									id = "medidas"
@@ -83,20 +105,9 @@
 								</select>
 
 								</form>
-					  		</div>
-					  		<div > 
-								<form id= "result">
-									<label for="name" class="col-md-4 control-label">Descripción</label>
-									<div class="col-md-6">
-		                			<textarea id="name" type="text" class="form-control" name="name"				 value="{{ old('name') }}" required autofocus>
-		            				</textarea>
+					  		<div id = "result"> 
 
-									
-								</form>
-
-
-
-
+							</div>
 							</div>
 						</div>
 
@@ -110,7 +121,7 @@
 </content>
 
 <!--
-	<form method="POST" action="refresh">
+	<form method="fatherT" action="refresh">
 		<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 
 		<label>Tipo de medida: </label>
