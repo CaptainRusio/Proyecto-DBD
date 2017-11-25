@@ -4,40 +4,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+        <title>Nueva medida</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+<body>
 @extends('layouts.app')
 
 @section('content')
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-
-	<title>Nueva medida</title>
-	<style type="text/css">
 		
-		.row {
-    
-    		width: 50%;
-			}
-	</style>
-
 	<script type="text/javascript">
-		
-
 		function numBox(){
 			var selectBox = document.getElementById("progress");
 			for (var i = 0; i <= 100; i++) {
 				var numOp = document.createElement("option");
 				numOp.value = i;
 				console.log(i);
-				var txtOp = document.createTextNode(i);
+				var txtOp = document.createTextNode(i+" %");
 				numOp.appendChild(txtOp);
 				selectBox.appendChild(numOp);
 			}
@@ -51,7 +34,7 @@
 			//Los camfather
 			if (pro == "med-0") {
 				//Agregando *Los! tipos de trabajos... arreglar, hacer un select dinámico, que pueda agregar elementos.
-				father.innerHTML = '';
+				
 				father.className += "form-group";
 				varTipoVol = document.createElement("label");
 				varTipoVol.className += "form-label col-md-4 ";
@@ -189,7 +172,7 @@
 							id = "lblDescipcion">Descripción</label>
 							<div class = "col-md-8">
 								<textarea class = "form-control" name = "descripcion" id="txtArea">
-								Describa la Medida
+								
 								</textarea>
 							</div>
 							
@@ -206,7 +189,30 @@
 								<input type="text" name="cost" class = "form-control" value="Ingrese un monto en pesos (CLP)">
 							</div>
 							<label class = "form-label col-md-4" >Fecha de inicio</label>
-
+							<div class="container col-md-8">
+							        <div class="form-group">
+							            <div class='input-group date' id='datetimepicker8'>
+							                <input type='text' class="form-control" />
+							                <span class="input-group-addon">
+							                    <span class="fa fa-calendar">
+							                    </span>
+							                </span>
+							            </div>
+							        
+							    </div>
+							    <script type="text/javascript">
+							        $(function () {
+							            $('#datetimepicker8').datetimepicker({
+							                icons: {
+							                    time: "fa fa-clock-o",
+							                    date: "fa fa-calendar",
+							                    up: "fa fa-arrow-up",
+							                    down: "fa fa-arrow-down"
+							                }
+							            });
+							        });
+							    </script>
+							</div>
 
 							<!-- Para agregar los elementos dinámicamente -->
 							<div id = "dinamicBox" >
