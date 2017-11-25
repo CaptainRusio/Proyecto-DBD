@@ -16,7 +16,6 @@ class CreateVolunteerings extends Migration
         Schema::create('volunteerings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type_of_job');
-            $table->integer('time');
             $table->integer('status_volunteering');
             $table->timestamps();
         });
