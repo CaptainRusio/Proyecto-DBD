@@ -295,6 +295,7 @@
 							<div class="container col-md-8">
 							        <input class = "form-control" type="text" name="dateEnd" id="dateEnd">
 							</div>
+							<label class = "form-label col-md-4" >{{$idCat}}</label>
 
 							<!-- Para agregar los elementos dinámicamente -->
 							<div id = "dinamicBox" >
@@ -313,28 +314,7 @@
 	</div>
 </content>
 </body>
-<!--
-	<form method="fatherT" action="refresh">
-		<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 
-		<label>Tipo de medida: </label>
-		<select id="selectMedida" name="selectMed">
-		@if(!is_null($dataIn))
-			@for ($i = 0; $i<count($dataIn); $i++)	
-				<option value= "med-{{$i}}">{{$dataIn[$i]}}</option>
-			@endfor
-		@endif
-		</select>
-		<input type = "submit"  name = "Medidas:" id = "btnAceptar" value = "selectMedida"/>
-
-		@if(!is_null($dataQuery))
-			@if($dataQuery == "med-1")
-				<h1>Lo logramos! </h1>
-			@endif
-		@endif
-
-	</form>
-	-->
 
 
 @endsection

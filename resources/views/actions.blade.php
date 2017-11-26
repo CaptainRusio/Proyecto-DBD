@@ -9,8 +9,7 @@ Medidas
 
 <style type="text/css">
     body {
-		padding: 60px 0px;
-		background-color: rgb(220, 220, 220);
+		
 	}
     
     .event-list {
@@ -233,8 +232,13 @@ Medidas
 	            </form>
 	        </div>
 			<div class="col-md-6 ">
-				<a href="{{url('/catastrophe2')}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
-				</span> Añadir Medida</a>
+				<form method="post" action="createAction">
+					<input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+					<button type="submit" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+					<input type="hidden" name="idCat" value="{{$id}}">
+					</span> Añadir Medida</button>
+
+				</form>
 			</div>
     	</div>
 	</div>
@@ -244,7 +248,7 @@ Medidas
 			<div class="[ col-md-12 col-sm-6 ]">
 				<ul class="event-list">
 					@for($i = 0; $i<count($actions); $i++)
-						<li >
+						<li>
 							<time datetime="{{$actions[$i]->date}}">
 								<span class="day">{{explode('-', $actions[$i]->start, 3)[2]}}</span>
 								<span class="month">{{explode('-', $actions[$i]->start, 3)[1]}}</span>

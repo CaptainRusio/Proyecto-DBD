@@ -122,3 +122,5 @@ Route::post('refresh','CreateActionsController@refresh');
 
 //actions
 Route::get('/actions','ActionsController@index');
+
+Route::post('/createAction','ActionsController@newAction');
