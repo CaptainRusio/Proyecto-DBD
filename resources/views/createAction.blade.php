@@ -6,12 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Nueva medida</title>
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-<body>
-@extends('layouts.app')
-
-@section('content')
+        
+		  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		  <script>
+		  $( function() {
+		    $( "#datepicker" ).datepicker();
+		  } );
+		  </script>
 		
 	<script type="text/javascript">
 		function numBox(){
@@ -32,6 +36,7 @@
 			var pro = idSelect.options[idSelect.selectedIndex].value;
 			var father = document.getElementById("dinamicBox"); //Se obtiene el Form para establecer
 			//Los camfather
+			father.innerHTML = '';
 			if (pro == "med-0") {
 				//Agregando *Los! tipos de trabajos... arreglar, hacer un select dinámico, que pueda agregar elementos.
 				
@@ -117,8 +122,44 @@
 				//Fin tipos de trabajos.
 
 			}else if(pro == "med-1"){
-				
+				father.className += "form-group";
+				var lblState = document.createElement("label");
+				lblState.className += "col-md-4 ";
+				//Texto del lbl
+				var txtState = document.createTextNode("Estado ");
+				lblState.appendChild(txtState);
+				father.appendChild(lblState);
+				var divSelectState = document.createElement("div");
+				divSelectState.className +="col-md-8";
+				//Select
+				var selectState = document.createElement("select");
+				selectState.id = "stateVol";
+				selectState.name = "selectState";
+				selectState.className += "form-control";
+				//State
+
+				var op1 = document.createElement("option");
+				op1.value = "noIniciado"
+				txtOp1 = document.createTextNode("No iniciado");
+				op1.appendChild(txtOp1);
+				var op2 = document.createElement("option");
+				op2.value = "En pausa";
+				txtOp2 = document.createTextNode("En Pausa");
+				op2.appendChild(txtOp2);
+				var op3 = document.createElement("option");
+				op3.value = "En curso";
+				txtOp3 = document.createTextNode("En curso");
+				op3.appendChild(txtOp3);
+
+				selectState.appendChild(op1);
+				selectState.appendChild(op2);
+				selectState.appendChild(op3);
+
+
+				divSelectState.appendChild(selectState);
+				father.appendChild(divSelectState);
 			}else if(pro == "med-2"){
+				
 					
 			}else if(pro == "med-3"){
 					
@@ -134,7 +175,12 @@
 	</script>
 
 </head>
+
+
 <body  onload="numBox()">
+@extends('layouts.app')
+
+@section('content')
 	<content>
 	
 	<div class= "container">
@@ -190,6 +236,12 @@
 							</div>
 							<label class = "form-label col-md-4" >Fecha de inicio</label>
 							<div class="container col-md-8">
+							        
+							        <p>Date: <input type="text" id="datepicker"></p>
+
+							</div>
+							<label class = "form-label col-md-4" >Fecha de termino</label>
+							<div class="container col-md-8">
 							        <div class="form-group">
 							            <div class='input-group date' id='datetimepicker8'>
 							                <input type='text' class="form-control" />
@@ -200,18 +252,6 @@
 							            </div>
 							        
 							    </div>
-							    <script type="text/javascript">
-							        $(function () {
-							            $('#datetimepicker8').datetimepicker({
-							                icons: {
-							                    time: "fa fa-clock-o",
-							                    date: "fa fa-calendar",
-							                    up: "fa fa-arrow-up",
-							                    down: "fa fa-arrow-down"
-							                }
-							            });
-							        });
-							    </script>
 							</div>
 
 							<!-- Para agregar los elementos dinámicamente -->
@@ -257,8 +297,20 @@
 	-->
 
 </body>
+@endsection
+ <script type="text/javascript">
+							        $(function () {
+							            $('#datetimepicker8').datetimepicker({
+							                icons: {
+							                    time: "fa fa-clock-o",
+							                    date: "fa fa-calendar",
+							                    up: "fa fa-arrow-up",
+							                    down: "fa fa-arrow-down"
+							                }
+							            });
+							        });
+							    </script>
 </html>
 
 
 
-@endsection

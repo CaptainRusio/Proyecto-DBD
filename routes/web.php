@@ -47,6 +47,9 @@ Route::get('/voluntier', function () {
     return view('voluntier');
 });
 
+Route::get('/date', function () {
+    return view('date');
+});
 
 
 
