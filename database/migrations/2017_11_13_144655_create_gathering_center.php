@@ -16,7 +16,6 @@ class CreateGatheringCenter extends Migration
         Schema::create('gathering_centers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('status_gathering_center');
-            $table->string('description_gathering_center');
             $table->timestamps();
         });
     }
