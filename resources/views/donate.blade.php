@@ -32,12 +32,11 @@
 	
 <div class="col-sm-6 col-md-4" align="center">
     <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc6PR13xIyjL3Zkb38nWEm-uVVHXDfF4o201KR7EWAA_PoVCt1" alt="...">
+      <img src="http://donacionesweb.com/imagenes/inicio.jpg" alt="...">
       <div class="caption">
-        <h3>Teletón 2018</h3>
-        <p>Las grandes novedades de la nueva Teletón: partirá en Valparaíso e incluirá a figuras de Viña 2018.
-        Para donar, ingresa a la cuenta 24.500-03</p>
-        <p><a href="https://www.bancochile.cl" class="btn btn-primary" role="button">Dona aquí</a>
+        <h3>Donar en alguna medida</h3>
+        <p>Para donar anónimamente, puedes ingresar aquí</p>
+        <p><a href="{{url('donateAnonymous')}}" class="btn btn-primary" role="button">Dona aquí</a>
       </div>
     </div>
   </div>

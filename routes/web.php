@@ -34,9 +34,10 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/cm', function () {
-    return view('medida_cat');
-});
+
+Route::get('/action','ActionController@index');
+
+
 Route::get('/help', function () {
     return view('help');
 });
@@ -66,11 +67,15 @@ Route::get('/map', function () {
 });
 
 
+Route::get('/donateAnonymous', function () {
+    return view('donateAnonymous');
+});
+
+
+
 Route::get('/catastrophe2', 'CatastropheController@prueba');
 
-Route::get('/action', function () {
-    return view('action');
-});
+
 
 Route::get('/catastrophe2', function () {
     $regions ['datos'] = [];
@@ -86,6 +91,8 @@ Route::get('pruebaBaseDatosVista', function () {
 	$data2 ['datosConsulta'] = [];
     return view('pruebaBaseDatos0Vista', $data, $data2);
 });
+
+
 
 Auth::routes();
 
