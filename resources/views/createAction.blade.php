@@ -208,9 +208,32 @@
 				var dir = document.createElement("input");
 				dir.className += "form-control";
 				dir.type = "text";
+				dir.name = "address";
+
 				divInput.appendChild(dir);
 				father.appendChild(lblDir);
 				father.appendChild(divInput);
+
+				//Número de voluntarios
+
+				var lblNum = document.createElement("label");
+				var txtLbl = document.createTextNode("Número de voluntarios");
+				//Se agrega el texto al label
+				lblNum.className += "form-label col-md-4";
+				lblNum.appendChild(txtLbl);
+				//Se hace un div para el input
+				var divInputV = document.createElement("div");
+				divInputV.className += "col-md-8"
+				var dirInptV = document.createElement("input");
+				dirInptV.className += "form-control";
+				dirInptV.type = "text";
+				dirInptV.name = "numV";
+
+				divInputV.appendChild(dirInptV);
+				father.appendChild(lblNum);
+				father.appendChild(divInputV);
+
+				
 
 
 			}else if(pro == "med-3"){

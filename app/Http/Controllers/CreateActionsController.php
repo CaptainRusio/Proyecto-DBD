@@ -59,6 +59,13 @@ class CreateActionsController extends Controller
 			$action->save();
 		}else if($request->opt == "med-2"){
 			//Es evento a beneficio
+			$evt = new EventToBenefit();
+			$evt->address = $request->address;
+			$evt->volunteers_number = $request->numV;
+			$evt->save();
+			$action->action_id = $evt->id;
+			$action->action_type = "EventToBenefit";
+			$action->save();
 		}else if($request->opt == "med-3"){
 			//Es campaña de donación
 		}
