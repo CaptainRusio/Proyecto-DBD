@@ -42,20 +42,23 @@
 				father.className += "form-group";
 				varTipoVol = document.createElement("label");
 				varTipoVol.className += "form-label col-md-4 ";
-				var txtTipo = document.createTextNode("Tipo");
+				var txtTipo = document.createTextNode("Tipo trabajo");
 				varTipoVol.appendChild(txtTipo);
 				father.appendChild(varTipoVol);
 
 				//Div para input del tipo de voluntariado
 				var divInput = document.createElement("div");
 				divInput.className += "col-md-8";
-				//Input del tipo.
-				var inputVol = document.createElement("input");
-				inputVol.type = "text";
-				inputVol.name = "workType";
-				inputVol.className += "form-control";
+				//Select del tipo.
+				var selectTipo = document.createElement("select");
+				selectTipo.className += "form-control";
+				selectTipo.id = "stateTipo";
+				selectTipo.name = "selectTipo";
+
+				
+
 				//Se agregan los valores
-				divInput.appendChild(inputVol);
+				divInput.appendChild(selectTipo);
 				father.appendChild(divInput);
 				//Fin tipo de voluntariado.
 
@@ -98,6 +101,25 @@
 				divSelectState.appendChild(selectState);
 				father.appendChild(divSelectState);
 
+				//Número máximo de voluntarios.
+				var numMaxlbl = document.createElement("label");
+				var numMaxTxt = document.createTextNode("Número máximo de integrantes");
+				numMaxlbl.className += "form-label col-md-4";
+				numMaxlbl.appendChild(numMaxTxt);
+
+				//div para el input
+
+				var divMax = document.createElement("div");
+				divMax.className += "col-md-8";
+				var inputMax = document.createElement("Input");
+				inputMax.type = "text";
+				inputMax.className += "form-control";
+
+				//Se agrega al div
+				divMax.appendChild(inputMax);
+				//Se agregan al padre
+				father.appendChild(numMaxlbl);
+				father.appendChild(divMax);
 				//Fin de selección de estado.
 
 				//
@@ -132,7 +154,7 @@
 				divSelectState.className +="col-md-8";
 				//Select
 				var selectState = document.createElement("select");
-				selectState.id = "stateVol";
+				selectState.id = "stateVol2";
 				selectState.name = "selectState";
 				selectState.className += "form-control";
 				//State
@@ -158,13 +180,45 @@
 				divSelectState.appendChild(selectState);
 				father.appendChild(divSelectState);
 			}else if(pro == "med-2"){
-				
-					
+				father.className += "form-group";
+				var lblDir = document.createElement("label");
+				var txtLbl = document.createTextNode("Dirección ");
+				//Se agrega el texto al label
+				lblDir.className += "form-label col-md-4";
+				lblDir.appendChild(txtLbl);
+				//Se hace un div para el input
+				var divInput = document.createElement("div");
+				divInput.className += "col-md-8"
+				var dir = document.createElement("input");
+				dir.className += "form-control";
+				dir.type = "text";
+				divInput.appendChild(dir);
+				father.appendChild(lblDir);
+				father.appendChild(divInput);
+
+
 			}else if(pro == "med-3"){
 					
+				var lblGoal = document.createElement("label");
+				lblGoal.className += "form-label col-md-4";
+				var txtGoal = document.createTextNode("Objetivo ");
+				lblGoal.appendChild(txtGoal);
+				father.appendChild(lblGoal);
+
+				var divInput = document.createElement("div");
+				divInput.className = "col-md-8"
+				var inputGoal = document.createElement("input");
+				inputGoal.type = "text";
+				inputGoal.className += "form-control";
+				inputGoal.name = "objetivo";
+
+				divInput.appendChild(inputGoal);
+				father.appendChild(divInput);
+
 			}
 			var btnCrear = document.createElement("input");
 				btnCrear.type = "submit";
+				btnCrear.className = "btn btn-primary btn-lg col-md-4 col-md-offset-4";
 				var txtBtn = document.createTextNode("Ingresar");
 				btnCrear.appendChild(txtBtn);
 				father.appendChild(btnCrear);
@@ -234,12 +288,12 @@
 							<label class = "form-label col-md-4" >Fecha de inicio</label>
 							<div class="container col-md-8">
 							        
-							        <input type="text" name = "dateStart" id="dateStart">
+							        <input class = "form-control" type="text" name = "dateStart" id="dateStart">
 
 							</div>
 							<label class = "form-label col-md-4" >Fecha de termino</label>
 							<div class="container col-md-8">
-							        <input type="text" name="dateEnd" id="dateEnd">
+							        <input class = "form-control" type="text" name="dateEnd" id="dateEnd">
 							</div>
 
 							<!-- Para agregar los elementos dinámicamente -->
