@@ -249,10 +249,43 @@
 				var inputGoal = document.createElement("input");
 				inputGoal.type = "text";
 				inputGoal.className += "form-control";
-				inputGoal.name = "objetivo";
+				inputGoal.name = "goal";
 
 				divInput.appendChild(inputGoal);
 				father.appendChild(divInput);
+
+				var lblActualAmount = document.createElement("label");
+				lblActualAmount.className += "form-label col-md-4";
+				var txtActual = document.createTextNode("Monto actual ");
+				lblActualAmount.appendChild(txtActual);
+				father.appendChild(lblActualAmount);
+
+				var divActualAm = document.createElement("div");
+				divActualAm.className = "col-md-8"
+				var inputActualAm = document.createElement("input");
+				inputActualAm.type = "text";
+				inputActualAm.className += "form-control";
+				inputActualAm.name = "am";
+
+				divActualAm.appendChild(inputActualAm);
+				father.appendChild(divActualAm);
+
+				var lblAnonDon = document.createElement("label");
+				lblAnonDon.className += "form-label col-md-4";
+				var txtAnonDon = document.createTextNode("Donaciones anonimas ");
+				lblAnonDon.appendChild(txtAnonDon);
+				father.appendChild(lblAnonDon);
+
+				var divAnonDon = document.createElement("div");
+				divAnonDon.className = "col-md-8"
+				var inputAnonDon = document.createElement("input");
+				inputAnonDon.type = "text";
+				inputAnonDon.className += "form-control";
+				inputAnonDon.name = "ad";
+
+				divAnonDon.appendChild(inputAnonDon);
+				father.appendChild(divAnonDon);
+
 
 			}
 			var btnCrear = document.createElement("input");

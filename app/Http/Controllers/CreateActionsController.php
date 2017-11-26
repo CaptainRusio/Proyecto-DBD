@@ -67,7 +67,14 @@ class CreateActionsController extends Controller
 			$action->action_type = "EventToBenefit";
 			$action->save();
 		}else if($request->opt == "med-3"){
-			//Es campaña de donación
+			$don = new DonationCampaign();
+			$don->anonymous_donation = $request->ad;
+			$don->goal = $request->goal;
+			$don->actual_amount = $request->am;
+			$don->save();
+			$action->action_id = $don->id;
+			$action->action_type = "DonationCampaign";
+			$action->save();
 		}
 	}
 }

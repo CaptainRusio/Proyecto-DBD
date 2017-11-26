@@ -10,10 +10,6 @@ class DonationCampaign extends Model
     protected $fillable = [ 'id',
 					'goal',
 					'actual_amount',
-					'start',
-					'end',
-					'cost',
-					'progress',
 					'anonymous_donation',];
 
 
