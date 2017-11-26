@@ -12,6 +12,8 @@ class Action extends Model
         'name', 'description',
         'action_user_id',
         'catastrophe_id',
+        'start',
+        'end',
     ];
 
     public function user(){
