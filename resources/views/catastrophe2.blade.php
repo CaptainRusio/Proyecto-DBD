@@ -13,8 +13,9 @@
 
        
 
-<body onload="functionRegion()">
+<body onload="start()">
 <script type="text/javascript">
+
            function functionRegion(){
                 var cuisines= <?php echo json_encode($regions ); ?>;
                 var sel = document.getElementById('regionSelect');
@@ -82,7 +83,7 @@
            }
 
            function functionCommunes(){
-                var sel = document.getElementById('commune_id');
+                var sel = document.getElementById('commune');
                 var length = sel.options.length;
                 for (i = 0; i < length; i++) {
                   sel.options[i] = null;
@@ -96,12 +97,15 @@
                 var communes = getCommunes(strUser);
                 
                 var fragment = document.createDocumentFragment();
-                var sel = document.getElementById('commune_id');
+                var sel = document.getElementById('commune');
                 communes.forEach(function(cuisine, index) {
-                    var opt = document.createElement('option');
-                    opt.innerHTML = cuisine;
-
-                    fragment.appendChild(opt);
+                    if(index%2 == 0){
+                        var opt = document.createElement('option');
+                        opt.innerHTML = communes[index];
+                        opt.value = communes[index+1];
+                        fragment.appendChild(opt);
+                    }
+                    
                 });
 
                 sel.appendChild(fragment);
@@ -116,12 +120,20 @@
 
                     if(valor.province_id == $id){
                         newCommunes.push(valor.name);
+                        newCommunes.push(valor.id);
                     }
                 });
 
                 return newCommunes;
 
            }
+            function run() {
+                document.getElementById("commune_id").value = document.getElementById("commune").value;
+            }
+            function start(){
+                functionRegion();
+                run();
+            }
        </script>
 @extends('layouts.app')
 
@@ -135,7 +147,7 @@
                 <div class="panel-heading">Registrar Catastrofe</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="post" action="{{ url('/catastrophe2') }}" >
+    <form class="form-horizontal" action="storeCatastrophe" method="post" >
                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 
                     <div>
@@ -197,8 +209,9 @@
                         <div class = "form-group cold-md-4">
                             <label for="selProv" class="col-md-3 control-label">Comuna:</label>
                             <div class="col-md-6">
-                                <select class="form-control" name = "commune_id" id="commune_id"></select>
-                            </div>
+                                <select onload="run()" class="form-control" name = "commune" id="commune"></select>
+                                <input style="display: none;" name = "commune_id" type="text" id="commune_id" placeholder="get value on option select"><br>
+                            </div>  
                         </div>  
                     </div>
                         <div class="form-group">

@@ -23,6 +23,6 @@ class Action extends Model
         return $this->morphTo();
     }
     public function catastrophes(){
-        return $this->hasMany(Catastrophe::class,'catastrophe_id');
+        return $this->belongsTo(Catastrophe::class,'catastrophe_id');
     }
 }

@@ -73,9 +73,6 @@ Route::get('/donateAnonymous', function () {
 
 
 
-Route::get('/catastrophe2', 'CatastropheController@prueba');
-
-
 
 Route::get('/catastrophe2', function () {
     $regions ['datos'] = [];
@@ -111,7 +108,7 @@ Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/catastrophe2','CatastropheController@store');
+Route::resource('storeCatastrophe', 'CatastropheController');
 
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');
