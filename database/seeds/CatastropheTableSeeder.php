@@ -10,7 +10,6 @@ class CatastropheTableSeeder extends Seeder
 
         /*name
                 commune_id*/
-        $arrayCatastrophes = ['Terremoto en Valparaiso','Diluvio en Chiloe'];
         $arrayTypes = ['Terremoto','Inundación'];
         $arrayDescriptions = ['Gran terremoto que asoto a la zona de Valparaiso.','Inundaciones en toda la tierra de Chiloe, producote del diluvio, se necesitan voluntarios.']
         $arrComunes = [1,2,3];
