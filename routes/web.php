@@ -83,7 +83,6 @@ Route::get('/catastrophe2', function () {
 });
 Route::get('/catastrophe2', 'CatastropheController@create');
 Route::get('/catastrophe2', 'CatastropheController@prueba');
-Route::post('/catastrophe2','CatastropheController@store');  
 
 
 

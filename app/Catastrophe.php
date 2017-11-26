@@ -11,6 +11,8 @@ class Catastrophe extends Model
     protected $fillable = [
     	'id',
         'name',
+        'description',
+        'type',
         'commune_id',
     ];
     
