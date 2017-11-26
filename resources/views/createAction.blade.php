@@ -1,22 +1,21 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Nueva medida</title>
-        <!-- Fonts -->
-        
-		  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+@section('scripts')
+		 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		  <script>
-		  $( function() {
-		    $( "#datepicker" ).datepicker();
-		  } );
-		  </script>
-		
+  <script>
+  $( function() {
+    $( "#dateStart" ).datepicker();
+  } );
+  </script>
+  <script>
+  $( function() {
+    $( "#dateEnd" ).datepicker();
+  } );
+  </script>
 	<script type="text/javascript">
 		function numBox(){
 			var selectBox = document.getElementById("progress");
@@ -173,14 +172,12 @@
 		}
 
 	</script>
-
-</head>
-
-
-<body  onload="numBox()">
+@endsection
 @extends('layouts.app')
 
 @section('content')
+<body onload="numBox()">
+
 	<content>
 	
 	<div class= "container">
@@ -237,28 +234,17 @@
 							<label class = "form-label col-md-4" >Fecha de inicio</label>
 							<div class="container col-md-8">
 							        
-							        <p>Date: <input type="text" id="datepicker"></p>
+							        <input type="text" name = "dateStart" id="dateStart">
 
 							</div>
 							<label class = "form-label col-md-4" >Fecha de termino</label>
 							<div class="container col-md-8">
-							        <div class="form-group">
-							            <div class='input-group date' id='datetimepicker8'>
-							                <input type='text' class="form-control" />
-							                <span class="input-group-addon">
-							                    <span class="fa fa-calendar">
-							                    </span>
-							                </span>
-							            </div>
-							        
-							    </div>
+							        <input type="text" name="dateEnd" id="dateEnd">
 							</div>
 
 							<!-- Para agregar los elementos dinámicamente -->
 							<div id = "dinamicBox" >
 								<!-- Aqui dentro se agregan los elementos según la medida que elija -->
-
-
 
 							</div>
 					</div>
@@ -272,7 +258,7 @@
 		</div>
 	</div>
 </content>
-
+</body>
 <!--
 	<form method="fatherT" action="refresh">
 		<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
@@ -296,21 +282,8 @@
 	</form>
 	-->
 
-</body>
+
 @endsection
- <script type="text/javascript">
-							        $(function () {
-							            $('#datetimepicker8').datetimepicker({
-							                icons: {
-							                    time: "fa fa-clock-o",
-							                    date: "fa fa-calendar",
-							                    up: "fa fa-arrow-up",
-							                    down: "fa fa-arrow-down"
-							                }
-							            });
-							        });
-							    </script>
-</html>
 
 
 
