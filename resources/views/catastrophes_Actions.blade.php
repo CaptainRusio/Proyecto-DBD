@@ -91,7 +91,14 @@
 			       		Provincia: {{$catastrophes[$i]->commune->province->name}} <br> 
 			       		Region: {{$catastrophes[$i]->commune->province->region->name}}
 			       	</a></li>
-			        <li class="active "><button class = "col-md-4 btn btn-info">Ver Medidas </button>
+			        <li class="active ">
+			        <form class="" method="post" action="actionsOf" > 
+                        <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+                        <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+                        <button type = "submit" class = "col-md-4 btn btn-info" 
+                            id = "{{$catastrophes[$i]->id}}" 
+                        >Ver Medidas </button> 
+          			</form> 
 			        <button class = "col-md-4 btn btn-info">Editar </button>
 			        <button class = "col-md-4 btn btn-info">Eliminar </button></
 			        li>

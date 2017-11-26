@@ -209,8 +209,8 @@
                         <div class = "form-group cold-md-4">
                             <label for="selProv" class="col-md-3 control-label">Comuna:</label>
                             <div class="col-md-6">
-                                <select onload="run()" class="form-control" name = "commune" id="commune"></select>
-                                <input style="display: none;" name = "commune_id" type="text" id="commune_id" placeholder="get value on option select"><br>
+                                <select onload="run()" class="form-control" name = "commune_id" id="commune"></select> 
+                                <input style="display: none;" name = "commune" type="text" id="commune_id" placeholder="get value on option select"><br> 
                             </div>  
                         </div>  
                     </div>

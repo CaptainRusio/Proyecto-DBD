@@ -95,7 +95,7 @@ Auth::routes();
 
 //Catastrophes Actions
 Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
-
+Route::post('/actionsOf','CatastrophesAndActionsController@showActions'); 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
 
 Route::post('crearBaseDatos', 'pruebaBaseDatos@create');
