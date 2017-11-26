@@ -37,6 +37,9 @@ Route::get('/contact', function () {
 
 Route::get('/action','ActionController@index');
 
+Route::get('/posts','PostsController@index');
+
+
 
 Route::get('/help', function () {
     return view('help');
