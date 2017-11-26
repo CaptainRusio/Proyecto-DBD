@@ -19,7 +19,7 @@ class VolunteeringTableSeeder extends Seeder
             
              DB::table('volunteerings')->insert([
                 'type_of_job' => 1,
-				'time' =>  rand(0,10),
+				
 				'status_volunteering' => rand(0,1),
             ]);
         }        

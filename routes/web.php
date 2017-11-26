@@ -122,3 +122,6 @@ Route::resource('nuevaMedida','CreateActionsController');
 
 Route::post('refresh','CreateActionsController@refresh');
 
+
+//actions
+Route::get('/actions','ActionsController@index');
