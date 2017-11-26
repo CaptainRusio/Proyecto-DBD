@@ -1,20 +1,40 @@
 
 
-
+@extends('layouts.app')
 @section('scripts')
 		 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css" />
+	<script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>	
+
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <style type="text/css">
+	.bootstrap-tagsinput {
+	    width: 100%;
+	}
+	.label {
+	    line-height: 2 !important;
+	}
+	</style>
+
   <script>
   $( function() {
     $( "#dateStart" ).datepicker();
   } );
   </script>
+
   <script>
   $( function() {
     $( "#dateEnd" ).datepicker();
   } );
+  </script>
+  <script >
+  	function addTags(){
+  		$("#divTags").append('<input type="text" class="form-control" id="tokenfield" value="red,green,blue" />');
+  	}
+
   </script>
 	<script type="text/javascript">
 		function numBox(){
@@ -22,7 +42,6 @@
 			for (var i = 0; i <= 100; i++) {
 				var numOp = document.createElement("option");
 				numOp.value = i;
-				console.log(i);
 				var txtOp = document.createTextNode(i+" %");
 				numOp.appendChild(txtOp);
 				selectBox.appendChild(numOp);
@@ -43,27 +62,21 @@
 					
 
 				father.className += "form-group";
-				varTipoVol = document.createElement("label");
-				varTipoVol.className += "form-label col-md-4 ";
-				var txtTipo = document.createTextNode("Tipo trabajo");
-				varTipoVol.appendChild(txtTipo);
-				father.appendChild(varTipoVol);
 
-				//Div para input del tipo de voluntariado
-				var divInput = document.createElement("div");
-				divInput.className += "col-md-8";
-				//Select del tipo.
-				var selectTipo = document.createElement("select");
-				selectTipo.className += "form-control";
-				selectTipo.id = "stateTipo";
-				selectTipo.name = "selectTipo";
+				//Div para input del tipo de trabajo como tag
 
+				var lbl = document.createElement("label");
+				lbl.appendChild(document.createTextNode("Tipo de trabajo"));
+				lbl.className = "form-label col-md-4";
+				var div = document.createElement("div");
+				div.className="form-group col-md-8";
+				div.id = "divTags";
+
+				father.appendChild(lbl);
+				father.appendChild(div);
 				
-
-				//Se agregan los valores
-				divInput.appendChild(selectTipo);
-				father.appendChild(divInput);
-				//Fin tipo de voluntariado.
+			
+				
 
 				//Inicio Estado del voluntariado.
 
@@ -84,15 +97,15 @@
 				//State
 
 				var op1 = document.createElement("option");
-				op1.value = "noIniciado"
+				op1.value = 0
 				txtOp1 = document.createTextNode("No iniciado");
 				op1.appendChild(txtOp1);
 				var op2 = document.createElement("option");
-				op2.value = "En pausa";
+				op2.value = 1;
 				txtOp2 = document.createTextNode("En Pausa");
 				op2.appendChild(txtOp2);
 				var op3 = document.createElement("option");
-				op3.value = "En curso";
+				op3.value = 2;
 				txtOp3 = document.createTextNode("En curso");
 				op3.appendChild(txtOp3);
 
@@ -230,10 +243,10 @@
 
 	</script>
 @endsection
-@extends('layouts.app')
+
 
 @section('content')
-<body onload="numBox()">
+<body onload="numBox()" onchange="addTags()">
 
 	<content>
 	

@@ -33,7 +33,13 @@ class CreateActionsController extends Controller
 		$action->ubication = $request->ubication;
 		if($request->opt == "med-0"){
 			//Es voluntariado
-
+			$vol = new Volunteering();
+			$vol->type_of_job = "Basico";
+			$vol->status_volunteering = $request->selectState;
+			$vol->save();
+			$action->action_id = $vol->id;
+			$action->action_type = "Volunteering";
+			$action->save();
 			
 		}else if($request->opt == "med-1"){
 			//Es Centro de acopio
