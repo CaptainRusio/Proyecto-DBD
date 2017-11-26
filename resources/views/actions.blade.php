@@ -221,6 +221,23 @@ Medidas
 
 @section('content')
 
+	<div class = "container"> 
+		 <div class="row">
+		 	<div class="valInit col-md-6 ">
+	            <form action="" class="search-form">
+	                <div class="form-group has-feedback">
+	            		<label for="search" class="sr-only">Search</label>
+	            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+	              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+	            	</div>
+	            </form>
+	        </div>
+			<div class="col-md-6 ">
+				<a href="{{url('/catastrophe2')}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+				</span> Añadir Medida</a>
+			</div>
+    	</div>
+	</div>
 
     <div class="container">
 		<div class="row">
