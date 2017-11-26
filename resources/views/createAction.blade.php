@@ -36,9 +36,12 @@
 			var father = document.getElementById("dinamicBox"); //Se obtiene el Form para establecer
 			//Los camfather
 			father.innerHTML = '';
+			var optHidden = "<input type = \"hidden\" name = \"opt\" value = \""+pro+"\">";
+			father.innerHTML += optHidden;
 			if (pro == "med-0") {
 				//Agregando *Los! tipos de trabajos... arreglar, hacer un select dinámico, que pueda agregar elementos.
-				
+					
+
 				father.className += "form-group";
 				varTipoVol = document.createElement("label");
 				varTipoVol.className += "form-label col-md-4 ";
@@ -160,15 +163,15 @@
 				//State
 
 				var op1 = document.createElement("option");
-				op1.value = "noIniciado"
+				op1.value = 0;
 				txtOp1 = document.createTextNode("No iniciado");
 				op1.appendChild(txtOp1);
 				var op2 = document.createElement("option");
-				op2.value = "En pausa";
+				op2.value = 1;
 				txtOp2 = document.createTextNode("En Pausa");
 				op2.appendChild(txtOp2);
 				var op3 = document.createElement("option");
-				op3.value = "En curso";
+				op3.value = 2;
 				txtOp3 = document.createTextNode("En curso");
 				op3.appendChild(txtOp3);
 
@@ -241,7 +244,9 @@
 				<div class="panel panel-default">
 
 					<div class="panel-heading">Crear medida</div>
-				<form method="post" action="refresh">
+				<form method="post" action="refresh	">
+					<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
+					<input type = "hidden" name = "idCat" value="{{$idCat}}">
 					<div class="panel-body" id="panelData">
 						
 	                        <label for="name" class="col-md-4 control-label">Nombre medida</label>
@@ -252,7 +257,6 @@
 	                    	<label for="name" class="col-md-4 control-label">Tipo de medida</label>
 	                        
 	                        <div class="col-md-8">
-									<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 									<select class="form-control" name="Tipo de medida" 
 										id = "medidas"
 										onchange="refresh()" 
@@ -268,14 +272,14 @@
 							<label class="col-md-4" 
 							id = "lblDescipcion">Descripción</label>
 							<div class = "col-md-8">
-								<textarea class = "form-control" name = "descripcion" id="txtArea">
+								<textarea class = "form-control" name = "description" id="txtArea">
 								
 								</textarea>
 							</div>
 							
 							<label class = "form-label col-md-4" >Progreso a la fecha</label>
 							<div class="col-md-8" id="numBox">
-								<select class="form-control" name="progressBox" 
+								<select class="form-control" name="progress" 
 									id = "progress" 
 								>
 								</select>
@@ -288,14 +292,17 @@
 							<label class = "form-label col-md-4" >Fecha de inicio</label>
 							<div class="container col-md-8">
 							        
-							        <input class = "form-control" type="text" name = "dateStart" id="dateStart">
+							        <input class = "form-control" type="text" name = "start" id="dateStart">
 
 							</div>
 							<label class = "form-label col-md-4" >Fecha de termino</label>
 							<div class="container col-md-8">
-							        <input class = "form-control" type="text" name="dateEnd" id="dateEnd">
+							        <input class = "form-control" type="text" name="end" id="dateEnd">
 							</div>
-							<label class = "form-label col-md-4" >{{$idCat}}</label>
+							<label class = "form-label col-md-4" >Ubicacion</label>
+							<div class="container col-md-8">
+							        <input class = "form-control" type="text" name="ubication" id="ubication">
+							</div>
 
 							<!-- Para agregar los elementos dinámicamente -->
 							<div id = "dinamicBox" >
