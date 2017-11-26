@@ -14,6 +14,8 @@ class CatastrophesAndActionsController extends Controller
     }
     public function showActions(Request $req){
     	$id = $req->id;
-    	return view('actions',compact('id'));
+    	$cat = Catastrophe::find($id); 
+      	$actions = $cat->action; 
+      	return view('actions',compact('actions','id')); 
     }
 }

@@ -52,7 +52,7 @@ class CatastropheController extends Controller
         }
 
         Catastrophe::create($request->all());
-        return redirect()->route('/')->with('success', true)->with('message','Se ha ingresado la catastrofe exitosamente');
+
     }
 
     public function create()

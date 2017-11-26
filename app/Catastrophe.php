@@ -11,6 +11,8 @@ class Catastrophe extends Model
     protected $fillable = [
     	'id',
         'name',
+        'description',
+        'type',
         'commune_id',
     ];
     
@@ -18,6 +20,6 @@ class Catastrophe extends Model
     	return $this->belongsTo(Commune::class,'commune_id');
     }
     public function action(){
-        return $this->belongsTo(Action::class,'catastrophe_id');
+        return $this->hasMany(Action::class,'catastrophe_id');
     }
 }

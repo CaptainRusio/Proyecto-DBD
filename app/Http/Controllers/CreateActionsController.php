@@ -10,7 +10,7 @@ class CreateActionsController extends Controller
 		$tiposMedidas = ['Gathering Center','Donaciones','Voluntariado','Evento a beneficio'];
 		$data['dataIn'] = $tiposMedidas;
 		$data2['dataQuery'] = [];
-		return view('createAction', $data,$data2);
+		return view('createAction');
 	}
 	public function refresh(Request $request){
 		print_r($_REQUEST);

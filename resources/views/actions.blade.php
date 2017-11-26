@@ -9,8 +9,7 @@ Medidas
 
 <style type="text/css">
     body {
-		padding: 60px 0px;
-		background-color: rgb(220, 220, 220);
+		
 	}
     
     .event-list {
@@ -221,13 +220,35 @@ Medidas
 
 @section('content')
 
+	<div class = "container"> 
+		 <div class="row">
+		 	<div class="valInit col-md-6 ">
+	            <form action="" class="search-form">
+	                <div class="form-group has-feedback">
+	            		<label for="search" class="sr-only">Search</label>
+	            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+	              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+	            	</div>
+	            </form>
+	        </div>
+			<div class="col-md-6 ">
+				<form method="post" action="createAction">
+					<input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+					<button type="submit" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+					<input type="hidden" name="idCat" value="{{$id}}">
+					</span> Añadir Medida</button>
+
+				</form>
+			</div>
+    	</div>
+	</div>
 
     <div class="container">
 		<div class="row">
 			<div class="[ col-md-12 col-sm-6 ]">
 				<ul class="event-list">
 					@for($i = 0; $i<count($actions); $i++)
-						<li >
+						<li>
 							<time datetime="{{$actions[$i]->date}}">
 								<span class="day">{{explode('-', $actions[$i]->start, 3)[2]}}</span>
 								<span class="month">{{explode('-', $actions[$i]->start, 3)[1]}}</span>

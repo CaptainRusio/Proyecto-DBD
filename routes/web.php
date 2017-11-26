@@ -37,6 +37,9 @@ Route::get('/contact', function () {
 
 Route::get('/action','ActionController@index');
 
+Route::get('/posts','PostsController@index');
+
+
 
 Route::get('/help', function () {
     return view('help');
@@ -73,16 +76,13 @@ Route::get('/donateAnonymous', function () {
 
 
 
-Route::get('/catastrophe2', 'CatastropheController@prueba');
-
-
 
 Route::get('/catastrophe2', function () {
     $regions ['datos'] = [];
     return view('pruebaBaseDatos0Vista', $regions);
 });
 Route::get('/catastrophe2', 'CatastropheController@create');
-Route::get('/catastrophe2', 'CatastropheController@prueba');    
+Route::get('/catastrophe2', 'CatastropheController@prueba');
 
 
 
@@ -98,7 +98,7 @@ Auth::routes();
 
 //Catastrophes Actions
 Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
-
+Route::post('/actionsOf','CatastrophesAndActionsController@showActions'); 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
 
 Route::post('crearBaseDatos', 'pruebaBaseDatos@create');
@@ -111,7 +111,7 @@ Route::post('mostrarBaseDatos', 'pruebaBaseDatos@mostrar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/catastrophe2','CatastropheController@store');
+Route::resource('storeCatastrophe', 'CatastropheController');
 
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');
@@ -125,3 +125,5 @@ Route::post('refresh','CreateActionsController@refresh');
 
 //actions
 Route::get('/actions','ActionsController@index');
+
+Route::post('/createAction','ActionsController@newAction');
