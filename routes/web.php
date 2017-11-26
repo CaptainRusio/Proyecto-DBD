@@ -82,7 +82,8 @@ Route::get('/catastrophe2', function () {
     return view('pruebaBaseDatos0Vista', $regions);
 });
 Route::get('/catastrophe2', 'CatastropheController@create');
-Route::get('/catastrophe2', 'CatastropheController@prueba');    
+Route::get('/catastrophe2', 'CatastropheController@prueba');
+Route::post('/catastrophe2','CatastropheController@store');  
 
 
 

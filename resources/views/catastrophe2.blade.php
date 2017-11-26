@@ -26,13 +26,15 @@
                 <div class="panel-heading">Registrar Catastrofe</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="post" action="obtener">
+                    <form class="form-horizontal" method="post" >
                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 
                     <div>
-                        <h3> Datos generales </h3>
+                        <div class="cold-md-3">
+                            <h3> Datos generales </h3>
+                        </div>
                         <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Nombre</label>
+                            <label for="name" class="col-md-3 control-label">Nombre</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -41,12 +43,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description" class="col-md-4 control-label">Descripcion</label>
-                            <textarea class="form-control" rows="3" id="description"></textarea>
+                            <label for="description" class="col-md-3 control-label">Descripcion</label>
+                            <div class="col-md-6">
+                                <textarea class="form-control" rows="3" id="description" required autofocus></textarea>    
+                            </div>
+                            
                         </div>
 
                         <div class = "form-group cold-md-4">
-                              <label for="sel1">Tipo de catastrofe:</label>
+                            <label for="sel1" class="col-md-3 control-label">Tipo de catastrofe:</label>
+                            <div class="col-md-6">
                               <select class="form-control" id="type">
                                 <option>Movimiento sismico</option>
                                 <option>Tsunami</option>
@@ -59,42 +65,39 @@
                                 <option>Hambruna</option>
                                 <option>Atentado terrorista</option>
                               </select>
+                            </div>                            
                         </div>
                     </div>
                     <div>
-                        <h3> Lugar del suceso </h3>
-
-                        <div class = "form-group cold-md-4">
-                              <label for="selReg">Region:</label>
-                        
-                              <select onclick="functionProvince()" onmouseup="functionProvince()"  class="form-control" id="regionSelect"> 
-                                
-                               
-                            </select>
-                           
+                        <div class="cold-md-3">
+                            <h3> Lugar del suceso </h3>
                         </div>
                         <div class = "form-group cold-md-4">
-                              <label for="selProv">Provincia:</label>
-                              <select onclick="getCommunes()" onmouseup="functionCommunes()" class="form-control" id="provinceSelect"> </select>
-                                
+                            <label for="selReg" class="col-md-3 control-label">Region:</label>
+                                <div class="col-md-6">
+                                    <select onclick="functionProvince()" onmouseup="functionProvince()"  class="form-control" id="regionSelect"></select>
+                                </div>
                         </div>
-
                         <div class = "form-group cold-md-4">
-                              <label for="selProv">Comuna:</label>
-
-                              <select class="form-control" id="communeSelect">  </select>
-                                
+                            <label for="selProv" class="col-md-3 control-label">Provincia:</label>
+                            <div class="col-md-6">
+                                <select onclick="getCommunes()" onmouseup="functionCommunes()" class="form-control" id="provinceSelect"> </select>
+                            </div>      
                         </div>
-                        
+                        <div class = "form-group cold-md-4">
+                            <label for="selProv" class="col-md-3 control-label">Comuna:</label>
+                            <div class="col-md-6">
+                                <select class="form-control" id="communeSelect"></select>
+                            </div>
+                        </div>  
                     </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Ingresar
+                                    Registrar catastrofe
                                 </button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
