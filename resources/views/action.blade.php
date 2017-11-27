@@ -201,7 +201,7 @@ opacity:0.9;
         </div>
       </div>
       <div class="bs-callout bs-callout-danger">
-        <h4>Summary</h4>
+        <h4>Descripción</h4>
         <p>
         {{$action->description}}
         </p>

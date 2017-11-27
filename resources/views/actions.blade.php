@@ -213,11 +213,19 @@ Medidas
 			var ida = '#clk'+i;
 			var btnSub = '#btnSub'+i;
 			$(btnSub).css("display", "none");
-			$(ida).click(function () {
-				$(btnSub).click();
-			});
 		}
 	});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('body').on('click', '#formShowAction a', function(){
+    var btnClick = '#btnSub'+$(this).attr('id');
+    $(btnClick).click();
+  })
+})
+
+
 </script>
 
 @endsection
@@ -268,9 +276,9 @@ Medidas
 								<span class="time">Tüm Gün</span>
 							</time>
 							<div class="info">
-								<form method="post" action="action" class ="title">
+								<form id = "formShowAction" method="post" action="action" class ="title">
 									<input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-									<a id = "clk{{$i}}" onclick = "clickForm()" type="submit" class="title"  >{{$actions[$i]->name}} </a>
+									<a id = "{{$i}}" onclick = "clickForm()" type="submit" class="title"  >{{$actions[$i]->name}} </a>
 
 									<input  type = "hidden" name="actionId" value="{{$actions[$i]->id}}">
 									<input type="submit" id = "btnSub{{$i}}" name="btnSub">
