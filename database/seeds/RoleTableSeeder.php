@@ -13,7 +13,7 @@ class RoleTableSeeder extends Seeder
         type
 description
                 */
-        $arrayNames = ['Administrador','Miembro del gobierno','Voluntario','Usuario común'];
+        $arrayNames = ['Organización','Miembro del gobierno','Usuario común','SU'];
         for ($i=0; $i < count($arrayNames); $i++) { 
             
              DB::table('roles')->insert([

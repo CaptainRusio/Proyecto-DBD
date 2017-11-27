@@ -46,11 +46,9 @@
                       <tr>
                       <tr>
                         <td>Tipo de usuario</td>
-                        <td>Usuario natural</td>
-                      </tr>
-                      <tr>
-                        <td>Voluntariado</td>
-                        <td>Activo</td>
+                        @for($i = 0; $i < count(Auth::user()->roles); $i++)
+                        <td>{{Auth::user()->roles[$i]->type}}</td>
+                        @endfor
                       </tr>
                       <tr>
                         <td>Correo electrónico</td>

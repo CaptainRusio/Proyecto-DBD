@@ -243,10 +243,17 @@ catastrofes
 	            	</div>
 	            </form>
 	        </div>
-			<div class="col-md-6 ">
-				<a href="{{url('/catastrophe2')}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
-				</span> Añadir catastrofe</a>
-			</div>
+	        @if(Auth::user() != null)
+	        	@for($i = 0; $i < count(Auth::user()->roles); $i++)
+	        		@if(Auth::user()->roles[$i]->id == 1 || Auth::user()->roles[$i]->id == 2 || Auth::user()->roles[$i]->id == 4)
+	        				<div class="col-md-6 ">
+									<a href="{{url('/catastrophe2')}}" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+									</span> Añadir catastrofe</a>
+							</div>
+							@break
+						@endif
+	        	@endfor
+			@endif
     	</div>
 	</div>
 

@@ -12,7 +12,7 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+            <label class="col-sm-2 control-label" for="textinput">Nombre Usuario</label>
             <div class="col-sm-10">
               <input type="text" placeholder="Address Line 1" class="form-control">
             </div>
@@ -20,40 +20,9 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+            <label class="col-sm-2 control-label" for="textinput">Email</label>
             <div class="col-sm-10">
               <input type="text" placeholder="Address Line 2" class="form-control">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">City</label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="City" class="form-control">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">State</label>
-            <div class="col-sm-4">
-              <input type="text" placeholder="State" class="form-control">
-            </div>
-
-            <label class="col-sm-2 control-label" for="textinput">Postcode</label>
-            <div class="col-sm-4">
-              <input type="text" placeholder="Post Code" class="form-control">
-            </div>
-          </div>
-
-
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">Country</label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="Country" class="form-control">
             </div>
           </div>
 
