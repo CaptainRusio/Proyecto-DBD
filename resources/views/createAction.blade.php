@@ -31,10 +31,16 @@
   } );
   </script>
   <script >
-  	function addTags(){
-  		$("#divTags").append('<input type="text" class="form-control" id="tokenfield" value="red,green,blue" />');
+  	function sstTags(){
+  		$("#panelData").append();
+
   	}
 
+  </script>
+  <script >
+  	function setTags() {
+  		$("#dinamicBox").append('<input type="text" data-role="tagsinput" class="form-control" id="tokenfield" value="red,green,blue"/>');
+  	};
   </script>
 	<script type="text/javascript">
 		function numBox(){
@@ -49,12 +55,12 @@
 		}
 
 		function refresh() {
-
 			var idSelect = document.getElementById("medidas");
 			var pro = idSelect.options[idSelect.selectedIndex].value;
 			var father = document.getElementById("dinamicBox"); //Se obtiene el Form para establecer
 			//Los camfather
 			father.innerHTML = '';
+			setTags();
 			var optHidden = "<input type = \"hidden\" name = \"opt\" value = \""+pro+"\">";
 			father.innerHTML += optHidden;
 			if (pro == "med-0") {
@@ -139,10 +145,10 @@
 				//Fin de selección de estado.
 
 				//
-				//Boton Submit para ir al post
 
 
 
+				father.appendChild(divTipoTrabajo);
 
 				/*
 				var div0 = document.createElement("div");
@@ -272,7 +278,7 @@
 
 				var lblAnonDon = document.createElement("label");
 				lblAnonDon.className += "form-label col-md-4";
-				var txtAnonDon = document.createTextNode("Donaciones anonimas ");
+				var txtAnonDon = document.createTextNode("Donaciones anonimas");
 				lblAnonDon.appendChild(txtAnonDon);
 				father.appendChild(lblAnonDon);
 
@@ -302,7 +308,7 @@
 
 
 @section('content')
-<body onload="numBox()" onchange="addTags()">
+<body onload="numBox()">
 
 	<content>
 	
