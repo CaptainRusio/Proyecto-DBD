@@ -116,6 +116,13 @@ Route::resource('storeCatastrophe', 'CatastropheController');
 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@obtenerDatos');
 
+//Vincular user con medidas
+Route::post('actionToUser','ActionUserController@store');
+
+Route::post('showActionUser','ActionUserController@show');
+//
+
+
 
 
 Route::resource('nuevaMedida','CreateActionsController');

@@ -60,7 +60,13 @@
                      
                     </tbody>
                   </table>
-					<a href="#" class="btn btn-primary">Ver medidas</a>
+					<form method="post" action="showActionUser">
+          <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+          <input type="hidden" name="id" value="{{Auth::user()->id}}">
+          <button type="submit" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+          </span> Ver Medidas</button>
+
+        </form>
 					
 
                 </div>

@@ -258,8 +258,16 @@ Medidas
 							<div class="info">
 								<a class="title" onclick="clk()"  >{{$actions[$i]->name}} </a>
 								<p class="desc">{{$actions[$i]->description}} </p>
+							<form  method="post" action="actionToUser" > 
+			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+			                    <input  type = "hidden" name="users_id" value="{{ Auth::user()->id }}">
+			                    <input  type = "hidden" name="actions_id"  value="{{$actions[$i]->id}}"> 
+		                        <button type = "submit" class = "col-md-4 btn btn-info">Participar </button> 
+		          			</form> 
 
 							</div>
+
+							
 							<div class="social">
 								<ul>
 									<li class="edit" style="width:33%;"><a href="#"><span class="fa fa-pencil-square-o"></span></a></li>
@@ -267,6 +275,7 @@ Medidas
 									<li class="delete" style="width:33%;"><a href="#"><span class="fa fa-trash-o"></span></a></li>
 								</ul>
 							</div>
+
 						</li>
 					@endfor
 				</ul>
