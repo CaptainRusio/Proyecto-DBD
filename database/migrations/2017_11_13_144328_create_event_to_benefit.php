@@ -15,8 +15,7 @@ class CreateEventToBenefit extends Migration
     {
         Schema::create('events_to_benefit', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('address');
-            $table->integer('volunteers_number');
+            $table->string('activities');
             $table->timestamps();
         });
     }
