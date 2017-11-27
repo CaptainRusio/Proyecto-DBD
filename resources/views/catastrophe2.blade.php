@@ -1,19 +1,15 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Movidosxchile</title>
+@extends('layouts.app')
+
+@section('title')Movidosxchile
+@endsection
+@section('scripts')
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
        
 
        
-
-<body onload="start()">
 <script type="text/javascript">
 
            function functionRegion(){
@@ -131,13 +127,49 @@
                 document.getElementById("commune_id").value = document.getElementById("commune").value;
             }
             function start(){
+                $("#nameElement").hide();
+                $("#btnAdd").hide();
                 functionRegion();
                 run();
             }
        </script>
-@extends('layouts.app')
+       <script >
+           function addElement(){
+            var valor = $("#type").val();
+            if(valor == "otro"){    
+                $("#nameElement").show();
+                $("#btnAdd").show(); 
+            }else{
+                $("#nameElement").hide();
+                $("#btnAdd").hide();
 
+            }
+           }
+           function clickAddEl(){
+                var nameEl = $("#nameElement").val();
+                if(nameEl == ''){
+                    alert('Debe ingresar un valor!');
+                    return;
+                }
+
+                var el = $('<option value = "'+nameEl+'">'+nameEl+' </option>');
+                $("#last").after(el);
+                $("#type").val('movSis');
+                //Ocultar el boton nuevamente.
+                $("#nameElement").val('');
+                $("#nameElement").hide();
+                $("#btnAdd").hide();
+           }    
+       </script>
+       <script >
+            $(function(){
+                $("#type").change(addElement);
+                $("#btnAdd").click(clickAddEl);
+            });
+       </script>
+@endsection
 @section('content')
+<body onload="start()">
 
 
 <div class="container">
@@ -176,17 +208,23 @@
                         <div class = "form-group cold-md-4">
                             <label for="sel1" class="col-md-3 control-label">Tipo de catastrofe:</label>
                             <div class="col-md-6">
-                              <select class="form-control" id="type" name = "type">
-                                <option>Movimiento sismico</option>
-                                <option>Tsunami</option>
-                                <option>Fenómeno Atmosferico</option>
-                                <option>Incendio forestal</option>
-                                <option>Incendio local</option>
-                                <option>Terremoto</option>
-                                <option>Inundación</option>
-                                <option>Erupción</option>
-                                <option>Hambruna</option>
+                              <select onchange = "" class="form-control" id="type" name = "type">
+                                <option value = "movSis" >Movimiento sismico</option>
+                                <option value = "Tsunami" >Tsunami</option>
+                                <option value = "FenAtm" >Fenómeno Atmosferico</option>
+                                <option value = "IncFor" >Incendio forestal</option>
+                                <option value = "IncLoc" >Incendio local</option>
+                                <option value = "Terr" >Terremoto</option>
+                                <option value = "Inund" >Inundación</option>
+                                <option value = "erup" id = "last">Erupción</option>
+                                <option value="otro">Otro</option>
                               </select>
+                                  <div>
+                                      <div>
+                                      <input class = "col-md-10" type="text" name="otro" id="nameElement">
+                                      </div>
+                                      <button type = "button" id = "btnAdd" class = "btn btn-default col-md-2">Add</button>
+                                  </div>
                             </div>                            
                         </div>
                     </div>
