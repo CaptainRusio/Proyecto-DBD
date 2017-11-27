@@ -232,13 +232,19 @@ Medidas
 	            </form>
 	        </div>
 			<div class="col-md-6 ">
-				<form method="post" action="createAction">
-					<input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-					<button type="submit" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
-					<input type="hidden" name="idCat" value="{{$id}}">
-					</span> Añadir Medida</button>
-
-				</form>
+				@if(Auth::user() != null)
+					@for($i = 0; $i < count(Auth::user()->roles); $i++)
+						@if(Auth::user()->roles[$i]->id == 1 || Auth::user()->roles[$i]->id == 2 || Auth::user()->roles[$i]->id == 4)
+							<form method="post" action="createAction">
+								<input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+								<button type="submit" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
+								<input type="hidden" name="idCat" value="{{$id}}">
+								</span> Añadir Medida</button>
+								@break
+							</form>
+						@endif
+					@endfor
+				@endif
 			</div>
     	</div>
 	</div>
@@ -260,9 +266,12 @@ Medidas
 								<p class="desc">{{$actions[$i]->description}} </p>
 							<form  method="post" action="actionToUser" > 
 			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-			                    <input  type = "hidden" name="users_id" value="{{ Auth::user()->id }}">
 			                    <input  type = "hidden" name="actions_id"  value="{{$actions[$i]->id}}"> 
-		                        <button type = "submit" class = "col-md-4 btn btn-info">Participar </button> 
+			                    @if(Auth::user() != null)
+			                    	<input  type = "hidden" name="users_id" value="{{ Auth::user()->id }}">
+			                    	<button type = "submit" class = "col-md-4 btn btn-info">Participar </button> 
+			                    @endif
+		                        
 		          			</form> 
 
 							</div>
