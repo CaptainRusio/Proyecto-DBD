@@ -206,12 +206,18 @@ Medidas
 
 </style>
 
-<script type="text/javascript">
-	
-	function clk(){
-		console.log("Funciona!");
-	}
-
+<script >
+	$(function(){
+		var numActions = {{count($actions)}};
+		for (var i = 0; i < numActions; i++) {
+			var ida = '#clk'+i;
+			var btnSub = '#btnSub'+i;
+			$(btnSub).css("display", "none");
+			$(ida).click(function () {
+				$(btnSub).click();
+			});
+		}
+	});
 </script>
 
 @endsection
@@ -262,7 +268,14 @@ Medidas
 								<span class="time">Tüm Gün</span>
 							</time>
 							<div class="info">
-								<a class="title" onclick="clk()"  >{{$actions[$i]->name}} </a>
+								<form method="post" action="action" class ="title">
+									<input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+									<a id = "clk{{$i}}" onclick = "clickForm()" type="submit" class="title"  >{{$actions[$i]->name}} </a>
+
+									<input  type = "hidden" name="actionId" value="{{$actions[$i]->id}}">
+									<input type="submit" id = "btnSub{{$i}}" name="btnSub">
+								</form>
+
 								<p class="desc">{{$actions[$i]->description}} </p>
 							@if(Auth::user() != null)
 							<form  method="post" action="actionToUser" > 
