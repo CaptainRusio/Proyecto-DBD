@@ -1,0 +1,26 @@
+NECESARIO !!!
+
+
+
+$arrayNames = ['Organización','Miembro del gobierno','Usuario común','SU'];
+        for ($i=0; $i < count($arrayNames); $i++) { 
+            
+             DB::table('roles')->insert([
+                'type' => $arrayNames[$i],
+                'description' => 'Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados.',
+            ]);
+        }  
+
+
+
+
+         $u = User::create([
+            'name' => "root",
+            'email' => "root@all.com",
+            'password' => bcrypt("root123"),
+        ]);
+        //Usuario con todos los roles!
+        $u->roles()->attach(1); 
+        $u->roles()->attach(2); 
+        $u->roles()->attach(3); 
+        $u->roles()->attach(4); 

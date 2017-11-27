@@ -240,8 +240,8 @@ Medidas
 								<button type="submit" class="btn btn-info btn-md btn-block"><span class="glyphicon glyphicon-plus">
 								<input type="hidden" name="idCat" value="{{$id}}">
 								</span> Añadir Medida</button>
-								@break
 							</form>
+							@break
 						@endif
 					@endfor
 				@endif
@@ -264,15 +264,14 @@ Medidas
 							<div class="info">
 								<a class="title" onclick="clk()"  >{{$actions[$i]->name}} </a>
 								<p class="desc">{{$actions[$i]->description}} </p>
+							@if(Auth::user() != null)
 							<form  method="post" action="actionToUser" > 
 			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 			                    <input  type = "hidden" name="actions_id"  value="{{$actions[$i]->id}}"> 
-			                    @if(Auth::user() != null)
 			                    	<input  type = "hidden" name="users_id" value="{{ Auth::user()->id }}">
 			                    	<button type = "submit" class = "col-md-4 btn btn-info">Participar </button> 
-			                    @endif
-		                        
 		          			</form> 
+		          			@endif
 
 							</div>
 
