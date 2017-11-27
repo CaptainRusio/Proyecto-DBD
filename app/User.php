@@ -18,8 +18,8 @@ class User extends Authenticatable
         'rnv_id', 
     ];
 
-    public function action(){
-    	return $this->belongsToMany(Action::class,'users_actions','actions_id','users_id');
+    public function actionUser(){
+    	return $this->belongsToMany(Action::class,'users_actions','users_id','actions_id');
     }
 
     public function roles(){

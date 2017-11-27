@@ -89,11 +89,11 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 		$("#tipoBien").empty();
 		var val = $("#bienes").val();
 		if(val == 2){
-			$("#tipoBien").append('<label id="specBienlbl" class = "separ form-label col-md-4">Bien específico</label><div  id = "specBien" class = "separ col-md-8"><input type="text" name="specBien" class = "form-control" ></div>');
+			$("#tipoBien").append('<label id="specBienlbl" class = "separ form-label col-md-4">Bien específico</label><div  id = "specBien" class = "separ col-md-8"><input type="text" name="specBien" class = "form-control" required></div>');
 		}else if(val == 0){
 			$("#tipoBien").append('<label class = "separ col-md-4" id = "tipoTrab">Bienes</label>');
 			$("#tipoBien").append(
-			'<div id = "tipoBien" class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
+			'<div id = "tipoBien" class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control" required><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
 		}else{
 			nobienesChan();
 		}
@@ -113,7 +113,7 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
     	}else if(valor == "med-3"){
     		act3();
     	}
-    	$("#dinamicBox").append('<input type = "submit" class ="btn btn-primary btn-lg col-md-4 col-md-offset-4 separ" value="Ingresar" >');
+    	$("#dinamicBox").append('<input type = "submit" class ="btn btn-primary btn-lg col-md-4 col-md-offset-4 separ" value="Ingresar" required>');
 
 	}
 /*
@@ -138,10 +138,10 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 		$('<option value =0>Finalizado</option>').appendTo(sel);
 		$("#dinamicBox").append(divSel);
 
-		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Número máximo de voluntarios</label><div class = "separ col-md-8"><input type="text" name="numV" class = "form-control" ></div>');
+		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Número máximo de voluntarios</label><div class = "separ col-md-8"><input type="text" name="numV" class = "form-control" required></div>');
 		$("#dinamicBox").append('<label class = "separ col-md-4" id = "tipoTrab">Tipo de trabajo</label>');
 		$("#dinamicBox").append(
-'<div class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
+'<div class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control" required><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
 	}
 
 	function act1(){
@@ -169,21 +169,21 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 		$("#dinamicBox").empty();
 		$("#dinamicBox").append('<label class = "separ form-label col-md-4" >Actividades</label>');
 		$("#dinamicBox").append(
-			'<div id = "actividades" class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
+			'<div id = "actividades" class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control" required><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
 	}
 	function act3(){
 		//Si es campaña de donación
 		$("#dinamicBox").empty();
 		//objetivo
-		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Objetivo</label><div class = "separ col-md-8"><input type="text" name="goal" class = "form-control" ></div>');
+		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Objetivo</label><div class = "separ col-md-8"><input type="text" name="goal" class = "form-control" required></div>');
 		//Monto recaudado a la fecha
-		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Monto actual</label><div class = "separ col-md-8"><input type="text" name="am" class = "form-control" ></div>');
+		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Monto actual</label><div class = "separ col-md-8"><input type="text" name="am" class = "form-control" required></div>');
 		//Donaciones anónimas
-		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Monto donaciones anónimas</label><div class = "separ col-md-8"><input type="text" name="ad" class = "form-control" ></div>');
+		$("#dinamicBox").append('<label id=lblCost class = "separ form-label col-md-4">Monto donaciones anónimas</label><div class = "separ col-md-8"><input type="text" name="ad" class = "form-control" required></div>');
 		//Empresas asociadas
 		$("#dinamicBox").append('<label class = "separ form-label col-md-4" >Empresas asociadas</label>');
 		$("#dinamicBox").append(
-			'<div id = "actividades" class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
+			'<div id = "actividades" class="container col-md-8"><div class="row"><div><div class="form-group"><div class="form-group input-group"><input type="text" name="multiple[]" class="form-control" required><span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+</button></span></div></div></div></div></div>');
 	}
 
 </script>
@@ -213,7 +213,7 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 	                        <div class=" separ col-md-8">
 		                        	<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 	                        </div>
-	                    	<label for="name" class=" separ col-md-4 control-label">Tipo de medida</label>
+	                    	<label for="name" class=" separ col-md-4 control-label" required>Tipo de medida</label>
 	                        
 	                        <div class=" separ col-md-8">
 									<select class="form-control" name="opt" 
@@ -231,7 +231,7 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 							<label class=" separ col-md-4" 
 							id = "lblDescipcion">Descripción</label>
 							<div class = "separ col-md-8">
-								<textarea class = "form-control" name = "description" id="txtArea">
+								<textarea class = "form-control" name = "description" id="txtArea" required>
 								
 								</textarea>
 							</div>
@@ -241,28 +241,28 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 							<div class="separ col-md-8" id="numBox">
 								<select class="form-control" name="progress" 
 									id = "progress" 
-								>
+								required>
 								</select>
 							</div>
 							</div>
 
 							<label id=lblCost class = "separ form-label col-md-4">Costo a la fecha</label>
 							<div class = "separ col-md-8">
-								<input type="text" name="cost" class = "form-control" value="Ingrese un monto en pesos (CLP)">
+								<input type="text" name="cost" class = "form-control" value="Ingrese un monto en pesos (CLP)" required>
 							</div>
 							<label class = "separ form-label col-md-4" >Fecha de inicio</label>
 							<div class="separ col-md-8">
 							        
-							        <input class = "form-control" type="text" name = "start" id="dateStart">
+							        <input class = "form-control" type="text" name = "start" id="dateStart" required>
 
 							</div>
 							<label class = "separ form-label col-md-4" >Fecha de termino</label>
 							<div class="separ col-md-8">
-							        <input class = "form-control" type="text" name="end" id="dateEnd">
+							        <input class = "form-control" type="text" name="end" id="dateEnd" required>
 							</div>
 							<label class = "separ form-label col-md-4" >Ubicacion</label>
 							<div class="separ col-md-8">
-							        <input class = "form-control" type="text" name="ubication" id="ubication">
+							        <input class = "form-control" type="text" name="ubication" id="ubication" required>
 							</div>
 							<!-- Para agregar los elementos dinámicamente -->
 
