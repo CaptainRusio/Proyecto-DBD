@@ -41,7 +41,6 @@ class ActionUserController extends Controller
     {
             $User = User::Find($req->users_id);
             $User->actionUser()->attach($req->actions_id);            
-           //Users_Actions::create($request->all());
     }
 
 
@@ -56,7 +55,6 @@ class ActionUserController extends Controller
         $users_id = $req->id;
         $user = User::find($users_id);
         $actions = $user->actionUser()->getResults();
-
         return view('userActions',compact('actions')); 
         
     }
