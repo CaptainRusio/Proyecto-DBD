@@ -35,8 +35,6 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/action','ActionController@index');
-
 Route::get('/posts','PostsController@index');
 
 
@@ -123,6 +121,7 @@ Route::post('showActionUser','ActionUserController@show');
 //
 
 
+Route::post('/action','ActionController@index');
 
 
 Route::resource('nuevaMedida','CreateActionsController');

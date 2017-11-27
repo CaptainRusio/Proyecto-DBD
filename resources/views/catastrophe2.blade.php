@@ -205,7 +205,7 @@
                             
                         </div>
 
-                        <div class = "form-group cold-md-4">
+                        <div class = "form-group cold-md-8">
                             <label for="sel1" class="col-md-3 control-label">Tipo de catastrofe:</label>
                             <div class="col-md-6">
                               <select onchange = "" class="form-control" id="type" name = "type">
@@ -221,9 +221,9 @@
                               </select>
                                   <div>
                                       <div>
-                                      <input class = "col-md-10" type="text" name="otro" id="nameElement">
+                                      <input class = " col-md-6 form-control" type="text" name="otro" id="nameElement">
                                       </div>
-                                      <button type = "button" id = "btnAdd" class = "btn btn-default col-md-2">Add</button>
+                                      <button type = "button" id = "btnAdd" class = "col-md-2 btn btn-default">Add</button>
                                   </div>
                             </div>                            
                         </div>

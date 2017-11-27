@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Action;
 
 /**
 * 
@@ -11,8 +11,15 @@ use Illuminate\Http\Request;
 class ActionController extends Controller
 {
 	
-	public function index()
+	public function index(Request $req)
 	{
-		return view('action.action');
+		$actionId = $req->actionId;
+		$action = Action::find($actionId);
+		return view('action',compact('action'));
+	}
+	public function showAction(Request $req)
+	{
+		$actionId = $req->actionId;
+		return view('action',compact('actionId'));	
 	}
 }
