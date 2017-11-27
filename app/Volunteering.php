@@ -9,12 +9,7 @@ class Volunteering extends Model
     protected $table = 'volunteerings';
     protected $fillable = ['id',
 				  'type_of_job',
-				  'time',
-				  'status_volunteering',
-				  'start',
-				  'end',
-				  'cost',
-				  'progress',];
+				  'status_volunteering',];
 
 
 

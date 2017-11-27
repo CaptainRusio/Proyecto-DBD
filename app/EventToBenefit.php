@@ -9,9 +9,7 @@ class EventToBenefit extends Model
     protected $table = 'events_to_benefit';
 
     protected $fillable = ['id',
-				'date',
-				'time',
-				'description_event',
+				'address',
 				'volunteers_number',];
 public function actions(){
 		return $this->morphMany(Action::class,'action');
