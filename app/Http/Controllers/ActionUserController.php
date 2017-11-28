@@ -39,8 +39,12 @@ class ActionUserController extends Controller
      */
     public function store(Request $req)
     {
-            $User = User::Find($req->users_id);
-            $User->actionUser()->attach($req->actions_id);            
+
+            $ua = new Users_Actions([
+                'users_id' => $req->users_id,
+                'actions_id' => $req->actions_id,
+            ]);
+            $ua->save();
     }
 
 

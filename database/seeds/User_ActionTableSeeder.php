@@ -10,12 +10,6 @@ class User_ActionTableSeeder extends Seeder
 
         /*name
                 commune_id*/
-        for ($i=0; $i < 4; $i++) { 
             
-             DB::table('users_actions')->insert([
-                'users_id'=> rand(1,3),
-                'actions_id' => rand(1,2),
-            ]);
-        }        
     }
 }

@@ -17,7 +17,7 @@ class Action extends Model
     ];
 
     public function user(){
-    	return $this->belongsToMany(User::class,'users_actions','users_id','actions_id');
+    	return $this->belongsToMany(User::class,'users_actions','actions_id','users_id');
     }
     public function action(){
         return $this->morphTo();

@@ -260,11 +260,11 @@ opacity:0.9;
       <div class="bs-callout bs-callout-danger">
         <h4>Participantes </h4>
         <table class="table table-striped table-responsive ">
+            @for($i = 0; $i < count($action->user) ; $i++)
             <tr>
-              @for($i = 0; $i < count($action->users) ; $i++)
-              <td>{{$action->users[$i]->name}}</td>
-              @endfor
+              <td>{{$action->user[$i]->name}}</td>
             </tr>
+            @endfor
         </table>
       </div>
     
