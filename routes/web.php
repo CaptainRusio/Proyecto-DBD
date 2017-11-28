@@ -117,6 +117,9 @@ Route::post('actionToUser','ActionUserController@store');
 Route::post('showActionUser','ActionUserController@show');
 //
 
+//Mostrar acciones usuario
+Route::post('showRecordUser','RecordController@show');
+//
 
 Route::post('/action','ActionController@index');
 

@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Users_Actions;
-use App\Action;
 use App\User;
 use App\record;
 
-
-class ActionUserController extends Controller
+class RecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +26,7 @@ class ActionUserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -40,14 +37,8 @@ class ActionUserController extends Controller
      */
     public function store(Request $req)
     {
-            $User = User::Find($req->users_id);
-            $User->actionUser()->attach($req->actions_id);            
-            $reco = record::create([
-                'action' => "Participa en medida",
-             ]);
-            $User->records()->save($reco);
-    }
 
+    }
 
     /**
      * Display the specified resource.
@@ -59,9 +50,10 @@ class ActionUserController extends Controller
     {
         $users_id = $req->id;
         $user = User::find($users_id);
-        $actions = $user->actionUser()->getResults();
-        return view('userActions',compact('actions')); 
+        $records = $user->records()->getResults();
         
+        return view('userRecords',compact('records')); 
+    
     }
 
     /**

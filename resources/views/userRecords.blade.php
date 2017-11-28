@@ -58,19 +58,28 @@
                      
                     </tbody>
                   </table>
-  					<form method="post" action="showActionUser">
-            <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-            <input type="hidden" name="id" value="{{Auth::user()->id}}">
-            <button type="submit" class="btn btn-info btn-md btn-block">
-            </span> Ver Medidas</button>
-          </form>
-            <form method="post" action="showRecordUser">
+					<form method="post" action="showActionUser">
+          <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+          <input type="hidden" name="id" value="{{Auth::user()->id}}">
+          <button type="submit" class="btn btn-info btn-md btn-block">
+          </span> Ver Medidas</button>
+        </form>
+          <form method="post" action="showRecordUser">
           <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
           <input type="hidden" name="id" value="{{Auth::user()->id}}">
           <button type="submit" class="btn btn-info btn-md btn-block"> Ver Historial Acciones</button>
 
         </form>
+
+        @for($i = 0; $i<count($records); $i++)
+          <tr>
+            <table>
+              <tr>
+              <td>{{$records->id}}</td>
+            </tr>
+            </table>
 					
+        @endfor
 
                 </div>
               </div>
