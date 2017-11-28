@@ -314,7 +314,7 @@ catastrofes
 		                    <button type = "submit" class = "col-md-4 btn btn-info" 
 		                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;" >Ver Medidas </button> 
 		      			</form>
-		      			<form class="" method="post" action="actionsOf" > 
+		      			<form method="post" action="showCatastrophe" > 
 		                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 		                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
 		                    <button type = "submit" class = "col-md-4 btn btn-info" 

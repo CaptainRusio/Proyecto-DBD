@@ -9,6 +9,7 @@ use App\Region;
 use App\Province;
 use App\Commune;
 
+
 class CatastropheController extends Controller
 {
     /**
@@ -63,9 +64,15 @@ class CatastropheController extends Controller
         return view('catastrophe2', compact('regions','provinces','communes'));
     }
 
-    public function show()
+    public function show(Request $req)
     {   
-        //
+        $idCat = $req->id;
+        $catastrophe = Catastrophe::find($idCat);
+        if($catastrophe != null){
+            return view('Catastrophe',compact('catastrophe'));
+        }else{
+            print('Catastrofe nula');    
+        }
         
     }
 

@@ -9,6 +9,7 @@ use App\EventToBenefit;
 use App\GatheringCenter;
 use App\Volunteering;
 use Carbon\Carbon;
+use App\Catastrophe;
 
 class CreateActionsController extends Controller
 {
@@ -18,7 +19,7 @@ class CreateActionsController extends Controller
 		$data2['dataQuery'] = [];
 		return view('createAction');
 	}
-	public function refresh(Request $request){
+	public function create(Request $request){
 //		var_dump($_REQUEST);
 		
 		//Valores generales
@@ -83,5 +84,11 @@ class CreateActionsController extends Controller
 			$action->action_type = "DonationCampaign";
 			$action->save();
 		}
+
+		$id = $request->idCat;
+		$cat = Catastrophe::find($id); 
+	    $actions = $cat->action; 
+
+		return view('actions',compact('actions','id'));
 	}
 }

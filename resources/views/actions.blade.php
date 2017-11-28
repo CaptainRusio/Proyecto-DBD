@@ -299,7 +299,7 @@ $(document).ready(function(){
 							
 							<div class="social">
 								<ul>
-									<li class="edit" style="width:33%;"><a ><span class="fa fa-pencil-square-o"></span></a></li>
+									<li class="edit"	 style="width:33%;"><a ><span class="fa fa-pencil-square-o"></span></a></li>
 									<li class="confirm" style="width:34%;"><a ><span class="fa fa-check"></span></a></li>
 									<li class="delete" style="width:33%;"><a ><span class="fa fa-trash-o"></span></a></li>
 								</ul>

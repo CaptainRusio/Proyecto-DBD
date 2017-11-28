@@ -123,10 +123,15 @@ Route::post('/action','ActionController@index');
 
 Route::resource('nuevaMedida','CreateActionsController');
 
-Route::post('refresh','CreateActionsController@refresh');
+Route::post('create','CreateActionsController@create');
 
 
 //actions
 Route::get('/actions','ActionsController@index');
 
 Route::post('/createAction','ActionsController@newAction');
+
+
+//Catastrophe
+
+Route::post('showCatastrophe','CatastropheController@show');

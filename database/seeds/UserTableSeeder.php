@@ -3,7 +3,7 @@
 use Faker\Generator;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 class UserTableSeeder extends Seeder
 {
    public function run()
@@ -22,9 +22,21 @@ class UserTableSeeder extends Seeder
                 'email' => $email[$i],
                 'password' => $passwords,
                 'rnv_id' => $rnv[rand(0,2)],
-
             ]);
-        }        
+        }       
+
+        //Super user.
+        $u = User::create([
+                'name'=> 'root',
+                'email' => 'root@all.com',
+                'password' => Hash::make('root123'),
+                'rnv_id' => $rnv[rand(0,2)],
+            ]);
+        $u->roles()->attach(1);
+        $u->roles()->attach(2);
+        $u->roles()->attach(3);
+        $u->roles()->attach(4);
+
     }
 
 }

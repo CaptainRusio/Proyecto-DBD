@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
+
+
 @section('title')
-nombre de la medida
+Catastrophe
 @endsection
+
 
 @section('scripts')
 
@@ -162,9 +165,8 @@ opacity:0.9;
 }
 </style>
 
+
 @endsection
-
-
 
 @section('content')
 
@@ -172,7 +174,7 @@ opacity:0.9;
 
 <div class="resume">
     <header class="page-header">
-    <h1 class="page-title">{{$action->name}}</h1>
+    <h1 class="page-title">{{$catastrophe->name}}</h1>
   </header>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
@@ -191,20 +193,10 @@ opacity:0.9;
 
             <div class="col-xs-12 col-sm-8">
               <ul class="list-group">
-                @if($action->action_type == "DonationCampaign")
-                  <li class="list-group-item">Tipo: Campaña de donación </li>
-                @endif
-                @if($action->action_type == "Volunteering")
-                  <li class="list-group-item">Tipo: Voluntariado </li>
-                @endif
-                @if($action->action_type == "EventToBenefit")
-                  <li class="list-group-item">Tipo: Evento a beneficio </li>
-                @endif
-                @if($action->action_type == "GatheringCenter")
-                  <li class="list-group-item">Tipo: Centro de acopio </li>
-                @endif
-                <li class="list-group-item">Inicio : {{$action->start}}</li>
-                <li class="list-group-item">Fin : {{$action->end}}</li>
+                <li class="list-group-item">Tipo: {{$catastrophe->type}} </li>
+                <li class="list-group-item">Región: {{$catastrophe->commune->province->region->name}}</li>
+                <li class="list-group-item">Provincia: {{$catastrophe->commune->province->name}}</li>
+                <li class="list-group-item">Comuna: {{$catastrophe->commune->name }}</li>
                 
               </ul>
             </div>
@@ -214,34 +206,8 @@ opacity:0.9;
       <div class="bs-callout bs-callout-danger">
         <h4>Descripción</h4>
         <p>
-        {{$action->description}}
+        {{$catastrophe->description}}
         </p>
-      </div>
-     
-      
-      <div class="bs-callout bs-callout-danger">
-        <h4>Progreso</h4>
-        <ul class="list-group">
-          <a class="list-group-item inactive-link" href="#">
-           
-            <div class="progress">
-              <div data-placement="top" style="width: {{$action->progress}}%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar ">
-                <span class="sr-only">{{$action->progress}}</span>
-                <span class="progress-type">Medida</span>
-              </div>
-            </div>
-
-            <div class="progress-meter">
-              
-              <div style="width: 60%;" class="meter meter-left"><span class="meter-text"> Apertura </span></div>
-              <div style="width: 20%;" class="meter meter-right"><span class="meter-text">Finalizando</span></div>
-              <div style="width: 20%;" class="meter meter-right"><span class="meter-text">Cierre de medida</span></div>
-            </div>
-              
-
-          </a>
-
-        </ul>
       </div>
       <!-- Opción para listar las actividades y todo eso.
       <div class="bs-callout bs-callout-danger">
@@ -275,5 +241,7 @@ opacity:0.9;
 </div>
 
 </div>
+
+
 
 @endsection
