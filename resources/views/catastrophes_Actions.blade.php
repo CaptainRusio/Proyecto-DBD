@@ -221,6 +221,40 @@ catastrofes
 	border-collapse: separate;
 	border-spacing: 2px;
 }
+ .panel {
+      border: 1px solid #005580; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+
+
+  .panel-heading {
+      color: #fff !important;
+      background-color: #005580
+ !important;
+      padding: 1px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+  
+   border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 14px;
+  }
+  .panel-footer a {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #005580;
+      color: #fff;
+  }
 </style>
 @endsection
 
@@ -260,8 +294,41 @@ catastrofes
 
 
 
+<div class="panel-group type" id="catastrophes">
+		<div class="col-md-12 center" style="padding-left: 5%;padding-right: 5%">
+			@for ($i = 0; $i<count($catastrophes); $i++)
 
+      		<div class="panel panel-default text-center">
+	      		<div class="panel-heading">
+			        <h4 data-toggle="collapse" data-parent="#accordion{{$i}}" href="#collapse{{$i}}">{{$catastrophes[$i]->name}}</h4>
+			    </div>
+			    <div class="panel-body">
+			    	<h5>{{$catastrophes[$i]->description}} </h5>
+			    </div>
+				<div id="collapse{{$i}}" class="panel-collapse collapse out">
+				    <div class="panel-body">
+				    <div class="text-center">
+				    	<form class="" method="post" action="actionsOf" > 
+		                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+		                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+		                    <button type = "submit" class = "col-md-4 btn btn-info" 
+		                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;" >Ver Medidas </button> 
+		      			</form>
+		      			<form class="" method="post" action="actionsOf" > 
+		                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+		                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+		                    <button type = "submit" class = "col-md-4 btn btn-info" 
+		                        id = "{{$catastrophes[$i]->id}}" >Ver detalles </button> 
+		      			</form>  
+				    </div>
+					</div>
+				</div>
+		</div>
+		<br>
+		@endfor			
+</div>
 
+<!--
 <div class="panel-group type" id="catastrophes">
 	@for ($i =0; $i<count($catastrophes); $i++)
 	
@@ -283,8 +350,7 @@ catastrofes
 			<div class="panel-body">
 			    <ul class="nav nav-pills nav-stacked">
 
-			       	<li class="passive"><a>Comuna: {{$catastrophes[$i]->commune->name}} <br> 
-			       		Provincia: {{$catastrophes[$i]->commune->province->name}} <br> 
+			       	<li class="passive"><a>{{$catastrophes[$i]->description}} <br> 
 			       		Region: {{$catastrophes[$i]->commune->province->region->name}}
 			       	</a></li>
 			        <li class="active ">
@@ -308,7 +374,7 @@ catastrofes
 	@endfor
 		
 </div>
-
+-->
 
 </section>
 </body>
