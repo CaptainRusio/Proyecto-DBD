@@ -162,6 +162,19 @@ opacity:0.9;
 }
 </style>
 
+<script>
+  
+  $(function () {
+    //Al iniciar
+    if( {{$action->name}} == 'Volunteering'){
+      alert("Es voluntariado");
+    }
+
+  });
+
+</script>
+
+
 @endsection
 
 
@@ -243,30 +256,18 @@ opacity:0.9;
 
         </ul>
       </div>
-      <!-- Opción para listar las actividades y todo eso.
+      
       <div class="bs-callout bs-callout-danger">
-        <h4>Education</h4>
+        <h4>Participantes </h4>
         <table class="table table-striped table-responsive ">
-          <thead>
-            <tr><th>Degree</th>
-            <th>Graduation Year</th>
-            <th>CGPA</th>
-          </tr></thead>
-          <tbody>
             <tr>
-              <td>Masters in Computer Science and Engineering</td>
-              <td>2014</td>
-              <td> 3.50 </td>
+              @for($i = 0; $i < count($action->users) ; $i++)
+              <td>{{$action->users[$i]->name}}</td>
+              @endfor
             </tr>
-            <tr>
-              <td>BSc. in Computer Science and Engineering</td>
-              <td>2011</td>
-              <td> 3.25 </td>
-            </tr>
-          </tbody>
         </table>
       </div>
-    -->
+    
     </div>
 
   </div>

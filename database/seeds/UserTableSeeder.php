@@ -22,6 +22,7 @@ class UserTableSeeder extends Seeder
                 'email' => $email[$i],
                 'password' => $passwords,
                 'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
             ]);
         }       
 
@@ -31,6 +32,7 @@ class UserTableSeeder extends Seeder
                 'email' => 'root@all.com',
                 'password' => Hash::make('root123'),
                 'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
             ]);
         $u->roles()->attach(1);
         $u->roles()->attach(2);
