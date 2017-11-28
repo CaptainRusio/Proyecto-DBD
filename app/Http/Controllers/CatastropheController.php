@@ -8,6 +8,8 @@ use Validator;
 use App\Region;
 use App\Province;
 use App\Commune;
+use App\User;
+use App\Record;
 
 class CatastropheController extends Controller
 {
@@ -52,6 +54,13 @@ class CatastropheController extends Controller
         }
 
         Catastrophe::create($request->all());
+        
+        $User = User::Find($request->users_id);
+
+        $reco = record::create([
+            'action' => "Crea catastrofe ".$request->name,
+        ]);
+        $User->records()->save($reco);
 
     }
 
@@ -63,9 +72,15 @@ class CatastropheController extends Controller
         return view('catastrophe2', compact('regions','provinces','communes'));
     }
 
-    public function show()
+    public function show(Request $req)
     {   
-        //
+        $idCat = $req->id;
+        $catastrophe = Catastrophe::find($idCat);
+        if($catastrophe != null){
+            return view('Catastrophe',compact('catastrophe'));
+        }else{
+            print('Catastrofe nula');    
+        }
         
     }
 

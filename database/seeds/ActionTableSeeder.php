@@ -27,6 +27,7 @@ class ActionTableSeeder extends Seeder
                 'progress' => rand(0,100),
                 'ubication' => "asldkjsd",
             ]);
-        }        
+        }      
+
     }
 }

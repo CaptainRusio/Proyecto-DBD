@@ -71,16 +71,26 @@
 
         </form>
 
-        @for($i = 0; $i<count($records); $i++)
-          <tr>
-            <table>
-              <tr>
-              <td>{{$records->id}}</td>
-            </tr>
-            </table>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                                    <th>Id</th>
+                                    <th>Acción</th>
+                                    <th>Fecha</th>
+                                </tr>
+                      <tr>
+                        @for($i = 0; $i<count($records); $i++)
+                        
+                        <td>{{$records[$i]->id}}</td>
+                        <td>{{$records[$i]->action}}</td>
+                        <td>{{$records[$i]->created_at}}</td>
+                        
+                      </tr>
+                      @endfor                        
+                     
+                    </tbody>
+                  </table>
 					
-        @endfor
-
                 </div>
               </div>
             

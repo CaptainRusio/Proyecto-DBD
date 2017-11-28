@@ -204,7 +204,7 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 				<div class="panel panel-default">
 
 					<div class="panel-heading">Crear medida</div>
-				<form method="post" action="refresh	">
+				<form method="post" action="create	">
 					<input type = "hidden" name = "_token" value="{{ csrf_token()}}">
 					<input type = "hidden" name = "idCat" value="{{$idCat}}">
 					<div class="panel-body" id="panelData">

@@ -41,11 +41,15 @@ class ActionUserController extends Controller
     public function store(Request $req)
     {
             $User = User::Find($req->users_id);
-            $User->actionUser()->attach($req->actions_id);            
+            $User->actionUser()->attach($req->actions_id);
+            $Medida = Action::find($req->actions_id);
+
+
             $reco = record::create([
-                'action' => "Participa en medida",
+                'action' => "Participa en medida ".$Medida->name,
              ]);
             $User->records()->save($reco);
+
     }
 
 
