@@ -16,7 +16,7 @@ class User extends Authenticatable
         'name',
         'email','password',
         'rnv_id', 
-        'active' => 1,
+        'active',
     ];
 
     public function actionUser(){
