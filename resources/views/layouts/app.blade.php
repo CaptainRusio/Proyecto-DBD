@@ -23,6 +23,11 @@
     height: 20%;
     width: 20%;
     }
+    
+.navbar.navbar-inverse .navbar-nav > li {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
 </style>
 
 @yield('scripts')
@@ -43,26 +48,17 @@
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand visible-xs-inline-block nav-logo" href="/"><img src="/images/logo-dark-inset.png" class="img-responsive" alt=""></a>
-        </div>
+        
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav js-nav-add-active-class">
+          <ul class="nav navbar-nav">
             <li ><a href="/"><i class= "fa fa-home" aria-hidden="true"> </i> Inicio</a></li>
             <li><a href="{{url('catastrophesAndActions')}}"> <i class = "fa fa-fire"> </i> Catastrofes</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Participar <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{url('donate')}}">Como Donar</a></li>
-                <li><a href="{{url('voluntier')}}">Como Ser Voluntario</a></li>
               </ul>
             </li>
             <li><a href="{{url('contact')}}"><i class= "fa fa-compress" aria-hidden="true"> </i> Contáctanos</a></li>
