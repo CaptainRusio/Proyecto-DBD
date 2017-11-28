@@ -18,4 +18,8 @@ class DonationCampaign extends Model
 	public function actions(){
 		return $this->morphMany(Action::class,'action');
 	}
+
+	public function donations(){
+		return $this->hasMany(Donation::class,'donationCampaign_id');
+	}
 }

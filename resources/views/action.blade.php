@@ -212,8 +212,6 @@ opacity:0.9;
         <h4>Progreso</h4>
         <ul class="list-group">
           <a class="list-group-item inactive-link" href="#">
-            
-
            
             <div class="progress">
               <div data-placement="top" style="width: {{$action->progress}}%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-danger">

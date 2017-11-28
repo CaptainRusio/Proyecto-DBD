@@ -23,7 +23,6 @@ class CreateAction extends Migration
             $table->date('end');
             $table->string('ubication');
 
-
              $table->integer('catastrophe_id')
             ->unsigned();
             $table->foreign('catastrophe_id')

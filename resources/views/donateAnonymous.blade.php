@@ -1,10 +1,29 @@
 @extends('layouts.app')
 
+
+@section('scripts')
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+ 
+    
+<script>
+            $( document ).ready(function() {
+                $('#fecha').datepicker();
+            });
+        </script>
+
+
+@endsection
+
+
+
 @section('content')
 
 
 <content>
-	
 
 	<div class= "container">
 		<div class= "row">
@@ -13,21 +32,27 @@
 				
 				<div class="panel panel-default">
 
-					<div class="panel-heading">Donar sin ser usuario</div>
+					<div class="panel-heading">Dona de forma anónima</div>
 
-					<div class="panel-body">
+                    <form method="post" action="createDonac">
+                        <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+					   <div class="panel-body">
                         <label for="name" class="col-md-4 control-label">Monto (CLP)</label>
                         <div class="col-md-6">
-                        	<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                        	<input id="name" type="text" class="form-control" name="amount" required autofocus>
                    </div>
-
+                        @if(Auth::user() != null)
+                        <input type="hidden" name="idUser" value = "{{Auth::user()->id}}">
+                        @endif
                     	<label for="name" class="col-md-4 control-label">Campaña</label>
                         
                         <div class="col-md-6">
 							
-							<select class="form-control" name="Tipo de medida">
+							<select class="form-control" name="idDonatCamp" id = "selectDonac">
 								
-								<option>Ver donaciones</option>
+                                @for($i = 0; $i < count($campanas); $i++)
+								    <option value = "{{$campanas[$i]->id}}">{{$campanas[$i]->name}}</option>
+                                @endfor
 								<!--<option value= "#cac">Centro de acopio</option>
 								<option value= "#vol">Voluntariado</option>
 								<option value= "#benf">Evento a Beneficio</option>
@@ -42,7 +67,7 @@
 					<div class="form-group row" >
                         <div class="col-md-6">
                             <div class="input-group date" data-provide="datepicker" align="center">
-                                <input type="text" class="form-control" name="start_date" align="center">
+                                <input type="text" class="form-control" name="donationDate" align="center">
                                 <div class="input-group-addon" align="center">
                                     <span class="glyphicon glyphicon-th"  align= "center"></span>
                                 </div>
@@ -55,40 +80,16 @@
                         </div>
                     </div>
 						
-				<a href="{{url('')}}" class="btn btn-primary" role="button">Dona aquí</a>
+				<input type = "submit" class="btn btn-primary" value = "Dona aquí" role="button">
 				</div>
 
 			</div>
+            </form>
 			
 			
 		</div>
 	</div>
 </content>
-
-
-<head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
-    </head>
-
-
-    <head>
-        <script>
-            $( document ).ready(function() {
-                $('#fecha').datepicker();
-            });
-        </script>
-    </head>
-
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/js/user/newCatastrophe.js"></script>
-
-
-
 
 
 

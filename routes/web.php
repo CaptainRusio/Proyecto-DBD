@@ -68,11 +68,8 @@ Route::get('/map', function () {
 });
 
 
-Route::get('/donateAnonymous', function () {
-    return view('donateAnonymous');
-});
-
-
+Route::get('/donateAnonymous','anonymousDonationController@index');
+Route::post('createDonac','anonymousDonationController@create');
 
 
 Route::get('/catastrophe2', function () {

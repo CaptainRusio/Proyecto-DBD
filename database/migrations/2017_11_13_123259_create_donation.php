@@ -21,10 +21,18 @@ class CreateDonation extends Migration
             /* CLAVES FORÁNEAS */
 
             $table->integer('user_id')
-            ->unsigned();
+            ->unsigned()
+            ->nullable();
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
+            ->onDelete('cascade');
+
+            $table->integer('donationCampaign_id')
+            ->unsigned();
+            $table->foreign('donationCampaign_id')
+            ->references('id')
+            ->on('donation_campaigns')
             ->onDelete('cascade');
         });
     }
