@@ -61,10 +61,9 @@
                 <li><a href="{{url('donate')}}">Como Donar</a></li>
               </ul>
             </li>
-            <li><a href="{{url('contact')}}"><i class= "fa fa-compress" aria-hidden="true"> </i> Contáctanos</a></li>
+           
           
             
-            <li><a href="{{url('about')}}"> <i class= "fa fa-users" aria-hidden="true"> </i> Sobre Nosotros</a></li>
            
 
           </ul>

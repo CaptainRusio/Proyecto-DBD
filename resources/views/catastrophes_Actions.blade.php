@@ -268,15 +268,7 @@ catastrofes
 <section>	
 	<div class = "container"> 
 		 <div class="row">
-		 	<div class="valInit col-md-6 ">
-	            <form action="" class="search-form">
-	                <div class="form-group has-feedback">
-	            		<label for="search" class="sr-only">Search</label>
-	            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
-	              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-	            	</div>
-	            </form>
-	        </div>
+		 	
 	        @if(Auth::user() != null)
 	        	@for($i = 0; $i < count(Auth::user()->roles); $i++)
 	        		@if(Auth::user()->roles[$i]->id == 1 || Auth::user()->roles[$i]->id == 2 || Auth::user()->roles[$i]->id == 4)
