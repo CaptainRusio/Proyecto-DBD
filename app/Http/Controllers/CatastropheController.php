@@ -53,7 +53,8 @@ class CatastropheController extends Controller
         }
 
         Catastrophe::create($request->all());
-
+        $catastrophes = Catastrophe::all();
+        return view('catastrophes_Actions',compact('catastrophes'));
     }
 
     public function create()

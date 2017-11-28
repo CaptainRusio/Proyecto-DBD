@@ -3,6 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Volunteering;
+use App\DonationCampaign;
+use App\EventToBenefit;
+use App\GatheringCenter;
 
 class Action extends Model
 {

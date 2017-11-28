@@ -3,7 +3,6 @@
 @section('title')
 nombre de la medida
 @endsection
-
 @section('scripts')
 
 <style>
@@ -206,15 +205,20 @@ opacity:0.9;
               <ul class="list-group">
                 @if($action->action_type == "DonationCampaign")
                   <li class="list-group-item">Tipo: Campaña de donación </li>
+                 
                 @endif
                 @if($action->action_type == "Volunteering")
                   <li class="list-group-item">Tipo: Voluntariado </li>
+
+                
                 @endif
                 @if($action->action_type == "EventToBenefit")
                   <li class="list-group-item">Tipo: Evento a beneficio </li>
                 @endif
                 @if($action->action_type == "GatheringCenter")
                   <li class="list-group-item">Tipo: Centro de acopio </li>
+               
+                  
                 @endif
                 <li class="list-group-item">Inicio : {{$action->start}}</li>
                 <li class="list-group-item">Fin : {{$action->end}}</li>
@@ -267,6 +271,8 @@ opacity:0.9;
             @endfor
         </table>
       </div>
+
+     
     
     </div>
 

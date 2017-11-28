@@ -40,8 +40,7 @@ class CreateActionsController extends Controller
 			for ($i=0; $i <count($request->multiple) ; $i++) { 
 				$values .= ($request->multiple[$i]) . ",";
 			}
-			print($values);
-			$vol->type_of_job = "Basico";
+			$vol->type_of_job = $values;
 			$vol->status_volunteering = $request->selectState;
 			$vol->save();
 			$action->action_id = $vol->id;

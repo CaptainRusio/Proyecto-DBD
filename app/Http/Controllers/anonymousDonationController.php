@@ -29,7 +29,7 @@ class anonymousDonationController extends Controller
             'donationCampaign_id' => $req->idDonatCamp,
         ]);
     	}
-
+        return view('welcome');
     	
     }
 }
