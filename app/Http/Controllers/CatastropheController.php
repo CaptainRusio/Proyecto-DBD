@@ -70,7 +70,8 @@ class CatastropheController extends Controller
         $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
-        return view('catastrophe2', compact('regions','provinces','communes'));
+        $catastrophe = null;
+        return view('catastrophe2', compact('regions','provinces','communes','catastrophe'));
     }
 
     public function show(Request $req)
@@ -85,8 +86,15 @@ class CatastropheController extends Controller
         
     }
 
-    public function edit()
+    public function edit(Request $req)
     {
+        $regions = Region::all();
+        $provinces = Province::all();
+        $communes = Commune::all();
+        $idCat = $req->id;
+        $catastrophe = Catastrophe::find($idCat);
+        return view('catastrophe2', compact('regions','provinces','communes','catastrophe'));
+
     }
 
     public function update()

@@ -313,8 +313,19 @@ catastrofes
 			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 			                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
 			                    <button type = "submit" class = "col-md-4 btn btn-info" 
-			                        id = "{{$catastrophes[$i]->id}}" >Ver detalles </button> 
+			                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;">Ver detalles </button> 
 			      			</form>  
+			      			@if(Auth::user() != null)
+			      				@if(Auth::user()->haveRole("Organización") || Auth::user()->haveRole("SU"))
+			      					<form method="post" action="editCatastrophe" > 
+					                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+					                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+					                    <button type = "submit" class = "col-md-3 btn btn-info" 
+					                        id = "{{$catastrophes[$i]->id}}" >Editar </button> 
+					      			</form>  
+			      				@endif
+			      			@endif
+
 					    </div>
 						</div>
 					</div>

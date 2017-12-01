@@ -39,6 +39,47 @@ class UserTableSeeder extends Seeder
         $u->roles()->attach(3);
         $u->roles()->attach(4);
 
+        //Organización
+
+        $u = User::create([
+                'name'=> 'org',
+                'email' => 'org@all.com',
+                'password' => Hash::make('root123'),
+                'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
+            ]);
+        $u->roles()->attach(1);
+
+        //Gobierno
+        $u = User::create([
+                'name'=> 'gov',
+                'email' => 'gov@all.com',
+                'password' => Hash::make('root123'),
+                'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
+            ]);
+        $u->roles()->attach(2);
+
+        //Usuario común
+        $u = User::create([
+                'name'=> 'com',
+                'email' => 'com@all.com',
+                'password' => Hash::make('root123'),
+                'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
+            ]);
+        $u->roles()->attach(3);
+
+        //SU
+        $u = User::create([
+                'name'=> 'su',
+                'email' => 'su@all.com',
+                'password' => Hash::make('root123'),
+                'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
+            ]);
+        $u->roles()->attach(3);
+
     }
 
 }
