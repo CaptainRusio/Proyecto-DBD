@@ -180,7 +180,7 @@
 
                 <div class="panel-body">
                 <!-- Si se está creando por primera vez -->
-                @if($catastrophe == null)
+                @if($catastrophe == "noEdit")
                  <form class="form-horizontal" action="storeCatastrophe" method="post" >
                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
                     <input type = "hidden" name = "users_id" value="{{Auth::user()->id }}">
@@ -266,7 +266,7 @@
 
                     @else
                     <!-- Si se está editando una catastrofe -->
-                    <!-- Cambiar la acción del post, pasarle el id de la catastrofe -->
+                    <!-- Cambiar la acción del post, pasarle el id de lay -->
                     <form class="form-horizontal" action="storeCatastrophe" method="post" >
                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
                     <input type = "hidden" name = "users_id" value="{{Auth::user()->id }}">

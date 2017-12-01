@@ -70,7 +70,7 @@ class CatastropheController extends Controller
         $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
-        $catastrophe = null;
+        $catastrophe = "noEdit";
         return view('catastrophe2', compact('regions','provinces','communes','catastrophe'));
     }
 
@@ -119,7 +119,8 @@ class CatastropheController extends Controller
         $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
-        return view('catastrophe2',  compact('regions','provinces','communes'));
+        $catastrophe = "noEdit";
+        return view('catastrophe2',  compact('regions','provinces','communes','catastrophe'));
     }
 
     public function publishTwitter(Request $request){

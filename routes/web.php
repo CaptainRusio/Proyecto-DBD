@@ -75,11 +75,6 @@ Route::get('/map', function () {
 Route::get('/donateAnonymous','anonymousDonationController@index');
 Route::post('createDonac','anonymousDonationController@create');
 
-
-Route::get('/catastrophe2', function () {
-    $regions ['datos'] = [];
-    return view('pruebaBaseDatos0Vista', $regions);
-});
 Route::get('/catastrophe2', 'CatastropheController@create');
 Route::get('/catastrophe2', 'CatastropheController@prueba');
 
