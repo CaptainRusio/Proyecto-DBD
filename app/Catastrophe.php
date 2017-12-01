@@ -22,4 +22,6 @@ class Catastrophe extends Model
     public function action(){
         return $this->hasMany(Action::class,'catastrophe_id');
     }
+    
+
 }

@@ -10,6 +10,7 @@ use App\Province;
 use App\Commune;
 use App\User;
 use App\Record;
+use Thujohn\Twitter\Facades\Twitter;
 
 class CatastropheController extends Controller
 {
@@ -111,6 +112,23 @@ class CatastropheController extends Controller
         $provinces = Province::all();
         $communes = Commune::all();
         return view('catastrophe2',  compact('regions','provinces','communes'));
+    }
+
+    public function publishTwitter(Request $request){
+
+        $idCat = $request->id;
+        $cat = Catastrophe::find($idCat);
+        $strToTweet = "";
+        $strToTweet .= $cat->name . "\n";
+        $strToTweet .= $cat->description ."\n";
+        $strToTweet .= $cat->type . "\n";
+        //Se cambia la catastrofe.
+        $cat->confirmed = true;
+        $cat->save();
+
+        //Se postea el twitter
+
+        return Twitter::postTweet(['status' => $strToTweet, 'format' => 'json']);
     }
 
 }

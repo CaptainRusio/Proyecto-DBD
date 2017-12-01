@@ -36,4 +36,13 @@ class User extends Authenticatable
     public function records(){
         return $this->hasMany(Record::class,'user_id');
     }
+
+    public function haveRole($role){
+        for ($i=0; $i <count($this->roles) ; $i++) { 
+            if ($this->roles[$i]->type == $role) {
+                return 1;
+            }
+        }
+        return 0;
+    }
 }

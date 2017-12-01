@@ -142,3 +142,5 @@ Route::post('/createAction','ActionsController@newAction');
 //Catastrophe
 
 Route::post('showCatastrophe','CatastropheController@show');
+
+Route::post('publishTwitter', 'CatastropheController@publishTwitter');

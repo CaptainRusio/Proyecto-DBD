@@ -18,6 +18,7 @@ class CreateCatastrophe extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('type');
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
 
             $table->integer('commune_id')

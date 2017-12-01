@@ -290,83 +290,86 @@ catastrofes
 		<div class="col-md-12 center" style="padding-left: 5%;padding-right: 5%">
 			@for ($i = 0; $i<count($catastrophes); $i++)
 
-      		<div class="panel panel-default text-center">
-	      		<div class="panel-heading">
-			        <h4 data-toggle="collapse" data-parent="#accordion{{$i}}" href="#collapse{{$i}}">{{$catastrophes[$i]->name}}</h4>
-			    </div>
-			    <div class="panel-body">
-			    	<h5>{{$catastrophes[$i]->description}} </h5>
-			    </div>
-				<div id="collapse{{$i}}" class="panel-collapse collapse out">
-				    <div class="panel-body">
-				    <div class="text-center">
-				    	<form class="" method="post" action="actionsOf" > 
-		                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-		                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-		                    <button type = "submit" class = "col-md-4 btn btn-info" 
-		                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;" >Ver Medidas </button> 
-		      			</form>
-		      			<form method="post" action="showCatastrophe" > 
-		                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-		                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-		                    <button type = "submit" class = "col-md-4 btn btn-info" 
-		                        id = "{{$catastrophes[$i]->id}}" >Ver detalles </button> 
-		      			</form>  
+			@if($catastrophes[$i]->confirmed == true)
+
+
+	      		<div class="panel panel-default text-center">
+		      		<div class="panel-heading">
+				        <h4 data-toggle="collapse" data-parent="#accordion{{$i}}" href="#collapse{{$i}}">{{$catastrophes[$i]->name}}</h4>
 				    </div>
+				    <div class="panel-body">
+				    	<h5>{{$catastrophes[$i]->description}} </h5>
+				    </div>
+					<div id="collapse{{$i}}" class="panel-collapse collapse out">
+					    <div class="panel-body">
+					    <div class="text-center">
+					    	<form class="" method="post" action="actionsOf" > 
+			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+			                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+			                    <button type = "submit" class = "col-md-4 btn btn-info" 
+			                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;" >Ver Medidas </button> 
+			      			</form>
+			      			<form method="post" action="showCatastrophe" > 
+			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+			                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+			                    <button type = "submit" class = "col-md-4 btn btn-info" 
+			                        id = "{{$catastrophes[$i]->id}}" >Ver detalles </button> 
+			      			</form>  
+					    </div>
+						</div>
 					</div>
 				</div>
-		</div>
+			<br>
+
+			@else
+
+				@if(Auth::user()->haveRole("Organización") || Auth::user()->haveRole("Miembro del gobierno"))
+
+					<div class="panel panel-default text-center">
+			      		<div class="panel-heading">
+					        <h4 data-toggle="collapse" data-parent="#accordion{{$i}}" href="#collapse{{$i}}">{{$catastrophes[$i]->name}}</h4>
+					    </div>
+					    <div class="panel-body">
+					    	<h5>{{$catastrophes[$i]->description}} </h5>
+					    </div>
+						<div id="collapse{{$i}}" class="panel-collapse collapse out">
+						    <div class="panel-body">
+						    <div class="text-center">
+						    	<form class="" method="post" action="actionsOf" > 
+				                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+				                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+				                    <button type = "submit" class = "col-md-4 btn btn-info" 
+				                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;" >Ver Medidas </button> 
+				      			</form>
+				      			<form method="post" action="showCatastrophe" > 
+				                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+				                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+				                    <button type = "submit" class = "col-md-4 btn btn-info" 
+				                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;">Ver detalles </button> 
+				      			</form>  
+					      		
+				      					@if(Auth::user()->haveRole("Miembro del gobierno"))
+							      			<form method="post" action="publishTwitter" > 
+							                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+							                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
+							                    <button type = "submit" class = "col-md-3 btn btn-info" 
+							                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button> 
+							                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
+							      			</form>  
+					      				@endif
+						    </div>
+							</div>
+						</div>
+					</div>
 		<br>
+
+
+
+						@endif
+			@endif
 		@endfor			
 </div>
 
-<!--
-<div class="panel-group type" id="catastrophes">
-	@for ($i =0; $i<count($catastrophes); $i++)
-	
-		<div class="panel-group type" id="catastrophes" >
-	<div class="panel panel-default">
-	    <div class="panel-heading">
-			<h4 class="panel-title">
-			   	<ul>
-			   		<ul class = "row">
-					    <a class = "col-md-11" data-toggle="collapse" data-parent="#accordion{{$i}}" href="#collapse{{$i}}">
-					        {{$catastrophes[$i]->name}}
-					        </a>
-					    <button type="button" class=" brt btn btn-primary col-md-1">Ver</button>
-					</ul>
-				</ul>
-			</h4>
-		</div>
-		<div id="collapse{{$i}}" class="panel-collapse collapse out">
-			<div class="panel-body">
-			    <ul class="nav nav-pills nav-stacked">
-
-			       	<li class="passive"><a>{{$catastrophes[$i]->description}} <br> 
-			       		Region: {{$catastrophes[$i]->commune->province->region->name}}
-			       	</a></li>
-			        <li class="active ">
-			        <form class="" method="post" action="actionsOf" > 
-                        <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-                        <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-                        <button type = "submit" class = "col-md-4 btn btn-info" 
-                            id = "{{$catastrophes[$i]->id}}" 
-                        >Ver Medidas </button> 
-          			</form> 
-			        <button class = "col-md-4 btn btn-info">Editar </button>
-			        <button class = "col-md-4 btn btn-info">Eliminar </button></
-			        li>
-			    </ul>				                    
-			</div>
-		</div>
-	</div>
-</div>
-
-
-	@endfor
-		
-</div>
--->
 
 </section>
 </body>
