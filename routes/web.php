@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/enviar_tweet', function()
+{
+    return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
+});
 
 Route::get('/', function () {
     return view('welcome');
