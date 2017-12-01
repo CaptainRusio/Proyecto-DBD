@@ -8,7 +8,8 @@ use Validator;
 use App\Region;
 use App\Province;
 use App\Commune;
-
+use App\User;
+use App\Record;
 
 class CatastropheController extends Controller
 {
@@ -53,8 +54,14 @@ class CatastropheController extends Controller
         }
 
         Catastrophe::create($request->all());
-        $catastrophes = Catastrophe::all();
-        return view('catastrophes_Actions',compact('catastrophes'));
+        
+        $User = User::Find($request->users_id);
+
+        $reco = record::create([
+            'action' => "Crea catastrofe ".$request->name,
+        ]);
+        $User->records()->save($reco);
+
     }
 
     public function create()

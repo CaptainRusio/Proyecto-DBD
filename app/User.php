@@ -34,6 +34,6 @@ class User extends Authenticatable
         return $this->belongsTo(RNV::class,'rnv_id');
     }
     public function records(){
-        return $this->hasMany(UserRecord::class,'id_record');
+        return $this->hasMany(Record::class,'user_id');
     }
 }

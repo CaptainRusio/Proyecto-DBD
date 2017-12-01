@@ -237,13 +237,7 @@ $(document).ready(function(){
 	<div class = "container"> 
 		 <div class="row">
 		 	<div class="valInit col-md-6 ">
-	            <form action="" class="search-form">
-	                <div class="form-group has-feedback">
-	            		<label for="search" class="sr-only">Search</label>
-	            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
-	              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-	            	</div>
-	            </form>
+	            
 	        </div>
 			<div class="col-md-6 ">
 				@if(Auth::user() != null)

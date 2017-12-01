@@ -181,6 +181,7 @@
                 <div class="panel-body">
     <form class="form-horizontal" action="storeCatastrophe" method="post" >
                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
+                    <input type = "hidden" name = "users_id" value="{{Auth::user()->id }}">
 
                     <div>
                         <div class="cold-md-3">
