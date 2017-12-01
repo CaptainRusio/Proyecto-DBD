@@ -61,10 +61,9 @@
                 <li><a href="<?php echo e(url('donate')); ?>">Como Donar</a></li>
               </ul>
             </li>
-            <li><a href="<?php echo e(url('contact')); ?>"><i class= "fa fa-compress" aria-hidden="true"> </i> Contáctanos</a></li>
+           
           
             
-            <li><a href="<?php echo e(url('about')); ?>"> <i class= "fa fa-users" aria-hidden="true"> </i> Sobre Nosotros</a></li>
            
 
           </ul>

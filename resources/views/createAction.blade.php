@@ -248,7 +248,7 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 
 							<label id=lblCost class = "separ form-label col-md-4">Costo a la fecha</label>
 							<div class = "separ col-md-8">
-								<input type="text" name="cost" class = "form-control" value="Ingrese un monto en pesos (CLP)" required>
+								<input type="text" name="cost" class = "form-control" value="" required>
 							</div>
 							<label class = "separ form-label col-md-4" >Fecha de inicio</label>
 							<div class="separ col-md-8">

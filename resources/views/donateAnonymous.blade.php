@@ -3,7 +3,7 @@
 
 @section('scripts')
 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+ 
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
@@ -37,7 +37,7 @@
                     <form method="post" action="createDonac">
                         <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 					   <div class="panel-body">
-                        <label for="name" class="col-md-4 control-label">Monto (CLP)</label>
+                        <label for="name" class="col-md-4 control-label" >Monto (CLP)</label>
                         <div class="col-md-6">
                         	<input id="name" type="text" class="form-control" name="amount" required autofocus>
                    </div>
@@ -48,7 +48,7 @@
                         
                         <div class="col-md-6">
 							
-							<select class="form-control" name="idDonatCamp" id = "selectDonac">
+							<select class="form-control" name="idDonatCamp" id = "selectDonac" required>
 								
                                 @for($i = 0; $i < count($campanas); $i++)
 								    <option value = "{{$campanas[$i]->id}}">{{$campanas[$i]->name}}</option>
@@ -67,7 +67,7 @@
 					<div class="form-group row" >
                         <div class="col-md-6">
                             <div class="input-group date" data-provide="datepicker" align="center">
-                                <input type="text" class="form-control" name="donationDate" align="center">
+                                <input type="text" class="form-control" name="donationDate" align="center" required>
                                 <div class="input-group-addon" align="center">
                                     <span class="glyphicon glyphicon-th"  align= "center"></span>
                                 </div>

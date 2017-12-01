@@ -236,19 +236,19 @@
                         <div class = "form-group cold-md-4">
                             <label for="selReg" class="col-md-3 control-label">Region:</label>
                                 <div class="col-md-6">
-                                    <select onclick="functionProvince()" onmouseup="functionProvince()"  class="form-control" id="regionSelect"></select>
+                                    <select onclick="functionProvince()" onmouseup="functionProvince()"  class="form-control" id="regionSelect" required></select>
                                 </div>
                         </div>
                         <div class = "form-group cold-md-4">
                             <label for="selProv" class="col-md-3 control-label">Provincia:</label>
                             <div class="col-md-6">
-                                <select onclick="getCommunes()" onmouseup="functionCommunes()" class="form-control" id="provinceSelect"> </select>
+                                <select onclick="getCommunes()" onmouseup="functionCommunes()" class="form-control" id="provinceSelect" required> </select>
                             </div>      
                         </div>
                         <div class = "form-group cold-md-4">
                             <label for="selProv" class="col-md-3 control-label">Comuna:</label>
                             <div class="col-md-6">
-                                <select onload="run()" class="form-control" name = "commune_id" id="commune"></select> 
+                                <select onload="run()" class="form-control" name = "commune_id" id="commune" required></select> 
                                 <input style="display: none;" name = "commune" type="text" id="commune_id" placeholder="get value on option select"><br> 
                             </div>  
                         </div>  

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Users_Actions;
 use App\Action;
 use App\User;
-use App\record;
+use App\Record;
 
 
 class ActionUserController extends Controller
@@ -49,7 +49,7 @@ class ActionUserController extends Controller
                 'action' => "Participa en medida ".$Medida->name,
              ]);
             $User->records()->save($reco);
-
+            return view('welcome');
     }
 
 
