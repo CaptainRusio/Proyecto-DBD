@@ -366,9 +366,10 @@ catastrofes
 					      						<form method="post" action="publishTwitter" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-								                    @if($catastrophe->confirmed)
+								                    
 								                    <button type = "submit" class = "col-md-2 btn btn-info" 
-								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button> 
+								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button>
+
 								                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
 								                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
