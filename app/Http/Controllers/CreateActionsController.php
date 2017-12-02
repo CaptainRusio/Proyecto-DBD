@@ -13,6 +13,13 @@ use App\Catastrophe;
 
 class CreateActionsController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    
+    }
+
+
 	public function index(){
 		$tiposMedidas = ['Gathering Center','Donaciones','Voluntariado','Evento a beneficio'];
 		$data['dataIn'] = $tiposMedidas;
