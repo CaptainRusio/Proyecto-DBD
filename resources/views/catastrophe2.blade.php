@@ -267,10 +267,10 @@
                     @else
                     <!-- Si se está editando una catastrofe -->
                     <!-- Cambiar la acción del post, pasarle el id de lay -->
-                    <form class="form-horizontal" action="storeCatastrophe" method="post" >
+                    <form class="form-horizontal" action="updateCatastrophe" method="post" >
                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}">
                     <input type = "hidden" name = "users_id" value="{{Auth::user()->id }}">
-
+                    <input type = "hidden" name = "catId" value="{{$catastrophe->id}}">
                     <div>
                         <div class="cold-md-3">
                             <h3> Datos generales </h3>
@@ -325,19 +325,23 @@
                         <div class = "form-group cold-md-4">
                             <label for="selReg" class="col-md-3 control-label">Region:</label>
                                 <div class="col-md-6">
-                                    <select onclick="functionProvince()" onmouseup="functionProvince()"  class="form-control" id="regionSelect" required></select>
+                                    <select onclick="functionProvince()" onmouseup="functionProvince()"  class="form-control" id="regionSelect" required>
+                                        <option value={{$actualRegion->id}}>{{$actualRegion->name}}</option>
+                                    </select>
                                 </div>
                         </div>
                         <div class = "form-group cold-md-4">
                             <label for="selProv" class="col-md-3 control-label">Provincia:</label>
                             <div class="col-md-6">
-                                <select onclick="getCommunes()" onmouseup="functionCommunes()" class="form-control" id="provinceSelect" required> </select>
+                                <select onclick="getCommunes()" onmouseup="functionCommunes()" class="form-control" id="provinceSelect" required> 
+                            </select>
                             </div>      
                         </div>
                         <div class = "form-group cold-md-4">
                             <label for="selProv" class="col-md-3 control-label">Comuna:</label>
                             <div class="col-md-6">
-                                <select onload="run()" class="form-control" name = "commune_id" id="commune" required></select> 
+                                <select  class="form-control" name = "commune_id" id="commune" required>
+                                </select> 
                                 <input style="display: none;" name = "commune" type="text" id="commune_id" placeholder="get value on option select"><br> 
                             </div>  
                         </div>  
@@ -345,7 +349,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Registrar catastrofe
+                                    Terminar edición
                                 </button>
                             </div>
                         </div>

@@ -2560,67 +2560,6 @@
         ]
     },
     {
-        "name": "phpunit/phpunit-mock-objects",
-        "version": "5.0.2",
-        "version_normalized": "5.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-            "reference": "b09519fb0786d369c0ae6b00c9caf25f7292b393"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/b09519fb0786d369c0ae6b00c9caf25f7292b393",
-            "reference": "b09519fb0786d369c0ae6b00c9caf25f7292b393",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/instantiator": "^1.0.5",
-            "php": "^7.0",
-            "phpunit/php-text-template": "^1.2.1",
-            "sebastian/exporter": "^3.0"
-        },
-        "conflict": {
-            "phpunit/phpunit": "<6.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^6.5"
-        },
-        "suggest": {
-            "ext-soap": "*"
-        },
-        "time": "2017-12-01T09:50:16+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de",
-                "role": "lead"
-            }
-        ],
-        "description": "Mock Object library for PHPUnit",
-        "homepage": "https://github.com/sebastianbergmann/phpunit-mock-objects/",
-        "keywords": [
-            "mock",
-            "xunit"
-        ]
-    },
-    {
         "name": "phpunit/php-file-iterator",
         "version": "1.4.5",
         "version_normalized": "1.4.5.0",
@@ -3087,67 +3026,6 @@
         ],
         "description": "Symfony Finder Component",
         "homepage": "https://symfony.com"
-    },
-    {
-        "name": "symfony/polyfill-php70",
-        "version": "v1.6.0",
-        "version_normalized": "1.6.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/polyfill-php70.git",
-            "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
-            "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
-            "shasum": ""
-        },
-        "require": {
-            "paragonie/random_compat": "~1.0|~2.0",
-            "php": ">=5.3.3"
-        },
-        "time": "2017-10-11T12:05:26+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.6-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Php70\\": ""
-            },
-            "files": [
-                "bootstrap.php"
-            ],
-            "classmap": [
-                "Resources/stubs"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "compatibility",
-            "polyfill",
-            "portable",
-            "shim"
-        ]
     },
     {
         "name": "symfony/http-foundation",
@@ -3951,50 +3829,6 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "themattharris/tmhoauth",
-        "version": "0.8.4",
-        "version_normalized": "0.8.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/themattharris/tmhOAuth.git",
-            "reference": "455552d6c57549632644b6c9ac9204766be2b5ee"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/themattharris/tmhOAuth/zipball/455552d6c57549632644b6c9ac9204766be2b5ee",
-            "reference": "455552d6c57549632644b6c9ac9204766be2b5ee",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "php": ">=5.3.0"
-        },
-        "time": "2014-08-06T22:29:35+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "tmhOAuth": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "themattharris",
-                "email": "matt@themattharris.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "An OAuth library written in PHP by @themattharris",
-        "keywords": [
-            "oauth",
-            "twitter"
-        ]
-    },
-    {
         "name": "laravel/framework",
         "version": "v5.5.22",
         "version_normalized": "5.5.22.0",
@@ -4127,6 +3961,172 @@
         "keywords": [
             "framework",
             "laravel"
+        ]
+    },
+    {
+        "name": "phpunit/phpunit-mock-objects",
+        "version": "5.0.3",
+        "version_normalized": "5.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
+            "reference": "a58b8fc03ca12d8bf6122ea942bc72c99c7cda4a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/a58b8fc03ca12d8bf6122ea942bc72c99c7cda4a",
+            "reference": "a58b8fc03ca12d8bf6122ea942bc72c99c7cda4a",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/instantiator": "^1.0.5",
+            "php": "^7.0",
+            "phpunit/php-text-template": "^1.2.1",
+            "sebastian/exporter": "^3.0"
+        },
+        "conflict": {
+            "phpunit/phpunit": "<6.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^6.5"
+        },
+        "suggest": {
+            "ext-soap": "*"
+        },
+        "time": "2017-12-01T16:12:08+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de",
+                "role": "lead"
+            }
+        ],
+        "description": "Mock Object library for PHPUnit",
+        "homepage": "https://github.com/sebastianbergmann/phpunit-mock-objects/",
+        "keywords": [
+            "mock",
+            "xunit"
+        ]
+    },
+    {
+        "name": "themattharris/tmhoauth",
+        "version": "0.8.4",
+        "version_normalized": "0.8.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/themattharris/tmhOAuth.git",
+            "reference": "455552d6c57549632644b6c9ac9204766be2b5ee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/themattharris/tmhOAuth/zipball/455552d6c57549632644b6c9ac9204766be2b5ee",
+            "reference": "455552d6c57549632644b6c9ac9204766be2b5ee",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-08-06T22:29:35+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "tmhOAuth": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "themattharris",
+                "email": "matt@themattharris.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "An OAuth library written in PHP by @themattharris",
+        "keywords": [
+            "oauth",
+            "twitter"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-php70",
+        "version": "v1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php70.git",
+            "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+            "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+            "shasum": ""
+        },
+        "require": {
+            "paragonie/random_compat": "~1.0|~2.0",
+            "php": ">=5.3.3"
+        },
+        "time": "2017-10-11T12:05:26+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Php70\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ],
+            "classmap": [
+                "Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
         ]
     },
     {

@@ -141,3 +141,5 @@ Route::post('showCatastrophe','CatastropheController@show');
 Route::post('publishTwitter', 'CatastropheController@publishTwitter');
 
 Route::post('editCatastrophe','CatastropheController@edit');
+
+Route::post('updateCatastrophe','CatastropheController@update');
