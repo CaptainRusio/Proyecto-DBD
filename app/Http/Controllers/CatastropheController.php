@@ -88,19 +88,85 @@ class CatastropheController extends Controller
 
     public function edit(Request $req)
     {
+        $idCat = $req->id;
+        $catastrophe = Catastrophe::find($idCat);
+        
+        $idCommune = $catastrophe->commune_id;
+        $actualCommune = Commune::find($idCommune);
+        
+        $idProvince = $actualCommune->province_id;
+        $actualProvince = Province::find($idProvince);
+        
+        $idRegion = $actualProvince->region_id;
+        $actualRegion = Region::find($idRegion);
+
         $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
-        $idCat = $req->id;
-        $catastrophe = Catastrophe::find($idCat);
-        return view('catastrophe2', compact('regions','provinces','communes','catastrophe'));
+        
+        return view('catastrophe2', compact('actualRegion','actualProvince','actualCommune','regions','provinces','communes','catastrophe'));
 
     }
 
-    public function update()
+    public function update(Request $request)
     {
+        $validator = Validator::make($request->all(),
+            [
+            'name' => 'required|string|max:32',
+            'description' => 'required|string|max:256',
+            ],
+        [
+            'required' => 'Es necesario completar este campo',
+            'string' => 'Ingrese caracteres',
+            'max' => 'Se ha exedido la cantidad maxima'
+        ]
+            );
+        if($validator->fails())
+        {
+            return redirect()->route('catastrophe2')
+                                    ->withErrors($validator)
+                                    ->withInput();
+        }
 
+
+      
+
+        $catastrophe = Catastrophe::find($request->catId);
+        
+        $User = User::Find($request->users_id);
+
+        if($catastrophe->name == $request->name and $catastrophe->description == $request->description and
+            $catastrophe->type == $request->type and $catastrophe->commune_id == $request->commune_id){
+
+        }else{
+            if($catastrophe->name == $request->name){
+                $reco = record::create([
+                    'action' => "Modifica catastrofe ".$catastrophe->name,
+                ]);
+
+            }else{
+                $reco = record::create([
+                    'action' => "Modifica catastrofe ".$catastrophe->name." a la catastrophe ".$request->name,
+                ]);
+
+            }
+        
+            $User->records()->save($reco);
+        }
+
+        
     
+
+        $catastrophe->name = $request->name;
+        $catastrophe->description = $request->description;
+        $catastrophe->type = $request->type;
+        $catastrophe->commune_id = $request->commune_id;
+        
+
+        $catastrophe->save();
+
+        return view('welcome');
+       
     }
 
     public function destroy()
@@ -119,6 +185,7 @@ class CatastropheController extends Controller
         $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
+        echo $provinces;
         $catastrophe = "noEdit";
         return view('catastrophe2',  compact('regions','provinces','communes','catastrophe'));
     }
@@ -137,7 +204,7 @@ class CatastropheController extends Controller
 
         //Se postea el twitter
 
-        return Twitter::postTweet(['status' => $strToTweet, 'format' => 'json']);
+        //return Twitter::postTweet(['status' => $strToTweet, 'format' => 'json']);
     }
 
 }
