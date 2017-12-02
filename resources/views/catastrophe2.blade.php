@@ -279,7 +279,7 @@
                             <label for="name" class="col-md-3 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{$catastrophe->name}}" required autofocus>
                                 {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
                         
                             </div>
@@ -288,7 +288,7 @@
                         <div class="form-group">
                             <label for="description" class="col-md-3 control-label">Descripcion</label>
                             <div class="col-md-6">
-                                <textarea class="form-control" name="description" rows="3" id="description" required autofocus></textarea>   
+                                <textarea class="form-control" name="description" rows="3" id="description" required autofocus>{{$catastrophe->description}}</textarea>   
                                 {!! $errors->first('description', '<p class="help-block">:message</p>') !!} 
                             </div>
                             
@@ -298,6 +298,7 @@
                             <label for="sel1" class="col-md-3 control-label">Tipo de catastrofe:</label>
                             <div class="col-md-6">
                               <select onchange = "" class="form-control" id="type" name = "type">
+                                <option value = "{{$catastrophe->type}}"> {{$catastrophe->type}} </option>
                                 <option value = "movSis" >Movimiento sismico</option>
                                 <option value = "Tsunami" >Tsunami</option>
                                 <option value = "FenAtm" >Fenómeno Atmosferico</option>
