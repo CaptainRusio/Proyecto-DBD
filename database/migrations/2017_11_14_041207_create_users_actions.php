@@ -42,8 +42,8 @@ class CreateUsersActions extends Migration
      */
     public function down()
     {
-        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        
         Schema::dropIfExists('users_actions');
-        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        
     }
 }

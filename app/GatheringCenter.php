@@ -14,4 +14,7 @@ class GatheringCenter extends Model
 	public function actions(){
 		return $this->morphMany(Action::class,'action');
 	}
+	public function articles(){
+		return $this->hasMany(Article::class,'gathering_id');
+	}
 }

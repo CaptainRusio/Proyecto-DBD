@@ -57,9 +57,9 @@ class CreateAction extends Migration
      */
     public function down()
     {
-        //DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        
         Schema::dropIfExists('actions');
 
-        //DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        
     }
 }

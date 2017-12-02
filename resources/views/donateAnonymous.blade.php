@@ -14,6 +14,34 @@
                 $('#fecha').datepicker();
             });
         </script>
+        <script >
+            function setCat(){
+                 $("#catName").empty();
+                var campanas = <?php echo json_encode($campanas); ?>;
+                @for($i = 0; $i<count($campanas); $i++)
+                    if(campanas[{{$i}}].id == $("#selectDonac").val()){
+                        $("#catName").append('{{$campanas[$i]->catastrophes->name}}');
+                    }
+                @endfor
+            }
+            function setCatInit(){
+                $("#catName").empty();
+                var campanas = <?php echo json_encode($campanas); ?>;
+                if(campanas != null){
+                    $("#catName").append('{{$campanas[0]->catastrophes->name}}');
+                }
+            }
+
+            $(function () {
+                $("#catName").empty();
+                var campanas = <?php echo json_encode($campanas); ?>;
+                if(campanas != null){
+                    $("#catName").append('{{$campanas[0]->catastrophes->name}}');
+                }
+            });
+
+
+        </script>
 
 
 @endsection
@@ -40,18 +68,18 @@
                         <label for="name" class="col-md-4 control-label" >Monto (CLP)</label>
                         <div class="col-md-6">
                         	<input id="name" type="text" class="form-control" name="amount" required autofocus>
-                   </div>
+                        </div>
                         @if(Auth::user() != null)
                         <input type="hidden" name="idUser" value = "{{Auth::user()->id}}">
                         @endif
                     	<label for="name" class="col-md-4 control-label">Campaña</label>
                         
-                        <div class="col-md-6">
+                        <div class="col-md-6" >
 							
-							<select class="form-control" name="idDonatCamp" id = "selectDonac" required>
+							<select class="form-control" name="idDonatCamp" id = "selectDonac" onchange = "setCat()"  required>
 								
                                 @for($i = 0; $i < count($campanas); $i++)
-								    <option value = "{{$campanas[$i]->id}}">{{$campanas[$i]->name}}</option>
+								    <option value = "{{$campanas[$i]->id}}" >{{$campanas[$i]->name}}</option>
                                 @endfor
 								<!--<option value= "#cac">Centro de acopio</option>
 								<option value= "#vol">Voluntariado</option>
@@ -79,8 +107,11 @@
                             @endif
                         </div>
                     </div>
-						
-				<input type = "submit" class="btn btn-primary" value = "Dona aquí" role="button">
+
+
+                        <label for="name" class="col-md-4 control-label">Catastrofe a la que pertenece</label>
+                        <label for="name" class="col-md-8 control-label" id="catName"></label>
+				<input type = "submit" class="col-md-12 btn btn-primary" value = "Dona aquí" role="button">
 				</div>
 
 			</div>

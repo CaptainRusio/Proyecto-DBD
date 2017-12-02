@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegion extends Migration
+class CreateArticles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateRegion extends Migration
      */
     public function up()
     {
-        Schema::create('regions', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('articles', function (Blueprint $table) {
             $table->string('name');
-            $table->string('ubication');
+            $table->integer('number');
             $table->timestamps();
+            $table->integer('gathering_id')->unsigned();
+            $table->foreign('gathering_id')->references('id')
+            ->on('gathering_centers')->onDelete('cascade');
+            $table->increments('id');
+
+
         });
     }
 
@@ -28,8 +33,6 @@ class CreateRegion extends Migration
      */
     public function down()
     {
-
-        Schema::dropIfExists('regions');
-
+        Schema::dropIfExists('articles');
     }
 }

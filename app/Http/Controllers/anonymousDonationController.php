@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Catastrophe;
 use App\Donation;
+use App\Action;
 
 
 class anonymousDonationController extends Controller
 {
     public function index(){
-    	$campanas = DB::table('actions')->where('action_type', 'DonationCampaign')->get();
+        //$pasteles = Pastel::where('sabor','vainilla')->get()
+        $campanas = Action::where('action_type','DonationCampaign')->get();
     	return view('donateAnonymous',compact('campanas'));
     }
 
