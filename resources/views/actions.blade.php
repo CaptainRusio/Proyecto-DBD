@@ -228,12 +228,28 @@ $(document).ready(function(){
 
 </script>
 
+<script type="text/javascript">
+  function alertAct() {
+    alert("Medida creada exitosamente!");
+
+  }
+  function alertAct2() {
+    alert("La medida ya existe");
+
+  }
+</script>
+
 @endsection
 
 
 
-@section('content')
 
+@section('content')
+@if($message == "actSuccess")
+<body onload="alertAct()">
+@elseif($message == "actNoSuccess")
+<body onload="alertAct2()">
+@endif
 	<div class = "container"> 
 		 <div class="row">
 		 	<div class="valInit col-md-6 ">
@@ -279,7 +295,7 @@ $(document).ready(function(){
 								</form>
 
 								<p class="desc">{{$actions[$i]->description}} </p>
-							@if(Auth::user() != null)
+							@if(Auth::user() != null AND $actions[$i]->action_type == 'Volunteering')
 							<form  method="post" action="actionToUser" > 
 			                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 			                    <input  type = "hidden" name="actions_id"  value="{{$actions[$i]->id}}"> 

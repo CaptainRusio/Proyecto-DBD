@@ -8,6 +8,7 @@ use App\Users_Actions;
 use App\Action;
 use App\User;
 use App\Record;
+use App\Catastrophe;
 
 
 class ActionUserController extends Controller
@@ -47,15 +48,28 @@ class ActionUserController extends Controller
     public function store(Request $req)
     {
             $User = User::Find($req->users_id);
-            $User->actionUser()->attach($req->actions_id);
-            $Medida = Action::find($req->actions_id);
+            $MedidaAux = $User->records->where('id', $req->actions_id);
+            
+
+         
+            if(count($MedidaAux) == 0){
+                $User->actionUser()->attach($req->actions_id);
+            
+
+                $Medida = Action::find($req->actions_id);
 
 
-            $reco = record::create([
-                'action' => "Participa en medida ".$Medida->name,
-             ]);
-            $User->records()->save($reco);
-            return view('welcome');
+                $reco = record::create([
+                    'action' => "Participa en medida ".$Medida->name,
+                 ]);
+                $User->records()->save($reco);
+                return view('welcome')->with('message', "recordSuccess");
+
+            }else{
+                return view('welcome')->with('message', "recordNoSuccess");
+            }
+
+            
     }
 
 

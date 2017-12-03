@@ -9,9 +9,7 @@ catastrofes
 @section('scripts')
 
 <style type="text/css">
-    body {
-		
-	}
+   
     
     .event-list {
 		list-style: none;
@@ -265,6 +263,7 @@ catastrofes
 
 @section('content')
 
+
 <section>	
 	<div class = "container"> 
 		 <div class="row">
@@ -416,3 +415,4 @@ catastrofes
 
 
 @endsection
+

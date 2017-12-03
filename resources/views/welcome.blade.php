@@ -10,10 +10,23 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
          <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-
+       
 @extends('layouts.app')
 
 @section('content')
+
+@if($message == "catSuccess")
+<body onload="alertCat()">
+@elseif($message == "catNoSuccess")
+<body onload="alertCat2()">
+@elseif($message == "recordSuccess")
+<body onload="alertRec()">
+@elseif($message == "recordNoSuccess")
+<body onload="alertRec2()">
+@endif
+
+
+
 <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
@@ -83,8 +96,42 @@
 
     </div><!-- End Carousel -->
 </div>
+</body>
 @endsection
 <!-- Scripts -->
+
+<script type="text/javascript">
+  function alertCat() {
+    alert("Catastrofe creada exitosamente!");
+
+  }
+  function alertCat2() {
+    alert("La catastrofe ya existe");
+
+  }
+  function alertRec() {
+    alert("Ahora está participando de la medida como voluntario");
+
+  }
+  function alertRec2() {
+    alert("Usted ya estaba participando de la medida");
+
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="{{ asset('js/welcome.js') }}" >
       
 $(document).ready(function(){

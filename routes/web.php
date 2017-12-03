@@ -16,7 +16,7 @@ Route::get('/enviar_tweet', function()
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('message', "");
 });
 Route::get('validate', function () {
     return 'get! ';

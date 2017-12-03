@@ -56,14 +56,24 @@ class CatastropheController extends Controller
                                     ->withInput();
         }
 
-        Catastrophe::create($request->all());
+        $cat = Catastrophe::all()->where('name', $request->name);
+        if(count($cat) == 0){
+            Catastrophe::create($request->all());
         
-        $User = User::Find($request->users_id);
+            $User = User::Find($request->users_id);
 
-        $reco = record::create([
-            'action' => "Crea catastrofe ".$request->name,
-        ]);
-        $User->records()->save($reco);
+            $reco = record::create([
+                'action' => "Crea catastrofe ".$request->name,
+            ]);
+            $User->records()->save($reco);
+            return view('welcome')->with('message', "catSuccess");
+            
+        } else {
+            return view('welcome')->with('message', "catNoSuccess");
+            
+        }
+        
+        
 
     }
 
@@ -187,7 +197,6 @@ class CatastropheController extends Controller
         $regions = Region::all();
         $provinces = Province::all();
         $communes = Commune::all();
-        echo $provinces;
         $catastrophe = "noEdit";
         return view('catastrophe2',  compact('regions','provinces','communes','catastrophe'));
     }

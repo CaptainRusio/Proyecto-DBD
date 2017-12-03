@@ -16,6 +16,6 @@ class CatastrophesAndActionsController extends Controller
     	$id = $req->id;
     	$cat = Catastrophe::find($id); 
       	$actions = $cat->action; 
-      	return view('actions',compact('actions','id')); 
+      	return view('actions',compact('actions','id'))->with('message', ""); 
     }
 }
