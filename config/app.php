@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Styde\Seeder\SeederServiceProvider::class,
         Thujohn\Twitter\TwitterServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -227,7 +228,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Twitter' => 'Thujohn\Twitter\Facades\Twitter',
-
     ],
 
 ];

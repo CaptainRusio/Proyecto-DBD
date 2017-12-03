@@ -71,6 +71,12 @@ Route::get('/map', function () {
     return view('map');
 });
 
+Route::get('/users','UsersController@index')->name('usersIndex');
+
+Route::get('/users/{id}/destroy',[
+    'uses' => 'UsersController@destroy',
+    'as' => 'users.destroy'
+    ]);
 
 Route::get('/donateAnonymous','anonymousDonationController@index');
 Route::post('createDonac','anonymousDonationController@create');
