@@ -288,9 +288,10 @@ catastrofes
 <div class="panel-group type" id="catastrophes">
 		<div class="col-md-12 center" style="padding-left: 5%;padding-right: 5%">
 			@for ($i = 0; $i<count($catastrophes); $i++)
-			@if($catastrophes[$i]->active == true)
+			
 			@if($catastrophes[$i]->confirmed == true)
 
+			@if($catastrophes[$i]->active == true)
 
 	      		<div class="panel panel-default text-center">
 		      		<div class="panel-heading">
@@ -313,7 +314,8 @@ catastrofes
 			                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
 			                    <button type = "submit" class = "col-md-4 btn btn-info" 
 			                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;">Ver detalles </button> 
-			      			</form>  
+			      			</form> 
+			      			
 			      			@if(Auth::user() != null)
 			      				@if(Auth::user()->haveRole("Organización") || Auth::user()->haveRole("SU"))
 			      					<form method="post" action="editCatastrophe" > 
@@ -321,18 +323,27 @@ catastrofes
 					                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
 					                    <button type = "submit" class = "col-md-3 btn btn-info" 
 					                        id = "{{$catastrophes[$i]->id}}" >Editar </button> 
-					      			</form>  
+					      			</form>
+					      			<form method="post" action="eliminarCatastrophe" > 
+					                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+					                    <input type="hidden" name="catId" value="{{$catastrophes[$i]->id}}"> 
+					                    <input type="hidden" name="users_id" value="{{Auth::User()->id}}"> 
+					                    <button type = "submit" class = "col-md-3 btn btn-info" 
+					                        id = "{{$catastrophes[$i]->id}}" >Eliminar </button> 
+					      			</form>    
 			      				@endif
 			      			@endif
+			      			
 
 					    </div>
 						</div>
 					</div>
 				</div>
 			<br>
-
+			@endif
 			@else
 
+			@if($catastrophes[$i]->active == true)
 
 				@if(Auth::user() != null)
 					@if(Auth::user()->haveRole("Organización") || Auth::user()->haveRole("Miembro del gobierno"))
@@ -360,9 +371,6 @@ catastrofes
 					                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;">Ver detalles </button> 
 					      			</form>  
 						      		
-					      					
-
-
 					      					@if(Auth::user()->haveRole("Miembro del gobierno"))
 								      			<form method="post" action="publishTwitter" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
@@ -371,6 +379,7 @@ catastrofes
 								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button> 
 								                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
 								      			</form>  
+								      		@endif
 						      				@if(Auth::user()->haveRole("Organización"))
 						      					<form method="post" action="editCatastrophe" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
@@ -380,6 +389,15 @@ catastrofes
 								      			</form>  
 
 
+								      		@endif
+								      		<form method="post" action="eliminarCatastrophe" > 
+							                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
+							                    <input type="hidden" name="catId" value="{{$catastrophes[$i]->id}}"> 
+							                    <input type="hidden" name="users_id" value="{{Auth::User()->id}}"> 
+							                    <button type = "submit" class = "col-md-3 btn btn-info" 
+							                        id = "{{$catastrophes[$i]->id}}" >Eliminar </button> 
+							      			</form>
+
 						      				
 
 												    </div>
@@ -388,7 +406,8 @@ catastrofes
 											</div>
 											<br>
 							@endif
-							@endif
+							
+			@endif 
 			@endif
 			@endif
 		@endfor			

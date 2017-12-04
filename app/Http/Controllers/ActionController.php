@@ -26,12 +26,43 @@ class ActionController extends Controller
 	{
 		$actionId = $req->actionId;
 		$action = Action::find($actionId);
-		return view('action',compact('action'));
+		if($action->action_type == "DonationCampaign"){
+			$morph = DonationCampaign::find($action->action_id);
+		}else if($action->action_type == "Volunteering"){
+			$morph = Volunteering::find($action->action_id);
+		}else if($action->action_type == "EventToBenefit"){
+			$morph = EventToBenefit::find($action->action_id);
+		}else if($action->action_type == "GatheringCenter"){
+			$morph = GatheringCenter::find($action->action_id);
+		}
+		return view('action',compact('action','morph'));
 		
 	}
+
 	public function showAction(Request $req)
 	{
 		$actionId = $req->actionId;
 		return view('action',compact('actionId'));	
 	}
+
+	 public function update(Request $request, $id)
+    {
+        $action = Action::find($id);
+        $action->activate = 1;
+        $action->save();
+        return redirect()->route('catastrophesAndActions');
+    }
+	/**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $action = Action::find($id);
+        $action->delete();
+        dd($id);
+        return redirect()->route('catastrophesAndActions');
+    }
 }

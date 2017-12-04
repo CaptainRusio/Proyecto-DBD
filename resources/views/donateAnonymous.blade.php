@@ -23,6 +23,8 @@
                         $("#catName").append('{{$campanas[$i]->catastrophes->name}}');
                     }
                 @endfor
+                $("#btn").empty();
+                $("#btn").append('<input type = "submit" class="col-md-12 btn btn-primary" value = "Dona aquí" role="button">');
             }
             function setCatInit(){
                 $("#catName").empty();
@@ -77,7 +79,7 @@
                         <div class="col-md-6" >
 							
 							<select class="form-control" name="idDonatCamp" id = "selectDonac" onchange = "setCat()"  required>
-								
+								<option value="0" disabled selected>Seleccione la campaña de donación</option>
                                 @for($i = 0; $i < count($campanas); $i++)
 								    <option value = "{{$campanas[$i]->id}}" >{{$campanas[$i]->name}}</option>
                                 @endfor
@@ -111,7 +113,7 @@
 
                         <label for="name" class="col-md-4 control-label">Catastrofe a la que pertenece</label>
                         <label for="name" class="col-md-8 control-label" id="catName"></label>
-				<input type = "submit" class="col-md-12 btn btn-primary" value = "Dona aquí" role="button">
+				<div id="btn"></div>
 				</div>
 
 			</div>

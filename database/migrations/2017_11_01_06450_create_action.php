@@ -22,6 +22,7 @@ class CreateAction extends Migration
             $table->date('start');
             $table->date('end');
             $table->string('ubication');
+            $table->integer('activate')->default(0);
             $table->boolean('confirmed')->default(false);
 
              $table->integer('catastrophe_id')

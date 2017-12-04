@@ -12,6 +12,7 @@ use App\User;
 use App\Record;
 use Thujohn\Twitter\Facades\Twitter;
 
+
 class CatastropheController extends Controller
 {
     /**
@@ -180,6 +181,33 @@ class CatastropheController extends Controller
         return view('welcome');
        
     }
+
+    public function bloquear(Request $request)
+    {
+      
+
+        $catastrophe = Catastrophe::find($request->catId);
+        
+        $User = User::Find($request->users_id);
+
+       
+        $reco = Record::create([
+            'action' => "Bloquea catastrofe ".$catastrophe->name,
+        ]);
+
+            
+        
+        $User->records()->save($reco);
+        
+        $catastrophe->name = "*".$catastrophe->name."*";
+        $catastrophe->active = false;
+        $catastrophe->save();
+
+        return view('welcome')->with('message', "");
+       
+    }
+
+
 
     public function destroy()
     {

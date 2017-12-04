@@ -31,8 +31,8 @@ class CreateActionsController extends Controller
 		
 		$id = $request->idCat;
 		$cat = Catastrophe::find($id); 
-		$act = $cat->action->where('name', $request->name); 
-		
+		$act = $cat->action->where('name', $request->name);
+
 		if(count($act) == 0){
 			//Valores generales
 			$action = new Action();
