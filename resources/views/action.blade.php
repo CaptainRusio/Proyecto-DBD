@@ -161,18 +161,6 @@ opacity:0.9;
 }
 </style>
 
-<script>
-  
-  $(function () {
-    //Al iniciar
-    if( {{$action->name}} == 'Volunteering'){
-      alert("Es voluntariado");
-    }
-
-  });
-
-</script>
-
 
 @endsection
 
@@ -204,6 +192,7 @@ opacity:0.9;
             <div class="col-xs-12 col-sm-8">
               <ul class="list-group">
                 @if($action->action_type == "DonationCampaign")
+                  <li class="list-group-item">ID: {{$action->id}} </li>
                   <li class="list-group-item">Tipo: Campaña de donación </li>
                  
                 @elseif($action->action_type == "Volunteering")
@@ -261,7 +250,7 @@ opacity:0.9;
         </ul>
       </div>
       
-
+<p>{{$morph->id}}</p>
       
       @if($action->action_type == "DonationCampaign")
         <div class="bs-callout bs-callout-danger">
@@ -273,7 +262,11 @@ opacity:0.9;
               </tr>
               @foreach($morph->donations as $don)
               <tr>
-                  <td>{{$don->user->name}}</td>
+                  @if($don->user != null)
+                    <td>{{$don->user->name}}</td>
+                  @else
+                    <td>Anónimo</td>
+                  @endif
                   <td>{{$don->total_amount}}</td>
               </tr>
               @endforeach
