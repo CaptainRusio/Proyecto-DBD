@@ -360,24 +360,8 @@ catastrofes
 					                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;">Ver detalles </button> 
 					      			</form>  
 						      		
-					      					@if((Auth::user()->haveRole("Organización") && Auth::user()->haveRole("Miembro del gobierno"))  || Auth::user()->haveRole("SU") )
 
-					      						<form method="post" action="publishTwitter" > 
-								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-								                    
-								                    <button type = "submit" class = "col-md-2 btn btn-info" 
-								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button>
-
-								                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
-								                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-								                    <button type = "submit" class = "col-md-2 btn btn-info" 
-								                        id = "{{$catastrophes[$i]->id}}" >Editar </button> 
-								      			</form>  
-
-
-					      					@elseif(Auth::user()->haveRole("Miembro del gobierno"))
+					      					@if(Auth::user()->haveRole("Miembro del gobierno"))
 								      			<form method="post" action="publishTwitter" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
@@ -385,7 +369,8 @@ catastrofes
 								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button> 
 								                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
 								      			</form>  
-						      				@elseif(Auth::user()->haveRole("Organización"))
+								      		@endif
+						      				@if(Auth::user()->haveRole("Organización"))
 						      					<form method="post" action="editCatastrophe" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
@@ -394,7 +379,8 @@ catastrofes
 								      			</form>  
 
 
-						      				@endif
+								      		@endif
+						      				
 
 												    </div>
 													</div>
