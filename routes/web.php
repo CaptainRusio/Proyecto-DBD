@@ -146,12 +146,12 @@ Route::post('create','CreateActionsController@create');
 //actions
 Route::get('/actions','ActionsController@index')->name('actions');
 Route::get('/actions/{id}/destroy',[
-    'uses' => 'actionController@destroy',
+    'uses' => 'ActionController@destroy',
     'as' => 'action.destroy'
     ]);
 
 Route::get('/actions/{id}/enable',[
-    'uses' => 'actionController@update',
+    'uses' => 'ActionController@update',
     'as' => 'action.enable'
     ]);
 

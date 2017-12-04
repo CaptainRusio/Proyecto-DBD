@@ -211,7 +211,10 @@ opacity:0.9;
 
                 
                 @elseif($action->action_type == "EventToBenefit")
+                  <li class="list-group-item">ID: {{$action->id}} </li>
+                  <!--
                   <li class="list-group-item">Tipo: Evento a beneficio </li>
+                -->
                 @elseif($action->action_type == "GatheringCenter")
                   <li class="list-group-item">Tipo: Centro de acopio </li>
                
@@ -297,6 +300,12 @@ opacity:0.9;
         </table>
         </div>
       @elseif($action->action_type == "EventToBenefit")
+        <div class = "bs-callout bs-callout-danger">
+          <h4>Actividades</h4>
+            @if($morph != null)
+                <p>{{$morph->activities}}</p>
+            @endif
+        </div>
       @elseif($action->action_type == "GatheringCenter")
       @endif
 
