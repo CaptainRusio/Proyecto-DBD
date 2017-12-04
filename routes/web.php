@@ -77,6 +77,10 @@ Route::get('/users/{id}/destroy',[
     'uses' => 'UsersController@destroy',
     'as' => 'users.destroy'
     ]);
+Route::get('/users/{id}/edit',[
+    'uses' => 'UsersController@update',
+    'as' => 'users.edit'
+    ]);
 
 Route::get('/donateAnonymous','anonymousDonationController@index');
 Route::post('createDonac','anonymousDonationController@create');
