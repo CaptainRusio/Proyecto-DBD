@@ -78,7 +78,6 @@ class UsersController extends Controller
         //$user->activate = $request->activate;
         $user->save();
         return redirect()->route('usersIndex');
-
     }
 
     /**

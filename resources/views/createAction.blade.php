@@ -220,6 +220,8 @@ $( document ).on( 'click', '.btn-remove', function ( event ) {
 										id = "medidas"
 									>
 									<!--onchange="refresh()" -->
+										<option value="0" disabled selected>Seleccione Tipo de Medida</option>
+                                
 										<option value= "med-0">Voluntariado</option>
 										<option value= "med-1">Centro de acopio</option>
 										<option value= "med-2">Evento a beneficio</option>
