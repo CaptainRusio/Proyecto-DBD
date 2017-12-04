@@ -103,12 +103,11 @@ Route::get('pruebaBaseDatosVista', function () {
 Auth::routes();
 
 //Catastrophes Actions
-Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
-<<<<<<< HEAD
+Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes')->name('catastrophesAndActions');
+
 Route::post('/actionsOf','CatastrophesAndActionsController@showActions') ->name('actionsOf'); 
-=======
+
 Route::post('/actionsOf','ActionsController@showActions'); 
->>>>>>> 237103a9af61df5ae8535b3d476af2c6b6da3e49
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
 
 Route::post('crearBaseDatos', 'pruebaBaseDatos@create');

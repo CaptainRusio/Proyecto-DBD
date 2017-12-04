@@ -50,7 +50,7 @@ class ActionController extends Controller
         $action = Action::find($id);
         $action->activate = 1;
         $action->save();
-        return redirect()->route('actions');
+        return redirect()->route('catastrophesAndActions');
     }
 	/**
      * Remove the specified resource from storage.
@@ -62,6 +62,7 @@ class ActionController extends Controller
     {
         $action = Action::find($id);
         $action->delete();
-        return redirect()->route('actions');
+        dd($id);
+        return redirect()->route('catastrophesAndActions');
     }
 }
