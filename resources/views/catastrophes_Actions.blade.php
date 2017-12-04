@@ -288,7 +288,7 @@ catastrofes
 <div class="panel-group type" id="catastrophes">
 		<div class="col-md-12 center" style="padding-left: 5%;padding-right: 5%">
 			@for ($i = 0; $i<count($catastrophes); $i++)
-
+			@if($catastrophes[$i]->active == true)
 			@if($catastrophes[$i]->confirmed == true)
 
 
@@ -360,24 +360,10 @@ catastrofes
 					                        id = "{{$catastrophes[$i]->id}}" style="margin-right: 0.5em;">Ver detalles </button> 
 					      			</form>  
 						      		
-					      					@if((Auth::user()->haveRole("Organización") && Auth::user()->haveRole("Miembro del gobierno"))  || Auth::user()->haveRole("SU") )
-
-					      						<form method="post" action="publishTwitter" > 
-								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-								                    
-								                    <button type = "submit" class = "col-md-2 btn btn-info" 
-								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button>
-
-								                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
-								                     <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
-								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
-								                    <button type = "submit" class = "col-md-2 btn btn-info" 
-								                        id = "{{$catastrophes[$i]->id}}" >Editar </button> 
-								      			</form>  
+					      					
 
 
-					      					@elseif(Auth::user()->haveRole("Miembro del gobierno"))
+					      					@if(Auth::user()->haveRole("Miembro del gobierno"))
 								      			<form method="post" action="publishTwitter" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
@@ -385,7 +371,7 @@ catastrofes
 								                        id = "{{$catastrophes[$i]->id}}" >Habilitar </button> 
 								                        <!-- En esta opción se debe hacer el método post para habilitar una catastrofe y escribirla en Twitter-->
 								      			</form>  
-						      				@elseif(Auth::user()->haveRole("Organización"))
+						      				@if(Auth::user()->haveRole("Organización"))
 						      					<form method="post" action="editCatastrophe" > 
 								                    <input type = "hidden" name = "_token" value="{{ csrf_token()}}"> 
 								                    <input type="hidden" name="id" value="{{$catastrophes[$i]->id}}"> 
@@ -394,7 +380,7 @@ catastrofes
 								      			</form>  
 
 
-						      				@endif
+						      				
 
 												    </div>
 													</div>
@@ -403,6 +389,7 @@ catastrofes
 											<br>
 							@endif
 							@endif
+			@endif
 			@endif
 		@endfor			
 </div>

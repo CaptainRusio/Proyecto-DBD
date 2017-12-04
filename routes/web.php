@@ -78,9 +78,12 @@ Route::get('/users/{id}/destroy',[
     'as' => 'users.destroy'
     ]);
 Route::get('/users/{id}/edit',[
-    'uses' => 'UsersController@update',
+    'uses' => 'UsersController@show',
     'as' => 'users.edit'
     ]);
+
+Route::post('/users/{id}/updateUser', 'UsersController@update');
+
 
 Route::get('/donateAnonymous','anonymousDonationController@index');
 Route::post('createDonac','anonymousDonationController@create');
@@ -153,3 +156,4 @@ Route::post('publishTwitter', 'CatastropheController@publishTwitter');
 Route::post('editCatastrophe','CatastropheController@edit');
 
 Route::post('updateCatastrophe','CatastropheController@update');
+
