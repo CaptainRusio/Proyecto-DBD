@@ -29,9 +29,30 @@ class ActionController extends Controller
 		return view('action',compact('action'));
 		
 	}
+
 	public function showAction(Request $req)
 	{
 		$actionId = $req->actionId;
 		return view('action',compact('actionId'));	
 	}
+
+	 public function update(Request $request, $id)
+    {
+        $action = Action::find($id);
+        $action->activate = 1;
+        $action->save();
+        return redirect()->route('actions');
+    }
+	/**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $action = Action::find($id);
+        $action->delete();
+        return redirect()->route('actions');
+    }
 }

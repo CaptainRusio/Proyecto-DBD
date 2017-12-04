@@ -173,6 +173,15 @@ class DatabaseSeeder extends BaseSeeder
             ]);
         $u->roles()->attach(3);
 
+        $u = User::create([
+                'name'=> 'incognito',
+                'email' => 'incognito@all.com',
+                'password' => Hash::make('root123'),
+                'rnv_id' => $rnv[rand(0,2)],
+                'active' => 1,
+            ]);
+        $u->roles()->attach(1);
+
 
             //Action
 
@@ -192,6 +201,7 @@ class DatabaseSeeder extends BaseSeeder
                 'cost' => rand(0,9999999),
                 'progress' => rand(0,100),
                 'ubication' => "asldkjsd",
+                'activate' => 1,
             ]);
         }      
 

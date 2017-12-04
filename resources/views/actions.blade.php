@@ -239,10 +239,18 @@ $(document).ready(function(){
   }
 </script>
 
+
 @endsection
-
-
-
+@php
+	$gob = false;
+	if(Auth::user() != null){
+		for($i = 0; $i < count(Auth::user()->roles); $i++){
+			if(Auth::user()->roles[$i]->id ==  2){
+				$gob = true;
+			}
+		}
+	}	
+@endphp
 
 @section('content')
 @if($message == "actSuccess")
@@ -278,6 +286,7 @@ $(document).ready(function(){
 			<div class="[ col-md-12 col-sm-6 ]">
 				<ul class="event-list">
 					@for($i = 0; $i<count($actions); $i++)
+						@if($actions[$i]->activate == 1 || $gob == true)
 						<li>
 							<time datetime="{{$actions[$i]->date}}">
 								<span class="day">{{explode('-', $actions[$i]->start, 3)[2]}}</span>
@@ -303,7 +312,10 @@ $(document).ready(function(){
 			                    	<button type = "submit" class = "col-md-4 btn btn-info">Participar </button> 
 		          			</form> 
 		          			@endif
-
+		          			@if(Auth::user() != null AND $actions[$i]->activate == 0 AND $gob == true)
+								<a  href="{{route('action.destroy', $actions[$i]->id)}}" type="button" class = "col-md-2 btn btn-danger pull-right" onclick="return confirm('¿Está seguro de eliminar la medida?')" >Eliminar </a>
+		          				<a href="{{route('action.enable', $actions[$i]->id)}}" type = "button" class = "col-md-2 btn btn-info pull-right">Habilitar </a>	
+		          			@endif
 							</div>
 
 							
@@ -316,6 +328,7 @@ $(document).ready(function(){
 							</div>
 
 						</li>
+						@endif
 					@endfor
 				</ul>
 			</div>

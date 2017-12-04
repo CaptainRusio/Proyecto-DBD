@@ -24,8 +24,10 @@ class ActionTableSeeder extends Seeder
                 'start' => Carbon\Carbon::parse('2000-01-01'),
 				'end' => Carbon\Carbon::parse('2000-01-01'),
 				'cost' => rand(0,9999999),
+                'activate' => 1,
                 'progress' => rand(0,100),
                 'ubication' => "asldkjsd",
+
             ]);
         }      
 

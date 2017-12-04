@@ -77,6 +77,8 @@ Route::get('/users/{id}/destroy',[
     'uses' => 'UsersController@destroy',
     'as' => 'users.destroy'
     ]);
+
+
 Route::get('/users/{id}/edit',[
     'uses' => 'UsersController@update',
     'as' => 'users.edit'
@@ -102,7 +104,7 @@ Auth::routes();
 
 //Catastrophes Actions
 Route::get('/catastrophesAndActions', 'CatastrophesAndActionsController@showCatastrophes');
-Route::post('/actionsOf','CatastrophesAndActionsController@showActions'); 
+Route::post('/actionsOf','CatastrophesAndActionsController@showActions') ->name('actionsOf'); 
 //Route::get('pruebaBaseDatosVista', 'pruebaBaseDatos@create');
 
 Route::post('crearBaseDatos', 'pruebaBaseDatos@create');
@@ -139,7 +141,16 @@ Route::post('create','CreateActionsController@create');
 
 
 //actions
-Route::get('/actions','ActionsController@index');
+Route::get('/actions','ActionsController@index')->name('actions');
+Route::get('/actions/{id}/destroy',[
+    'uses' => 'actionController@destroy',
+    'as' => 'action.destroy'
+    ]);
+
+Route::get('/actions/{id}/enable',[
+    'uses' => 'actionController@update',
+    'as' => 'action.enable'
+    ]);
 
 Route::post('/createAction','ActionsController@newAction');
 

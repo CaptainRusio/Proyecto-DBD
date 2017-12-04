@@ -8,10 +8,10 @@ use App\Action;
 
 class ActionsController extends Controller
 {
-    public function index(){
+    public function index(Request $req){
     	//Para mostrar todas las medidas
     	$id = $req->idCat;
-    	return view('/actions',compact('idCat'));
+    	return view('/actions',compact('id'));
     }
     public function newAction(Request $req)
     {

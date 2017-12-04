@@ -18,6 +18,7 @@ class Action extends Model
         'catastrophe_id',
         'start',
         'end',
+        'active',
     ];
 
     public function user(){
