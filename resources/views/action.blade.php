@@ -206,16 +206,13 @@ opacity:0.9;
                 @if($action->action_type == "DonationCampaign")
                   <li class="list-group-item">Tipo: Campaña de donación </li>
                  
-                @endif
-                @if($action->action_type == "Volunteering")
+                @elseif($action->action_type == "Volunteering")
                   <li class="list-group-item">Tipo: Voluntariado </li>
 
                 
-                @endif
-                @if($action->action_type == "EventToBenefit")
+                @elseif($action->action_type == "EventToBenefit")
                   <li class="list-group-item">Tipo: Evento a beneficio </li>
-                @endif
-                @if($action->action_type == "GatheringCenter")
+                @elseif($action->action_type == "GatheringCenter")
                   <li class="list-group-item">Tipo: Centro de acopio </li>
                
                   
@@ -261,7 +258,35 @@ opacity:0.9;
         </ul>
       </div>
       
-      <div class="bs-callout bs-callout-danger">
+
+      
+      @if($action->action_type == "DonationCampaign")
+        <div class="bs-callout bs-callout-danger">
+          <h4>Donaciones recibidas</h4>
+            <table class="table table-striped table-responsive ">
+              <tr>
+                <th>Nombre del donador</th>
+                <th>Monto</th>
+              </tr>
+              @foreach($morph->donations as $don)
+              <tr>
+                  <td>{{$don->user->name}}</td>
+                  <td>{{$don->total_amount}}</td>
+              </tr>
+              @endforeach
+            </table>
+        </div>
+
+      @elseif($action->action_type == "Volunteering")
+        <div class="bs-callout bs-callout-danger">
+          <h4>Estado del voluntariado</h4>
+          @if($morph->status_volunteering == 0)
+            <p>Detenido</p>
+          @elseif($morph->status_volunteering == 1)
+            <p>En curso</p>
+          @endif
+        </div>
+        <div class="bs-callout bs-callout-danger">
         <h4>Participantes </h4>
         <table class="table table-striped table-responsive ">
             @for($i = 0; $i < count($action->user) ; $i++)
@@ -270,7 +295,15 @@ opacity:0.9;
             </tr>
             @endfor
         </table>
-      </div>
+        </div>
+      @elseif($action->action_type == "EventToBenefit")
+      @elseif($action->action_type == "GatheringCenter")
+      @endif
+
+
+
+
+      
 
      
     

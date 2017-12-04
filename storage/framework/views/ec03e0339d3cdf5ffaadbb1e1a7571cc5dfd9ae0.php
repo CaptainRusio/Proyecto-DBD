@@ -10,10 +10,23 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
          <link href="<?php echo e(asset('css/welcome.css')); ?>" rel="stylesheet">
-
+       
 
 
 <?php $__env->startSection('content'); ?>
+
+<?php if($message == "catSuccess"): ?>
+<body onload="alertCat()">
+<?php elseif($message == "catNoSuccess"): ?>
+<body onload="alertCat2()">
+<?php elseif($message == "recordSuccess"): ?>
+<body onload="alertRec()">
+<?php elseif($message == "recordNoSuccess"): ?>
+<body onload="alertRec2()">
+<?php endif; ?>
+
+
+
 <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
@@ -83,8 +96,42 @@
 
     </div><!-- End Carousel -->
 </div>
+</body>
 <?php $__env->stopSection(); ?>
 <!-- Scripts -->
+
+<script type="text/javascript">
+  function alertCat() {
+    alert("Catastrofe creada exitosamente!");
+
+  }
+  function alertCat2() {
+    alert("La catastrofe ya existe");
+
+  }
+  function alertRec() {
+    alert("Ahora está participando de la medida como voluntario");
+
+  }
+  function alertRec2() {
+    alert("Usted ya estaba participando de la medida");
+
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="<?php echo e(asset('js/welcome.js')); ?>" >
       
 $(document).ready(function(){

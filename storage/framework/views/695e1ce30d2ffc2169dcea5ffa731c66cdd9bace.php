@@ -60,6 +60,12 @@
                 <li><a href="<?php echo e(url('donate')); ?>">Como Donar</a></li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Administrar <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo e(url('users')); ?>">Cuentas</a></li>
+              </ul>
+            </li>
            
           
             
