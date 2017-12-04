@@ -16,8 +16,7 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>      
-                          <a type="button" class="btn btn-info">Ver Perfil</a>
-                          <a type="button" class="btn btn-warning">Editar Perfil</a>
+                          <a href="{{route('users.edit',$user->id)}}" type="button" class="btn btn-warning">Editar Perfil</a>
                           <a href="{{route('users.destroy', $user->id)}}" type="button" class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar este usuario?')">Eliminar</a>     
                         </td>
                       </tr>
