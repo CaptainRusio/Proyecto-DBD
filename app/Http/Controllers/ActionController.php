@@ -26,7 +26,16 @@ class ActionController extends Controller
 	{
 		$actionId = $req->actionId;
 		$action = Action::find($actionId);
-		return view('action',compact('action'));
+		if($action->action_type == "DonationCampaign"){
+			$morph = DonationCampaign::find($action->action_id);
+		}else if($action->action_type == "Volunteering"){
+			$morph = Volunteering::find($action->action_id);
+		}else if($action->action_type == "EventToBenefit"){
+			$morph = EventToBenefit::find($action->action_id);
+		}else if($action->action_type == "GatheringCenter"){
+			$morph = GatheringCenter::find($action->action_id);
+		}
+		return view('action',compact('action','morph'));
 		
 	}
 

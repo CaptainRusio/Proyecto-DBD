@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Action;
+use App\Catastrophe;
 
 class ActionsController extends Controller
 {
@@ -17,5 +18,11 @@ class ActionsController extends Controller
     {
     	$idCat = $req->idCat;
     	return view('createAction',compact('idCat'));
+    }
+    public function showActions(Request $req){
+        $id = $req->id;
+        $cat = Catastrophe::find($id); 
+        $actions = $cat->action; 
+        return view('actions',compact('actions','id'))->with('message', ""); 
     }
 }

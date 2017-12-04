@@ -47,28 +47,27 @@ class ActionUserController extends Controller
      */
     public function store(Request $req)
     {
-            $User = User::Find($req->users_id);
-            $MedidaAux = $User->records->where('id', $req->actions_id);
+            $User = User::find($req->users_id);
+            $MedidaAux = $User->actionUser;
             
 
-         
-            if(count($MedidaAux) == 0){
-                $User->actionUser()->attach($req->actions_id);
-            
-
-                $Medida = Action::find($req->actions_id);
-
-
-                $reco = record::create([
-                    'action' => "Participa en medida ".$Medida->name,
-                 ]);
-                $User->records()->save($reco);
-                return view('welcome')->with('message', "recordSuccess");
-
-            }else{
-                return view('welcome')->with('message', "recordNoSuccess");
+            for ($i=0; $i <count($MedidaAux) ; $i++) { 
+                if($MedidaAux[$i]->id == $req->actions_id ){
+                    //Ya participa en la medida
+                    return view('welcome')->with('message', "recordNoSuccess");
+                }
             }
+            $User->actionUser()->attach($req->actions_id);
+        
 
+            $Medida = Action::find($req->actions_id);
+
+
+            $reco = record::create([
+                'action' => "Participa en medida ".$Medida->name,
+             ]);
+            $User->records()->save($reco);
+            return view('welcome')->with('message', "recordSuccess");
             
     }
 

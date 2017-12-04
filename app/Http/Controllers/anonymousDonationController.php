@@ -20,18 +20,18 @@ class anonymousDonationController extends Controller
     public function create(Request $req){
     	
     	if($req->idUser != null){
-    		$u = Donation::create([
-            'total_amount' => $req->amount,
-            'user_id' => $req->idUser,
-            'donationCampaign_id' => $req->idDonatCamp,
-        ]);	
+    		$u = new Donation(); 
+            $u->total_amount = $req->amount;
+            $u->user_id = $req->idUser;
+            $u->donationCampaign_id = $req->idDonatCamp;
+            $u->save();
     	}else{
-    		$u = Donation::create([
-            'total_amount' => $req->amount,
-            'donationCampaign_id' => $req->idDonatCamp,
-        ]);
+    		$u = new Donation();
+            $u->total_amount = $req->amount;
+            $u->donationCampaign_id = $req->idDonatCamp;
+            $u->save();
     	}
-        return view('welcome');
+        return view('welcome')->with('message','Se ha donado');
     	
     }
 }
