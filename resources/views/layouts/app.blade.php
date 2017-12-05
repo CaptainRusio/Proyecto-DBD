@@ -142,7 +142,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Participar <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{url('donate')}}">Como Donar</a></li>
+                <li><a href="{{url('donate')}}">Como Donar Dinero</a></li>
+                <li><a href="{{url('donateThings')}}">Como Donar recursos</a></li>
               </ul>
             </li>
                       @if(Auth::user() != null)

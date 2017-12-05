@@ -250,7 +250,6 @@ opacity:0.9;
         </ul>
       </div>
       
-<p>{{$morph->id}}</p>
       
       @if($action->action_type == "DonationCampaign")
         <div class="bs-callout bs-callout-danger">
@@ -300,6 +299,26 @@ opacity:0.9;
             @endif
         </div>
       @elseif($action->action_type == "GatheringCenter")
+
+        <div class = "bs-callout bs-callout-danger">
+          
+          <table class="table table-striped table-responsive ">
+              <h4>Articulos</h4>
+            @if($morph != null)
+              <tr>
+                <th>Nombre del articulo</th>
+                <th>Número de articulos</th>
+              </tr>
+              @foreach($morph->articles as $article)
+              <tr>
+                  <td>{{$article->name}}</td>
+                  <td>{{$article->number}}</td>
+              </tr>
+              @endforeach
+            </table>
+            @endif
+        </div>
+
       @endif
 
 

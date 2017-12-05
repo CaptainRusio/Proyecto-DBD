@@ -49,6 +49,11 @@ Route::get('/help', function () {
 Route::get('/donate', function () {
     return view('donate');
 });
+Route::get('/donateThings','DonateThingsController@index');
+
+Route::post('createDonBien','DonateThingsController@store');
+
+
 Route::get('/voluntier', function () {
     return view('voluntier');
 });

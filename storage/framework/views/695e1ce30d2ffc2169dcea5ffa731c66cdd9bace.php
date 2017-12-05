@@ -31,6 +31,7 @@
 
 <?php echo $__env->yieldContent('scripts'); ?>
 </head>
+<?php if(Auth::user() == null): ?>
 <body>
     <div id="app">
 <div class="container">
@@ -112,5 +113,158 @@
     <!-- Scripts -->
     
 </body>
+<?php endif; ?>
+<?php if(Auth::user() != null): ?>
+<?php if(Auth::user()->active == 1): ?>
 
+<body>
+    <div id="app">
+<div class="container">
+  <!-- Topper w/ logo -->
+  <div class="row hidden-xs topper">
+    <div class="col-xs-7 col-sm-7">
+      <a href="http://www.movidosporchile.cl/"><img am-TopLogo alt="SECUREVIEW"  src="logo.jpg" class="img-responsive logo"></a>
+    </div>
+    <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
+    </div>
+  </div> <!-- End Topper -->
+  <!-- Navigation -->
+  <div class="row">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li ><a href="/"><i class= "fa fa-home" aria-hidden="true"> </i> Inicio</a></li>
+            <li><a href="<?php echo e(url('catastrophesAndActions')); ?>"> <i class = "fa fa-fire"> </i> Catastrofes</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Participar <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo e(url('donate')); ?>">Como Donar Dinero</a></li>
+                <li><a href="<?php echo e(url('donateThings')); ?>">Como Donar recursos</a></li>
+              </ul>
+            </li>
+                      <?php if(Auth::user() != null): ?>
+            <?php for($i = 0; $i < count(Auth::user()->roles); $i++): ?>
+              <?php if(Auth::user()->roles[$i]->id == 4): ?>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Administrar <b class="caret"></b></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?php echo e(url('users')); ?>">Cuentas</a></li>
+                  </ul>
+                </li>
+              <?php endif; ?>
+            <?php endfor; ?>
+          <?php endif; ?>
+               
+          
+            
+           
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right hidden-xs">
+            <?php if(Auth::check()): ?>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class = "fa fa-user"> </i> <?php echo e(Auth::user()->name); ?> <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo e(url('/profile')); ?>">Mi Perfil</a></li>
+                <li><a href="<?php echo e(route('logout')); ?>"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Salir
+                                        </a></li>
+                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
+                                        </form>
+              </ul></li>
+            <?php else: ?>
+
+            <li ><a href="<?php echo e(url('login')); ?>">Ingresar</a></li>
+             <li ><a href="<?php echo e(url('register')); ?>">Registrarse</a></li>
+            <?php endif; ?>
+              
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+</div>
+
+        <?php echo $__env->yieldContent('content'); ?>
+    </div>
+
+    <!-- Scripts -->
+    
+</body>
+<?php else: ?>
+<body>
+    <div id="app">
+<div class="container">
+  <!-- Topper w/ logo -->
+  <div class="row hidden-xs topper">
+    <div class="col-xs-7 col-sm-7">
+      <a href="http://www.movidosporchile.cl/"><img am-TopLogo alt="SECUREVIEW"  src="logo.jpg" class="img-responsive logo"></a>
+    </div>
+    <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
+    </div>
+  </div> <!-- End Topper -->
+  <!-- Navigation -->
+  <div class="row">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+
+            <li > Usuario Bloqueado!</li>
+            
+                      
+               
+          
+            
+           
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right hidden-xs">
+            <?php if(Auth::check()): ?>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class = "fa fa-user"> </i> <?php echo e(Auth::user()->name); ?> <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo e(url('/profile')); ?>">Mi Perfil</a></li>
+                <li><a href="<?php echo e(route('logout')); ?>"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Salir
+                                        </a></li>
+                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
+                                        </form>
+              </ul></li>
+            <?php else: ?>
+
+            <li ><a href="<?php echo e(url('login')); ?>">Ingresar</a></li>
+             <li ><a href="<?php echo e(url('register')); ?>">Registrarse</a></li>
+            <?php endif; ?>
+              
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+</div>
+
+        <?php echo $__env->yieldContent('content'); ?>
+    </div>
+
+    <!-- Scripts -->
+    
+</body>
+<?php endif; ?>
+<?php endif; ?>
 </html>
