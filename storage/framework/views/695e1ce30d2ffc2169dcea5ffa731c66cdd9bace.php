@@ -60,13 +60,19 @@
                 <li><a href="<?php echo e(url('donate')); ?>">Como Donar</a></li>
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Administrar <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo e(url('users')); ?>">Cuentas</a></li>
-              </ul>
-            </li>
-           
+                      <?php if(Auth::user() != null): ?>
+            <?php for($i = 0; $i < count(Auth::user()->roles); $i++): ?>
+              <?php if(Auth::user()->roles[$i]->id == 4): ?>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class= "fa fa-thumbs-up" aria-hidden="true"> </i> Administrar <b class="caret"></b></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?php echo e(url('users')); ?>">Cuentas</a></li>
+                  </ul>
+                </li>
+              <?php endif; ?>
+            <?php endfor; ?>
+          <?php endif; ?>
+               
           
             
            

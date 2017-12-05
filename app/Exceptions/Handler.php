@@ -50,4 +50,12 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+
+    App::error(function(InvalidUserException $exception)
+    {
+    Log::error($exception);
+
+    return 'Sorry! Something is wrong with this account!';
+    });
 }
