@@ -84,6 +84,16 @@ Route::get('/users/{id}/edit',[
     'as' => 'users.edit'
     ]);
 
+Route::get('/users/{id}/block',[
+    'uses' => 'UsersController@bloquear',
+    'as' => 'users.block'
+    ]);
+
+Route::get('/users/{id}/unblock',[
+    'uses' => 'UsersController@desbloquear',
+    'as' => 'users.unblock'
+    ]);
+
 Route::post('/users/{id}/updateUser', 'UsersController@update');
 
 

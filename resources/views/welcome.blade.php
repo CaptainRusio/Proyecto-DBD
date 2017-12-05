@@ -11,9 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
          <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
        
-@extends('layouts.app')
 
-@section('content')
 
 @if($message == "catSuccess")
 <body onload="alertCat()">
@@ -25,7 +23,9 @@
 <body onload="alertRec2()">
 @endif
 
+@extends('layouts.app')
 
+@section('content')
 
 <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -97,9 +97,11 @@
     </div><!-- End Carousel -->
 </div>
 </body>
-@endsection
-<!-- Scripts -->
 
+
+
+<!-- Scripts -->
+@endsection
 <script type="text/javascript">
   function alertCat() {
     alert("Catastrofe creada exitosamente!");

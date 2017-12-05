@@ -83,6 +83,26 @@ class UsersController extends Controller
 
     }
 
+    public function bloquear($id)
+    {
+        $user = User::find($id);
+        $user->active = 0;
+        $user->save();
+        $users = User::orderBy('id','ASC')->simplePaginate(4);
+        return view('auth.usersIndex')->with('users',$users);
+
+    }
+
+    public function desbloquear($id)
+    {
+        $user = User::find($id);
+        $user->active = 1;
+        $user->save();
+        $users = User::orderBy('id','ASC')->simplePaginate(4);
+        return view('auth.usersIndex')->with('users',$users);
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
