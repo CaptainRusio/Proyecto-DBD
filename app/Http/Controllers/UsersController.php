@@ -49,7 +49,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = User::find($id);
+        return view('editUser', compact('usuario'));
     }
 
     /**
@@ -70,14 +71,16 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = User::find($id);
+        $user = User::find($request->idUsr);
         $user->name = $request->name;
         $user->email = $request->email;
         //$user->activate = $request->activate;
         $user->save();
-        return redirect()->route('usersIndex');
+        $users = User::orderBy('id','ASC')->simplePaginate(4);
+        return view('auth.usersIndex')->with('users',$users);
+
     }
 
     /**

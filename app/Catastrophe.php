@@ -14,6 +14,7 @@ class Catastrophe extends Model
         'description',
         'type',
         'commune_id',
+        
     ];
     
     public function commune(){

@@ -18,7 +18,9 @@ class Action extends Model
         'catastrophe_id',
         'start',
         'end',
-        'active',
+        'activate',
+        'confirmed',
+        'progress',
     ];
 
     public function user(){

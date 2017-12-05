@@ -81,7 +81,9 @@
 							<select class="form-control" name="idDonatCamp" id = "selectDonac" onchange = "setCat()"  required>
 								<option value="0" disabled selected>Seleccione la campaña de donación</option>
                                 @for($i = 0; $i < count($campanas); $i++)
-								    <option value = "{{$campanas[$i]->id}}" >{{$campanas[$i]->name}}</option>
+                                    @if($campanas[$i]->activate == 1)
+								        <option value = "{{$campanas[$i]->id}}" >{{$campanas[$i]->name}}</option>
+                                    @endif
                                 @endfor
 								<!--<option value= "#cac">Centro de acopio</option>
 								<option value= "#vol">Voluntariado</option>

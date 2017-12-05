@@ -80,9 +80,12 @@ Route::get('/users/{id}/destroy',[
 
 
 Route::get('/users/{id}/edit',[
-    'uses' => 'UsersController@update',
+    'uses' => 'UsersController@show',
     'as' => 'users.edit'
     ]);
+
+Route::post('/users/{id}/updateUser', 'UsersController@update');
+
 
 Route::get('/donateAnonymous','anonymousDonationController@index');
 Route::post('createDonac','anonymousDonationController@create');
@@ -146,12 +149,19 @@ Route::post('create','CreateActionsController@create');
 //actions
 Route::get('/actions','ActionsController@index')->name('actions');
 Route::get('/actions/{id}/destroy',[
-    'uses' => 'actionController@destroy',
+    'uses' => 'ActionController@destroy',
     'as' => 'action.destroy'
     ]);
-
+Route::post('/actions/{id}/editAction',[
+    'uses' => 'ActionController@storeEdit',
+    'as' => 'editAction'
+    ]);
+Route::get('/actions/{id}/edit',[
+    'uses' => 'ActionController@edit',
+    'as' => 'action.edit'
+    ]);
 Route::get('/actions/{id}/enable',[
-    'uses' => 'actionController@update',
+    'uses' => 'ActionController@update',
     'as' => 'action.enable'
     ]);
 
@@ -167,3 +177,5 @@ Route::post('publishTwitter', 'CatastropheController@publishTwitter');
 Route::post('editCatastrophe','CatastropheController@edit');
 
 Route::post('updateCatastrophe','CatastropheController@update');
+
+Route::post('eliminarCatastrophe','CatastropheController@bloquear');
