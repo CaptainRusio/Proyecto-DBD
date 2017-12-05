@@ -141,7 +141,7 @@ class ActionController extends Controller
     {
         $action = Action::find($id);
         $action->delete();
-        dd($id);
+        
         return redirect()->route('catastrophesAndActions');
     }
 }
