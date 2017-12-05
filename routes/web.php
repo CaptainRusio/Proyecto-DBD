@@ -152,7 +152,14 @@ Route::get('/actions/{id}/destroy',[
     'uses' => 'ActionController@destroy',
     'as' => 'action.destroy'
     ]);
-
+Route::post('/actions/{id}/editAction',[
+    'uses' => 'ActionController@storeEdit',
+    'as' => 'editAction'
+    ]);
+Route::get('/actions/{id}/edit',[
+    'uses' => 'ActionController@edit',
+    'as' => 'action.edit'
+    ]);
 Route::get('/actions/{id}/enable',[
     'uses' => 'ActionController@update',
     'as' => 'action.enable'

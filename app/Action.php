@@ -20,6 +20,7 @@ class Action extends Model
         'end',
         'activate',
         'confirmed',
+        'progress',
     ];
 
     public function user(){

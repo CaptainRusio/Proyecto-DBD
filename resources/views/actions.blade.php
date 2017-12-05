@@ -314,6 +314,7 @@ $(document).ready(function(){
 		          			@endif
 		          			@if(Auth::user() != null AND $actions[$i]->activate == 0 AND $gob == true)
 								<a  href="{{route('action.destroy', $actions[$i]->id)}}" type="button" class = "col-md-2 btn btn-danger pull-right" onclick="return confirm('¿Está seguro de eliminar la medida?')" >Eliminar </a>
+								<a href="{{route('action.edit', $actions[$i]->id)}}" type = "button" class = "col-md-2 btn btn-info pull-right">Editar </a>	
 								@if($actions[$i]->catastrophes->confirmed == true)
 		          					<a href="{{route('action.enable', $actions[$i]->id)}}" type = "button" class = "col-md-2 btn btn-info pull-right">Habilitar </a>	
 		          				@endif
